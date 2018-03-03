@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Destroy(this.gameObject, maxLiveTime);
+        Destroy(gameObject, maxLiveTime);
     }
 
     // Update is called once per frame
@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
     {
         if (isInit)
         {
-            //transform.LookAt(target.transform);
             transform.right = target.transform.position - transform.position;
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
@@ -30,6 +29,7 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            
         }
         
     }

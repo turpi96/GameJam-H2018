@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         shootingList = new List<GameObject>();
-        timeLeft = shootingDelay;
+        timeLeft = 0.0f;
     }
 	
 	// Update is called once per frame
@@ -28,7 +28,6 @@ public class Turret : MonoBehaviour {
             {
                 if (shootingOject != null)
                 {
-                    Debug.Log(shootingOject.name);
                     GameObject go = Instantiate(bulletToShoot,transform.position,transform.rotation) as GameObject;
                     go.GetComponent<Bullet>().Initialise(shootingOject);
                 }
@@ -42,24 +41,29 @@ public class Turret : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        shootingList.Add(other.gameObject);
-        isShooting = true;
-        if(shootingList.Count == 1)
+        if (other.GetComponent<Unit>())
         {
-            shootingOject = shootingList[0];
+            shootingList.Add(other.gameObject);
+            isShooting = true;
+            if (shootingList.Count == 1)
+            {
+                shootingOject = shootingList[0];
+            }
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        shootingList.Remove(other.gameObject);
-        Debug.Log(other.gameObject.name);
-        if (shootingList.Count > 0)
+        if (other.GetComponent<Unit>())
         {
-            shootingOject = shootingList[0];
-            isShooting = true;
+            shootingList.Remove(other.gameObject);
+            if (shootingList.Count > 0)
+            {
+                shootingOject = shootingList[0];
+                isShooting = true;
+            }
+            else
+                isShooting = false;
         }
-        else
-            isShooting = false;
     }
 }
