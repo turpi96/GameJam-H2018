@@ -20,6 +20,7 @@ public class Turret : Building {
 	
 	// Update is called once per frame
 	void Update () {
+		base.Update ();
 		if (state == BuildingState.inGame) {
 			if (isShooting) {
 				timeLeft -= Time.deltaTime;
@@ -46,9 +47,13 @@ public class Turret : Building {
 		}
     }
 
-    new void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
 		//base.OnTriggerEnter2D (other);
+		if (other.tag == "Turret") {
+			if(state == BuildingState.inConstruction)
+				colliders.Add (GetComponent<Collider2D> ());
+		}
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Add(other.gameObject);
@@ -62,6 +67,10 @@ public class Turret : Building {
 
     void OnTriggerExit2D(Collider2D other)
     {
+		if (other.tag == "Turret") {
+			if(state == BuildingState.inConstruction)
+				colliders.Remove (GetComponent<Collider2D> ());
+		}
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Remove(other.gameObject);

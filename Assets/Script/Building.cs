@@ -7,18 +7,28 @@ public class Building : MonoBehaviour {
 		inGame = 1,
 		inConstruction = 2
 	}
-	bool canBuild = true;
+	public bool canBuild = true;
 	public List<Collider2D> colliders;
 
-	protected BuildingState state = BuildingState.inGame;
+	public BuildingState state = BuildingState.inGame;
 
 	public void changeState(BuildingState newState){
 		state = newState;
 		if (newState == BuildingState.inConstruction) {
 			GetComponent<SpriteRenderer> ().color = Color.green;
 			canBuild = true;
-		} else
+			Component[] c = GetComponentsInChildren<CircleCollider2D> ();
+			foreach (CircleCollider2D cc in c)
+				if(cc.name == "RangeRadius")   
+					cc.enabled = false;
+					
+		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
+			Component[] c = GetComponentsInChildren<CircleCollider2D> ();
+			foreach (CircleCollider2D cc in c)
+				if(cc.name == "RangeRadius") 
+					cc.enabled = true;
+		}
 
 	}
 	// Use this for initialization
@@ -43,7 +53,7 @@ public class Building : MonoBehaviour {
 		}
 	}*/
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 		if (state == BuildingState.inConstruction) {
 			if (colliders.Count == 0)
 				setCanBuild (true);
