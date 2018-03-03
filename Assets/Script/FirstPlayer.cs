@@ -27,6 +27,8 @@ public class FirstPlayer : Player {
 
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
+
+
 		}
 	}
 
@@ -55,5 +57,12 @@ public class FirstPlayer : Player {
 			pos.x = 0 + halfSize.x;
 		}
 		transform.position = cam.ScreenToWorldPoint (pos);
+	}
+
+	public override void spawnBomb(){
+		if (Input.GetMouseButtonDown (0)) {
+			Vector3 mousePos = Input.mousePosition;
+			Instantiate (bomb, mousePos, Quaternion.identity);
+		}
 	}
 }

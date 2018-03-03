@@ -14,6 +14,8 @@ public abstract class Player : MonoBehaviour {
 	protected int health;
 	protected int money;
 	public float cursorSpeed = 5;
+	public GameObject bomb;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,6 +25,7 @@ public abstract class Player : MonoBehaviour {
 	public void Update () {
 		checkInput ();
 		checkPosition ();
+		spawnBomb ();
 
 	}
 
@@ -32,5 +35,7 @@ public abstract class Player : MonoBehaviour {
 
 	public abstract void checkInput();
 	public abstract void checkPosition();
+	public abstract void spawnBomb();
+
 
 }

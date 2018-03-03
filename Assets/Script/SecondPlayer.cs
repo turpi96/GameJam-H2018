@@ -53,4 +53,10 @@ public class SecondPlayer : Player {
 		}
 		transform.position = cam.ScreenToWorldPoint (pos);
 	}
+
+	public override void spawnBomb(){
+		/*if (Input.GetMouseButtonDown (0)) {
+			Debug.Log ("left Pressed");
+		}*/
+	}
 }
