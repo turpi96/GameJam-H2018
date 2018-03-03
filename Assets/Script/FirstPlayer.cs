@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPlayer : Player {
-	public Tower noobTower;
+	public Building dumbTower;
 	// Use this for initialization
 	new public void Start () {
 		
@@ -12,11 +12,16 @@ public class FirstPlayer : Player {
 	// Update is called once per frame
 	new public void Update () {
 		base.Update ();
-		if(Input.GetKeyDown(KeyCode.O) && playerState == PlayerState.Ingame){
+		if (Input.GetKeyDown (KeyCode.O) && playerState == PlayerState.Ingame) {
 			changeState (PlayerState.Building);
-			currentlyBuilding = Instantiate(noobTower, transform);
+			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
-
+			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
+		} else if (Input.GetKeyDown (KeyCode.O) && playerState == PlayerState.Building) {
+			changeState (PlayerState.Ingame);
+			currentlyBuilding.changeState (Building.BuildingState.inGame);
+			currentlyBuilding = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 	}
 
@@ -51,12 +56,12 @@ public class FirstPlayer : Player {
 		Vector2 halfSize;
 		switch (playerState) {
 		case PlayerState.Building:
-			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		default:
-			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		}
 

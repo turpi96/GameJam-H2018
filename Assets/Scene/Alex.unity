@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4529509982836372, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
         type: 2}
@@ -158,6 +158,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1203422000845224, guid: 4eedd0fcb13ddeb4790614d7a358cc39,
         type: 2}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1720197819}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: matBomb
+      value: 
+      objectReference: {fileID: 2100000, guid: db2c9f27b9d65c14cbac6272356aaa56, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
   m_IsPrefabParent: 0
@@ -232,7 +242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720197816
 GameObject:
@@ -313,7 +323,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1899108921
 Prefab:
@@ -352,7 +362,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4742925814538104, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
@@ -360,6 +370,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1203422000845224, guid: 4eedd0fcb13ddeb4790614d7a358cc39,
         type: 2}
+    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
+        type: 2}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1720197819}
+    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
+        type: 2}
+      propertyPath: matBomb
+      value: 
+      objectReference: {fileID: 2100000, guid: db2c9f27b9d65c14cbac6272356aaa56, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
   m_IsPrefabParent: 0
@@ -508,5 +528,5 @@ Transform:
   m_Children:
   - {fileID: 1964440403}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -23,14 +23,21 @@ public class Bullet : MonoBehaviour
     {
         if (isInit)
         {
-            transform.right = target.transform.position - transform.position;
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
-            /*if (transform.position == target.transform.position)
+            if(target != null)
+            {
+                transform.right = target.transform.position - transform.position;
+                float step = speed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+                /*if (transform.position == target.transform.position)
+                {
+                    Destroy(gameObject);
+                }*/
+            }
+            else
             {
                 Destroy(gameObject);
-            }*/
-            
+            }
+
         }
         
     }
