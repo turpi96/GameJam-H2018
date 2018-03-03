@@ -8,7 +8,6 @@ public class Bomb : MonoBehaviour {
 
 	void Start () {
 		StartCoroutine ("explosion");
-		
 	}
 
 	void Update(){
@@ -25,13 +24,8 @@ public class Bomb : MonoBehaviour {
 		}
 	}
 	public void waitAndExplode(){
-		//OnDrawGizmosSelected ();
+		Debug.Log (this.transform.parent.name);
 		Destroy (gameObject, 1);
 	}
-
-	/*public void OnDrawGizmosSelected(){
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawSphere (transform.position, 5);
-	}*/
 }
 
