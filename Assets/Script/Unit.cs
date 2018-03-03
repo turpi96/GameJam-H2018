@@ -73,6 +73,7 @@ public class Unit : MonoBehaviour, CanBeHurt {
 					if (collision.GetComponent<CanBeHurt> () != null) {
 						//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
 						isAttacking = true;
+                        animator.SetBool("IsAttacking", true);
 						targetList.Add (collision);
 					}
 				}
@@ -89,7 +90,8 @@ public class Unit : MonoBehaviour, CanBeHurt {
 					targetList.Remove (collision);
 					if (targetList.Count == 0) {
 						isAttacking = false;
-					}
+                        animator.SetBool("IsAttacking", false);
+                    }
                 
 				}
 			}
