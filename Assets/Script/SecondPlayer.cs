@@ -16,7 +16,7 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-        checkInterfaceInput();
+        checkShopInput();
 
         float x = 0;
 		float y = 0;
@@ -86,7 +86,7 @@ public class SecondPlayer : Player {
 		}*/
 	}
 
-    private void checkInterfaceInput()
+    private void checkShopInput()
     {
        if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
