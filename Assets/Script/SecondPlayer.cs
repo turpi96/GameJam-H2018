@@ -163,7 +163,8 @@ public class SecondPlayer : Player {
             setChoosenItem();
         }
 
-    }
+    	}	
+	}
 
     private void copyArray(GameObject[] tempArray)
     {
