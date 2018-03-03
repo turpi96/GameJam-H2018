@@ -7,12 +7,15 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     public string team;
     public int health;
     public int attack;
-    public int attackDelay;
+    public float attackDelay;
     public bool isRange;
     public int defense;
     public int cost;
     public int value;
 
+    private int freezeTurretsCount = 0;
+
+    private float currentDelay;
     private bool isAttacking;
     private float timeLeft = 0;
     private List<Collider2D> targetList;
@@ -22,7 +25,8 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
 	// Use this for initialization
 	void Start () {
-        timeLeft = attackDelay;
+        currentDelay = attackDelay;
+        timeLeft = currentDelay;
         targetList = new List<Collider2D>();
         animator = GetComponent<Animator>();
 	}
@@ -36,7 +40,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
-                timeLeft = attackDelay;
+                timeLeft = currentDelay;
                 targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
             }
         }
@@ -111,13 +115,23 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     public void StartFreeze(float freezePercentage)
     {
-        GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
-        animator.SetFloat("FreezePercentage", 0.5f);
+        freezeTurretsCount++;
+        if (freezeTurretsCount == 1)
+        {
+            GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
+            currentDelay = (currentDelay * freezePercentage);
+            animator.SetFloat("FreezePercentage", 0.5f);
+        }
     }
 
     public void StopFreeze()
     {
-        GetComponent<MoveOnPath>().ResetSpeed();
-        animator.SetFloat("FreezePercentage", 1.0f);
+        freezeTurretsCount--;
+        if (freezeTurretsCount == 0)
+        {
+            GetComponent<MoveOnPath>().ResetSpeed();
+            currentDelay = attackDelay;
+            animator.SetFloat("FreezePercentage", 1.0f);
+        }
     }
 }

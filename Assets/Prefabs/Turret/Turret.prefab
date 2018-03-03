@@ -166,6 +166,7 @@ MonoBehaviour:
   canBuild: 1
   colliders: []
   state: 1
+  team: 
   shootingDelay: 1
   bulletToShoot: {fileID: 1018596641998038, guid: 3e673d5acef7bd1419a47db9185577a6,
     type: 2}
