@@ -1393,6 +1393,11 @@ Prefab:
       propertyPath: workingShop.Array.data[2]
       value: 
       objectReference: {fileID: 2047207892}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: TowerPlayerShop
+      value: 
+      objectReference: {fileID: 2051177491}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
   m_IsPrefabParent: 0
@@ -1977,6 +1982,7 @@ GameObject:
   - component: {fileID: 1447973741}
   - component: {fileID: 1447973740}
   - component: {fileID: 1447973745}
+  - component: {fileID: 1447973746}
   m_Layer: 5
   m_Name: SlotShop (1)
   m_TagString: Untagged
@@ -2135,6 +2141,17 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1447973746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1447973738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3eb08d615e2f0f40a045154ed746622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1463472883 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224786956706968856, guid: e66647c38191e1f4d80ab9cceae1898b,
@@ -2159,6 +2176,17 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &1488507233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488507226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3eb08d615e2f0f40a045154ed746622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1556040895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2427,7 @@ GameObject:
   - component: {fileID: 1725288919}
   - component: {fileID: 1725288918}
   - component: {fileID: 1725288917}
+  - component: {fileID: 1725288923}
   m_Layer: 5
   m_Name: SlotShop (1)
   m_TagString: Untagged
@@ -2557,6 +2586,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1725288915}
+--- !u!114 &1725288923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725288915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3eb08d615e2f0f40a045154ed746622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1903737863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,6 +3102,7 @@ GameObject:
   - component: {fileID: 2047207895}
   - component: {fileID: 2047207894}
   - component: {fileID: 2047207899}
+  - component: {fileID: 2047207900}
   m_Layer: 5
   m_Name: SlotShop (2)
   m_TagString: Untagged
@@ -3220,6 +3261,17 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!114 &2047207900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047207892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3eb08d615e2f0f40a045154ed746622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2051177491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2051177492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3522,6 +3574,7 @@ GameObject:
   - component: {fileID: 2087864123}
   - component: {fileID: 2087864122}
   - component: {fileID: 2087864121}
+  - component: {fileID: 2087864127}
   m_Layer: 5
   m_Name: SlotShop (2)
   m_TagString: Untagged
@@ -3680,3 +3733,14 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087864119}
+--- !u!114 &2087864127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087864119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3eb08d615e2f0f40a045154ed746622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
