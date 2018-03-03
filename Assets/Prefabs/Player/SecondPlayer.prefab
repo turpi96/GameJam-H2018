@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822144632233152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.65, y: -0.74, z: 0}
+  m_LocalPosition: {x: 10.171587, y: 0.39813048, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,7 +65,10 @@ MonoBehaviour:
   TowerSlotTable: []
   SpellSlotTable: []
   workingShop: []
-  dumbTower: {fileID: 0}
+  dumbTower: {fileID: 114287618788016328, guid: 47f21af37c94c1d4a8405bfac790d3d8,
+    type: 2}
+  dumbUnit: {fileID: 114948815610008214, guid: c30771a65be21d04da430bd0ea2ca909, type: 2}
+  spawnPoint: {fileID: 4608660260275776, guid: 5e122ab4daa59554490921ce92877c36, type: 2}
 --- !u!212 &212056432258619850
 SpriteRenderer:
   m_ObjectHideFlags: 1

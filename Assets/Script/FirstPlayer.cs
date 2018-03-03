@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FirstPlayer : Player {
 	public Building dumbTower;
+	public Unit dumbUnit;
+	public Transform spawnPoint;
 	// Use this for initialization
 	new public void Start () {
-		
+		base.Start ();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +29,11 @@ public class FirstPlayer : Player {
 
 		if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.Ingame) { 
 			changeState (PlayerState.CastingSpell);
+		}
+
+		if (Input.GetKeyDown (KeyCode.J) && playerState == PlayerState.Ingame) { 
+			Unit unit = Instantiate (dumbUnit, spawnPoint.position, spawnPoint.rotation);
+			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 		}
 	}
 

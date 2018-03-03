@@ -24,6 +24,7 @@ public abstract class Player : MonoBehaviour {
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;
     public GameObject SpellPlayerShop;
+	protected Path pathToFollow;
     public Text PlayerGoldUI;
 
     public int currentSlot = 0;
@@ -36,6 +37,7 @@ public abstract class Player : MonoBehaviour {
     // Use this for initialization
     public void Start () {
 		cam = FindObjectOfType<Camera> ();
+		pathToFollow = FindObjectOfType<Path> ();
     }
 	
 	// Update is called once per frame
@@ -58,7 +60,8 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-        PlayerGoldUI.text = money.ToString();
+		if(PlayerGoldUI != null)
+     	   PlayerGoldUI.text = money.ToString();
     }
 
 
