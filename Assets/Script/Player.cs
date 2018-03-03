@@ -17,13 +17,15 @@ public abstract class Player : MonoBehaviour {
 	protected string playerName;
 	protected int money = 90;
 	protected Building currentlyBuilding = null;
+	protected Casting currentlyCasting = null;
 	public float cursorSpeed = 5;
-	public GameObject bomb;
+	public Casting bomb;
 //	public Text PlayerShop;
 
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;
     public GameObject SpellPlayerShop;
+	protected Path pathToFollow;
     public Text PlayerGoldUI;
 
     public int currentSlot = 0;
@@ -36,6 +38,7 @@ public abstract class Player : MonoBehaviour {
     // Use this for initialization
     public void Start () {
 		cam = FindObjectOfType<Camera> ();
+		pathToFollow = FindObjectOfType<Path> ();
     }
 	
 	// Update is called once per frame
@@ -58,7 +61,12 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-        PlayerGoldUI.text = money.ToString();
+
+//        PlayerGoldUI.text = money.ToString();
+
+		if(PlayerGoldUI != null)
+     	   PlayerGoldUI.text = money.ToString();
+
     }
 
 

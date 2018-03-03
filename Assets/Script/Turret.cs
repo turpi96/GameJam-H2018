@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : Building, HasTeam {
+public class Turret : Building {
 
    
     private List<GameObject> shootingList;
@@ -10,7 +10,7 @@ public class Turret : Building, HasTeam {
     private GameObject shootingObject;
     private float timeLeft;
 
-    public string team;
+  
     public float shootingDelay = 1.0f;
     public GameObject bulletToShoot;
 
@@ -20,9 +20,7 @@ public class Turret : Building, HasTeam {
         timeLeft = 0.0f;
     }
 
-	public string getTeam(){
-		return team;
-	}
+
 	// Update is called once per frame
 	new void Update () {
 		base.Update ();

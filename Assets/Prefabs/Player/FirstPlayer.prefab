@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548033528346728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.61, y: -0.74, z: 0}
+  m_LocalPosition: {x: -9.278415, y: 0.6057817, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   cursorSpeed: 5
+<<<<<<< HEAD:Assets/Prefabs/FirstPlayer.prefab
+  bomb: {fileID: 114924291326847146, guid: 4eedd0fcb13ddeb4790614d7a358cc39, type: 2}
+=======
   bomb: {fileID: 0}
+>>>>>>> 66b79b7998c31f7ed40547f236d8cee146ee934c:Assets/Prefabs/Player/FirstPlayer.prefab
   UnitPlayerShop: {fileID: 0}
   TowerPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
@@ -66,6 +70,8 @@ MonoBehaviour:
   SpellSlotTable: []
   dumbTower: {fileID: 114063943872513246, guid: d5d485bd453e9ec48828d71c19a869e8,
     type: 2}
+  dumbUnit: {fileID: 114799485587491680, guid: e0b0b0c6fdc7e4d43b3cdd7ef5d9fa3b, type: 2}
+  spawnPoint: {fileID: 4297257351608078, guid: 6d29017d5f3c3454b9f4a5420c98d364, type: 2}
 --- !u!212 &212823791323296208
 SpriteRenderer:
   m_ObjectHideFlags: 1

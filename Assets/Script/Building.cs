@@ -2,16 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour {
+public class Building : MonoBehaviour , HasTeam {
 	public enum BuildingState{
 		inGame = 1,
 		inConstruction = 2
 	}
+	public string team;
+	public int cost= 100;
+	public int health = 10;
+
+	public int defense = 5;
+
 	public bool canBuild = true;
 	public List<Collider2D> colliders;
 
 	public BuildingState state = BuildingState.inGame;
 
+	public string getTeam(){
+		return team;
+	}
 	public void changeState(BuildingState newState){
 		state = newState;
 		if (newState == BuildingState.inConstruction) {
@@ -66,7 +75,6 @@ public class Building : MonoBehaviour {
 			else
 				setCanBuild (false);
 		}
-		if (Input.GetKeyDown (KeyCode.I))
-			changeState (BuildingState.inConstruction);
+
 	}
 }

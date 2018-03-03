@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SecondPlayer : Player {
 
-
      public GameObject[] workingShop;
+
 
 	public Building dumbTower;
 
+	public Unit dumbUnit;
+	public Transform spawnPoint;
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -24,11 +26,17 @@ public class SecondPlayer : Player {
 			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
+			currentlyBuilding.team = "p2";
 		} else if (Input.GetKeyDown (KeyCode.P) && playerState == PlayerState.Building && currentlyBuilding.canBuild) {
 			changeState (PlayerState.Ingame);
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
 			currentlyBuilding = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.K) && playerState == PlayerState.Ingame) { 
+			Unit unit = Instantiate (dumbUnit, spawnPoint.position, spawnPoint.rotation);
+			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 		}
 	}
 
@@ -113,7 +121,7 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
+			GameObject g = Instantiate (bomb, posCam, Quaternion.identity) as Casting;
 			g.tag = transform.tag;
 		}
 	}
@@ -129,6 +137,7 @@ public class SecondPlayer : Player {
 	}
 
 
+<<<<<<< HEAD
     private void checkShopInput()
     {
         /****************************************UNITS********************************************/
@@ -148,11 +157,28 @@ public class SecondPlayer : Player {
             currentSlot = 0;
             copyArray(UnitSlotTable);
             workingShop[currentSlot].GetComponent<unitButtonScript>().enableOutline();
+=======
 
-            changeState(PlayerState.Shop);
-            UnitPlayerShop.SetActive(true);
-        }
+>>>>>>> 0627c9afa2487c075c138bdbf75b21bb05496668
 
+    private void checkShopInput()
+    {
+		if (UnitPlayerShop != null) {
+			if (UnitPlayerShop.activeSelf == true && Input.GetButtonDown ("Player2_Left")) {
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
+
+				changeState (PlayerState.Ingame);
+				UnitPlayerShop.SetActive (false);
+			} else if (UnitPlayerShop.activeSelf == false && Input.GetButtonDown ("Player2_Left")) {
+				currentSlot = 0;
+				copyArray (UnitSlotTable);
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
+
+				changeState (PlayerState.Shop);
+				UnitPlayerShop.SetActive (true);
+			}
+
+<<<<<<< HEAD
        if (Input.GetButtonDown("Player2_Accept") && 
             UnitPlayerShop.activeSelf == true &&
             workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
@@ -165,6 +191,13 @@ public class SecondPlayer : Player {
 
 
 
+=======
+			if (Input.GetButtonDown ("Player2_Accept") &&
+			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true) {
+				setChoosenItem ();
+			}
+		}
+>>>>>>> 0627c9afa2487c075c138bdbf75b21bb05496668
     }
 
     private void copyArray(GameObject[] tempArray)
