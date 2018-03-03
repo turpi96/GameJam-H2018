@@ -47,7 +47,7 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-        //PlayerGoldUI.text = money.ToString();
+        PlayerGoldUI.text = money.ToString();
     }
 
 

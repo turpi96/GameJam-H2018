@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class unitButtonScript : MonoBehaviour {
 
     public GameObject myUnit;
-
     public Image buttonSprite;
     public Text statText;
     public Sprite unitSprite;
+    public Text myMoneyText;
 
-	// Use this for initialization
-	void Start () {
-        Unit unitScript = myUnit.GetComponent<Unit>();
+    public bool interactable;
+    
+    Unit unitScript;
+
+    // Use this for initialization
+    void Start () {
+        unitScript = myUnit.GetComponent<Unit>();
 
         buttonSprite.sprite = unitSprite;
         statText.text = unitScript.health.ToString() + "\n" +
@@ -22,19 +26,41 @@ public class unitButtonScript : MonoBehaviour {
                         unitScript.attackDelay.ToString() + "\n" +
                         unitScript.cost.ToString();
 
+        checkMoneyButton();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        checkMoneyButton();
 
-    public void checkMoneyButton(int myMoney)
+    }
+
+    public void checkMoneyButton()
     {
-        /*if (myUnit.cost < myMoney)
-            this.interactable = false;
+        int myMoney = int.Parse(myMoneyText.text);
+
+        Debug.Log(unitScript.cost.ToString());
+        //Debug.Log(myMoney.ToString());
+
+        if (unitScript.cost < myMoney)
+            interactable = false;
         else
-            this.interactable = true;*/
+            interactable = true;
+
+
+        grayOutButton();
+    }
+
+    void grayOutButton()
+    {
+        Image imgButton = GetComponent<Image>();
+        Color btnColor = imgButton.color;
+
+        //Debug.Log(interactable);
+        //if (interactable == false)
+        //    btnColor.a = 0.5f;
+        //else
+        //    btnColor.a = 1f;
     }
 
     public GameObject returnSelectedObject()
