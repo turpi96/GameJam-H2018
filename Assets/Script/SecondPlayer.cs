@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondPlayer : Player {
+<<<<<<< HEAD
 
      public GameObject[] workingShop;
 
+=======
+	public Building dumbTower;
+>>>>>>> a0f29e52b29f2c9cc8b69d47f09d9307b6ed5e8d
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -16,6 +20,17 @@ public class SecondPlayer : Player {
     new public void Update () {
 		base.Update ();
 
+		if (Input.GetKeyDown (KeyCode.P) && playerState == PlayerState.Ingame) {
+			changeState (PlayerState.Building);
+			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
+		} else if (Input.GetKeyDown (KeyCode.P) && playerState == PlayerState.Building && currentlyBuilding.canBuild) {
+			changeState (PlayerState.Ingame);
+			currentlyBuilding.changeState (Building.BuildingState.inGame);
+			currentlyBuilding = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
 	}
 
 	public override void checkInput(){
@@ -65,12 +80,12 @@ public class SecondPlayer : Player {
 		Vector2 halfSize;
 		switch (playerState) {
 		case PlayerState.Building:
-			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		default:
-			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		}
 		//GetComponent<SpriteRenderer> ().sprite.rect.x;
@@ -99,11 +114,23 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			Instantiate (bomb, posCam, Quaternion.identity,transform);
+			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
+			g.tag = transform.tag;
 		}
 	}
 
+<<<<<<< HEAD
 
+=======
+	public override void spawnArrow(){
+		/*if (Input.GetMouseButtonDown (1)) {
+			Vector3 mousePos = Input.mousePosition;
+			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
+			posCam.z = 0;
+			Instantiate (bomb,posCam , Quaternion.identity,transform);
+		}*/
+	}
+>>>>>>> a0f29e52b29f2c9cc8b69d47f09d9307b6ed5e8d
 
     private void checkShopInput()
     {

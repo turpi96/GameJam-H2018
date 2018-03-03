@@ -37,21 +37,27 @@ public class Building : MonoBehaviour {
 	}
 
 	public void setCanBuild(bool val){
-		if (val) 
-			GetComponent<SpriteRenderer> ().color = Color.green;
-		else
-			GetComponent<SpriteRenderer> ().color = Color.red;
+		GetComponent<SpriteRenderer> ().color = val ? Color.green : Color.red;
 		canBuild = val;
 
 
 		
 	}
 
-	/*public void OnTriggerEnter2D(Collider2D collider){
-		if (state == BuildingState.inConstruction && collider.gameObject.name == "Path") {
-			GetComponent<SpriteRenderer> ().color = Color.red;
+	public void OnTriggerEnter2D(Collider2D collider){
+		if (collider.tag == "Turret") {
+			if(state == BuildingState.inConstruction)
+				colliders.Add (GetComponent<Collider2D> ());
 		}
-	}*/
+	}
+
+	public void OnTriggerExit2D(Collider2D collider){
+		if (collider.tag == "Turret") {
+			if(state == BuildingState.inConstruction)
+				colliders.Remove (GetComponent<Collider2D> ());
+		}
+
+	}
 	// Update is called once per frame
 	public void Update () {
 		if (state == BuildingState.inConstruction) {

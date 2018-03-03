@@ -6,19 +6,18 @@ public class Bomb : MonoBehaviour {
 
 	private int timeleft= 2;
 	public Material matBomb;
-	private Renderer renderer;
-	public AudioSource audio;
+	private Renderer myRenderer;
+	public AudioSource myAudio;
 	private bool play = true;
 	private bool toggleChange = true;
 
 	void Start () {
-		renderer = GetComponent<MeshRenderer> ();
+		myRenderer = GetComponent<MeshRenderer> ();
 		matBomb = new Material (matBomb);
-		renderer.material = matBomb;
+		myRenderer.material = matBomb;
 
-		audio = GetComponent<AudioSource> ();
-
-		this.tag = this.transform.parent.tag;
+		myAudio = GetComponent<AudioSource> ();
+	
 
 		if (this.tag == "Player1") {
 			matBomb.color = Color.red;
@@ -47,7 +46,7 @@ public class Bomb : MonoBehaviour {
 	public void waitAndExplode(){
 		matBomb.color = Color.yellow;
 		if (play == true && toggleChange == true) {
-			audio.Play ();
+			myAudio.Play ();
 			toggleChange = false;
 		}
 		Destroy (gameObject, 1);

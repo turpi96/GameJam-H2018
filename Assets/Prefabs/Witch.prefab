@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114948815610008214}
   - component: {fileID: 61196192028541200}
   - component: {fileID: 50158637170817436}
+  - component: {fileID: 95918647227331188}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Unit
@@ -76,7 +77,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.03202057, y: -0.014306068}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -87,8 +88,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.7485809, y: 3.6542416}
   m_EdgeRadius: 0
+--- !u!95 &95918647227331188
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228086005416442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25d04137c245277468df4f0aadf4d912, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114040263336733164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc49db8209311c14ba89e1938cbc1ee1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29b752495f946db4284cbb3935c72a0c, type: 3}
   m_Color: {r: 0.75294125, g: 0.75294125, b: 0.75294125, a: 1}
   m_FlipX: 0
   m_FlipY: 0

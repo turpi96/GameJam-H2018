@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114199574417254838}
   m_Layer: 0
   m_Name: SecondPlayer
-  m_TagString: Player2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   cursorSpeed: 5
-  bomb: {fileID: 0}
+  bomb: {fileID: 1203422000845224, guid: 4eedd0fcb13ddeb4790614d7a358cc39, type: 2}
+  matBomb: {fileID: 2100000, guid: a4920fb140d9ee849a5cd12c6a04060e, type: 2}
   UnitPlayerShop: {fileID: 0}
   TowerPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
@@ -93,8 +94,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.07586217, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cfe8ac8b94327b646b217842c539e1d6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

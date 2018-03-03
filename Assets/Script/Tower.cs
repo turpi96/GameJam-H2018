@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Tower : MonoBehaviour {
+public class Tower : MonoBehaviour, CanBeHurt, HasTeam {
 
 
     public int health;
+    public string team;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,9 @@ public class Tower : MonoBehaviour {
 
 	}
 
+	public string getTeam(){
+		return team;
+	}
     public void Hurt(int amount)
     {
         health -= amount;
@@ -31,5 +36,16 @@ public class Tower : MonoBehaviour {
     {
         //LA GAME EST FUCKIN FINI
         //WIN() or LOSE()
+        if(team == "p1")
+        {
+            //SCENE 1
+            SceneManager.LoadScene("WinP1");
+           
+        }
+        else if(team == "p2")
+        {
+            //SCENE 2
+            SceneManager.LoadScene("WinP2");
+        }
     }
 }

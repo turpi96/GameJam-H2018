@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : Building {
+public class Turret : Building, HasTeam {
 
+   
     private List<GameObject> shootingList;
     private bool isShooting = false;
     private GameObject shootingObject;
     private float timeLeft;
 
+    public string team;
     public float shootingDelay = 1.0f;
     public GameObject bulletToShoot;
 
@@ -17,9 +19,12 @@ public class Turret : Building {
         shootingList = new List<GameObject>();
         timeLeft = 0.0f;
     }
-	
+
+	public string getTeam(){
+		return team;
+	}
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		if (state == BuildingState.inGame) {
 			if (isShooting) {
@@ -27,7 +32,23 @@ public class Turret : Building {
 
 				if (timeLeft <= 0) {
 					if (shootingObject != null) {
-						GameObject go = Instantiate (bulletToShoot, transform.position, transform.rotation) as GameObject;
+                        Vector3 diff = shootingObject.transform.position - transform.position;
+                        diff.Normalize();
+                        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+
+                        Vector3 bulletPos;
+                        Transform spawn = transform.Find("BulletSpawn");
+                        if (spawn != null)
+                        {
+                            bulletPos = spawn.position;
+                        }
+                        else
+                        {
+                            bulletPos = transform.position;
+                        }
+
+                        GameObject go = Instantiate (bulletToShoot, bulletPos, Quaternion.identity) as GameObject;
 						go.GetComponent<Bullet> ().Initialise (shootingObject);
 						timeLeft = shootingDelay;
 					} else {
@@ -47,13 +68,10 @@ public class Turret : Building {
 		}
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    new void OnTriggerEnter2D(Collider2D other)
     {
-		//base.OnTriggerEnter2D (other);
-		if (other.tag == "Turret") {
-			if(state == BuildingState.inConstruction)
-				colliders.Add (GetComponent<Collider2D> ());
-		}
+		
+		base.OnTriggerEnter2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Add(other.gameObject);
@@ -65,12 +83,9 @@ public class Turret : Building {
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    new void OnTriggerExit2D(Collider2D other)
     {
-		if (other.tag == "Turret") {
-			if(state == BuildingState.inConstruction)
-				colliders.Remove (GetComponent<Collider2D> ());
-		}
+		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Remove(other.gameObject);

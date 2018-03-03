@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, CanBeHurt {
+public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     public string team;
     public int health;
@@ -17,6 +17,7 @@ public class Unit : MonoBehaviour, CanBeHurt {
     private float timeLeft = 0;
     private List<Collider2D> targetList;
     private Animator animator;
+  
 
 
 	// Use this for initialization
@@ -25,7 +26,9 @@ public class Unit : MonoBehaviour, CanBeHurt {
         targetList = new List<Collider2D>();
         animator = GetComponent<Animator>();
 	}
-	
+	public string getTeam(){
+		return team;
+	}
 	// Update is called once per frame
 	void Update () {
         if(targetList.Count >= 1)
@@ -67,31 +70,31 @@ public class Unit : MonoBehaviour, CanBeHurt {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.GetComponent<Unit> () != null) {
-			if (team != collision.GetComponent<Unit> ().team) {
-				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) {
+        
+		if (collision.GetComponent<HasTeam> () != null) {
+			if (team != collision.GetComponent<HasTeam>().getTeam()) {
+				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret")) || collision.tag == "Tower") {
 					if (collision.GetComponent<CanBeHurt> () != null) {
 						//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
 						isAttacking = true;
-                        animator.SetBool("IsAttacking", true);
+						animator.SetBool ("IsAttacking", true);
 						targetList.Add (collision);
 					}
 				}
-
 			}
 		}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-		if (collision.GetComponent<Unit> () != null) {
-			if (team != collision.GetComponent<Unit> ().team) {
+		if (collision.GetComponent<HasTeam> () != null) {
+			if (team != collision.GetComponent<HasTeam>().getTeam()) {
 				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) {
 					targetList.Remove (collision);
 					if (targetList.Count == 0) {
 						isAttacking = false;
-                        animator.SetBool("IsAttacking", false);
-                    }
+						animator.SetBool ("IsAttacking", false);
+					}
                 
 				}
 			}

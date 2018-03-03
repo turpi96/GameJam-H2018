@@ -8,7 +8,8 @@ public abstract class Player : MonoBehaviour {
 	public enum PlayerState{
 		Building = 1,
 		Ingame = 2,
-		Shop = 3};
+		Shop = 3,
+		CastingSpell = 4};
 
 
 	protected PlayerState playerState = PlayerState.Ingame;
@@ -42,6 +43,7 @@ public abstract class Player : MonoBehaviour {
 		checkInput ();
 		checkPosition ();
 		spawnBomb ();
+		spawnArrow ();
         UpdateMoney();
     }
 
@@ -52,6 +54,7 @@ public abstract class Player : MonoBehaviour {
 	public abstract void checkInput();
 	public abstract void checkPosition();
 	public abstract void spawnBomb();
+	public abstract void spawnArrow ();
 
     public void UpdateMoney()
     {
