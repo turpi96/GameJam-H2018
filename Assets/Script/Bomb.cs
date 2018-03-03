@@ -6,12 +6,17 @@ public class Bomb : MonoBehaviour {
 
 	private int timeleft= 2;
 	public Material matBomb;
+	private Renderer renderer;
 
 	void Start () {
+		renderer = GetComponent<MeshRenderer> ();
+		matBomb = new Material (matBomb);
+		renderer.material = matBomb;
 		this.tag = this.transform.parent.tag;
-		Debug.Log (this.tag);
+
 		if (this.tag == "Player1") {
 			matBomb.color = Color.red;
+
 		}
 		if (this.tag == "Player2") {
 			matBomb.color = Color.green;
