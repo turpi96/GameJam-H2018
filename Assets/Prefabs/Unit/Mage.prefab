@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114353291234136502}
   - component: {fileID: 61223455680032018}
   - component: {fileID: 50250063492404596}
-  - component: {fileID: 95201537400039620}
+  - component: {fileID: 95943149559776630}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Unit
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1209105304545064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.58, y: -3.4, z: 0}
+  m_LocalPosition: {x: 7.01, y: -2.54, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,7 +90,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7485809, y: 3.6542416}
   m_EdgeRadius: 0
---- !u!95 &95201537400039620
+--- !u!95 &95943149559776630
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 1209105304545064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dbc200d0c037f244c933d6450789741f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 09060b4f44f74824d975854f065866c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
