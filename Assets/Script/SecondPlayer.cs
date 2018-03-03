@@ -129,7 +129,6 @@ public class SecondPlayer : Player {
 
     private void checkShopInput()
     {
-<<<<<<< HEAD
 		if (UnitPlayerShop != null) {
 			if (UnitPlayerShop.activeSelf == true &&
 			   TowerPlayerShop.activeSelf == false &&
@@ -159,30 +158,13 @@ public class SecondPlayer : Player {
             {
 				setChoosenItem ();
 			}
-=======
-		if(UnitPlayerShop != null){
-		if (UnitPlayerShop.activeSelf == true &&
-		    TowerPlayerShop.activeSelf == false &&
-		    Input.GetButtonDown ("Player2_Left")) {
-			workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
 
-			changeState (PlayerState.Ingame);
-			UnitPlayerShop.SetActive (false);
-		} else if (UnitPlayerShop.activeSelf == false &&
-		               TowerPlayerShop.activeSelf == false &&
-		               Input.GetButtonDown ("Player2_Left")) {
-			currentSlot = 0;
-			copyArray (UnitSlotTable);
-			workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
-
->>>>>>> 29479fe3622b9eda4061f8c4d8e3291f1225e541
-		}
-       if (Input.GetButtonDown("Player2_Accept") && 
-            UnitPlayerShop.activeSelf == true &&
-            workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
-        {
-            setChoosenItem();
-        }
+           if (Input.GetButtonDown("Player2_Accept") && 
+                UnitPlayerShop.activeSelf == true &&
+                workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+            }
 
     	}	
 	}
