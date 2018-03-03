@@ -5,7 +5,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     public string team;
-    public int health;
+    public float health;
     public int attack;
     public float attackDelay;
     public bool isRange;
@@ -21,7 +21,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     private float timeLeft = 0;
     private List<Collider2D> targetList;
     private Animator animator;
-    private int maxHealth;
+    private float maxHealth;
   
 
 
@@ -52,7 +52,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     public  void Hurt(int amount)
     {
-        health = health - (amount - defense);
+        health = health - (amount * (1 - defense/100));
 
         if (health <= 0)
         {
