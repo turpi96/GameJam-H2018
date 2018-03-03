@@ -15,7 +15,7 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	protected int money = 90;
+	public int money = 90;
 	protected Building currentlyBuilding = null;
 	protected Casting currentlyCasting = null;
 	public float cursorSpeed = 5;
@@ -54,7 +54,7 @@ public abstract class Player : MonoBehaviour {
 			timerIncome = 3.0f;
 			addMoney (20);
 		}
-		if (moneyToAdd >= 0) {
+		if (moneyToAdd > 0) {
 			moneyToAdd--;
 			money++;
 		}
