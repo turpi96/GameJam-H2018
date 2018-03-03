@@ -15,13 +15,14 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	protected int money = 90;
+	public int money = 90;
 	protected Building currentlyBuilding = null;
 	protected Casting currentlyCasting = null;
 	public float cursorSpeed = 5;
 	public Casting bomb;
 //	public Text PlayerShop;
-
+	 float timerIncome = 3.0f;
+	int moneyToAdd = 0;
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;
     public GameObject SpellPlayerShop;
@@ -40,9 +41,23 @@ public abstract class Player : MonoBehaviour {
 		cam = FindObjectOfType<Camera> ();
 		pathToFollow = FindObjectOfType<Path> ();
     }
-	
+
+	public void addMoney(int amount){
+		moneyToAdd += amount;
+
+	}
+
 	// Update is called once per frame
 	public void Update () {
+		timerIncome -= Time.deltaTime;
+		if (timerIncome <= 0) {
+			timerIncome = 3.0f;
+			addMoney (20);
+		}
+		if (moneyToAdd > 0) {
+			moneyToAdd--;
+			money++;
+		}
 		checkInput ();
 		checkPosition ();
         UpdateMoney();
