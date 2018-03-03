@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour {
+public class Turret : Building {
 
     private List<GameObject> shootingList;
     private bool isShooting = false;
@@ -20,41 +20,35 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(isShooting)
-        {
-            timeLeft -= Time.deltaTime;
+		if (state == BuildingState.inGame) {
+			if (isShooting) {
+				timeLeft -= Time.deltaTime;
 
-            if(timeLeft <= 0)
-            {
-                if (shootingObject != null)
-                {
-                    GameObject go = Instantiate(bulletToShoot,transform.position,transform.rotation) as GameObject;
-                    go.GetComponent<Bullet>().Initialise(shootingObject);
-                    timeLeft = shootingDelay;
-                }
-                else
-                {
-                    shootingList.Remove(shootingObject);
-                    if(shootingList.Count > 0)
-                    {
-                        shootingObject = shootingList[0];
-                    }
-                    else
-                    {
-                        isShooting = false;
-                    }
-                }
+				if (timeLeft <= 0) {
+					if (shootingObject != null) {
+						GameObject go = Instantiate (bulletToShoot, transform.position, transform.rotation) as GameObject;
+						go.GetComponent<Bullet> ().Initialise (shootingObject);
+						timeLeft = shootingDelay;
+					} else {
+						shootingList.Remove (shootingObject);
+						if (shootingList.Count > 0) {
+							shootingObject = shootingList [0];
+						} else {
+							isShooting = false;
+						}
+					}
                 
                 
-            }
+				}
 
             
-        }
+			}
+		}
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>())
+		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Add(other.gameObject);
             isShooting = true;
@@ -67,7 +61,7 @@ public class Turret : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>())
+		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Remove(other.gameObject);
             if (shootingList.Count > 0)
