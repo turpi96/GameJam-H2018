@@ -4,9 +4,35 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour {
 
-	
-	// Update is called once per frame
+	private int timeleft= 2;
+
 	void Start () {
-		Debug.Log ("Yo");
+		StartCoroutine ("explosion");
+		
 	}
+
+	void Update(){
+		if (timeleft <= 0) {
+			StopCoroutine ("explosion");
+			waitAndExplode ();
+		}
+	}
+
+	IEnumerator explosion(){
+		while (true) {
+			yield return new WaitForSeconds (1);
+			timeleft--;
+		}
+	}
+	public void waitAndExplode(){
+		Debug.Log ("Yo");
+		//OnDrawGizmosSelected ();
+		Destroy (gameObject, 1);
+	}
+
+	/*public void OnDrawGizmosSelected(){
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawSphere (transform.position, 5);
+	}*/
 }
+
