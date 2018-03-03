@@ -12,6 +12,7 @@ TagManager:
   - Turret
   - Tower
   - Background
+  - RangeCollider
   layers:
   - Default
   - TransparentFX

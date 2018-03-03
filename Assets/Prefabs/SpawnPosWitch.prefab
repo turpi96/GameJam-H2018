@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4608660260275776}
   m_Layer: 0
-  m_Name: SpawnWitch
+  m_Name: SpawnPosWitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
