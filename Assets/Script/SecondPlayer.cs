@@ -121,7 +121,7 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			GameObject g = Instantiate (bomb, posCam, Quaternion.identity) as Casting;
+			Casting g = Instantiate (bomb, posCam, Quaternion.identity) as Casting;
 			g.tag = transform.tag;
 		}
 	}
