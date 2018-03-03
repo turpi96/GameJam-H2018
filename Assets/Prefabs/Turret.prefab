@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 212779627149177864}
   - component: {fileID: 50506434745727698}
   - component: {fileID: 70603370714445068}
+  - component: {fileID: 58720844892721696}
   - component: {fileID: 114063943872513246}
   m_Layer: 0
   m_Name: Turret
@@ -139,6 +140,9 @@ CircleCollider2D:
   m_Radius: 7.8295603
 --- !u!70 &70603370714445068
 CapsuleCollider2D:
+  m_Radius: 0.8835032
+--- !u!58 &58720844892721696
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
