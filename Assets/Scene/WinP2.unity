@@ -180,9 +180,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PLAYER 1 U NOOB MOTHAFUCKA
+  m_Text: 'PLAYER 1 LOSE
 
-    PLAYER 2 U RULES'
+    PLAYER 2 WIN'
 --- !u!222 &180066559
 CanvasRenderer:
   m_ObjectHideFlags: 0
