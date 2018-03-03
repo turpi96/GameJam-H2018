@@ -16,15 +16,19 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-        if (PlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
-        {
-            changeState(PlayerState.Ingame);
-            PlayerShop.SetActive(false);
-        } else if (PlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
-        {
-            changeState(PlayerState.Shop);
-            PlayerShop.SetActive(true);
-        }
+<<<<<<< HEAD
+        checkInterfaceInput();
+=======
+		if (PlayerShop != null) {
+			if (PlayerShop.active == true && Input.GetButtonDown ("Player2_Left")) {
+				changeState (PlayerState.Ingame);
+				PlayerShop.SetActive (false);
+			} else if (PlayerShop.active == false && Input.GetButtonDown ("Player2_Left")) {
+				changeState (PlayerState.Shop);
+				PlayerShop.SetActive (true);
+			}
+		}
+>>>>>>> 57ac45b4cab24e9eb70fd8c2620b9e4642bb2e56
 
         float x = 0;
 		float y = 0;
@@ -94,4 +98,18 @@ public class SecondPlayer : Player {
 			Instantiate (bomb, posCam, Quaternion.identity);
 		}
 	}
+
+    private void checkInterfaceInput()
+    {
+        if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+        {
+            changeState(PlayerState.Ingame);
+            UnitPlayerShop.SetActive(false);
+        }
+        else if (UnitPlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
+        {
+            changeState(PlayerState.Shop);
+            UnitPlayerShop.SetActive(true);
+        }
+    }
 }

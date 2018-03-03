@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretFreeze : MonoBehaviour {
+public class TurretFreeze : Building {
 
     public float freezePercentage = 0.7f;
 
@@ -18,7 +18,8 @@ public class TurretFreeze : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>())
+		
+        if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             other.GetComponent<Unit>().StartFreeze(freezePercentage);
         }
@@ -26,7 +27,7 @@ public class TurretFreeze : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>())
+		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             other.GetComponent<Unit>().StopFreeze();
         }
