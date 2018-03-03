@@ -16,10 +16,8 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-<<<<<<< HEAD
         checkInterfaceInput();
-=======
-		if (PlayerShop != null) {
+	/*	if (PlayerShop != null) {
 			if (PlayerShop.active == true && Input.GetButtonDown ("Player2_Left")) {
 				changeState (PlayerState.Ingame);
 				PlayerShop.SetActive (false);
@@ -27,8 +25,7 @@ public class SecondPlayer : Player {
 				changeState (PlayerState.Shop);
 				PlayerShop.SetActive (true);
 			}
-		}
->>>>>>> 57ac45b4cab24e9eb70fd8c2620b9e4642bb2e56
+		}*/
 
         float x = 0;
 		float y = 0;
@@ -101,7 +98,7 @@ public class SecondPlayer : Player {
 
     private void checkInterfaceInput()
     {
-        if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+    /*    if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
@@ -110,6 +107,6 @@ public class SecondPlayer : Player {
         {
             changeState(PlayerState.Shop);
             UnitPlayerShop.SetActive(true);
-        }
+        }*/
     }
 }
