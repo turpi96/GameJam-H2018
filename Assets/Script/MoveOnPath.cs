@@ -36,7 +36,7 @@ public class MoveOnPath : MonoBehaviour {
         }
         else
         {
-            if (CurrentWayPointID <= 0)
+            if (CurrentWayPointID < 0)
                 EndingValidation = true;
         }
 

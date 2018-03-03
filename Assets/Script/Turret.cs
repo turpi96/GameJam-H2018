@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Turret : Building {
 
+   
     private List<GameObject> shootingList;
     private bool isShooting = false;
     private GameObject shootingObject;
     private float timeLeft;
 
+    public string team;
     public float shootingDelay = 1.0f;
     public GameObject bulletToShoot;
 
