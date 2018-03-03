@@ -25,7 +25,6 @@ public class Bomb : MonoBehaviour {
 		}
 	}
 	public void waitAndExplode(){
-		Debug.Log ("Yo");
 		//OnDrawGizmosSelected ();
 		Destroy (gameObject, 1);
 	}

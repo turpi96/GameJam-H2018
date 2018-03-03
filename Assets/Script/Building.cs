@@ -8,7 +8,7 @@ public class Building : MonoBehaviour {
 		inConstruction = 2
 	}
 
-	protected BuildingState state;
+	protected BuildingState state = BuildingState.inGame;
 
 	public void changeState(BuildingState newState){
 		state = newState;
@@ -22,7 +22,12 @@ public class Building : MonoBehaviour {
 	void Start () {
 		
 	}
-	
+
+	public void OnTriggerEnter2D(Collider2D collider){
+		if (state == BuildingState.inConstruction && collider.gameObject.name == "Path") {
+			GetComponent<SpriteRenderer> ().color = Color.red;
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.I))
