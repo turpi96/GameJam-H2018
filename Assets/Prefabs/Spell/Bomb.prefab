@@ -170,8 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5f67792c151624cb8e55b0b799a9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  matBomb: {fileID: 0}
+  canCast: 1
+  state: 1
   myAudio: {fileID: 0}
+  team: 
 --- !u!212 &212187277680834648
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -17,11 +17,11 @@ public class Bomb : Casting, HasTeam {
 
 	public string team;
 
-	private List<GameObject> explosionList;
+	private List<Unit> explosionList;
 
 	void Start () {
 
-		explosionList = new List<GameObject>();
+		explosionList = new List<Unit>();
 
 		audio = GetComponent<AudioSource> ();
 		renderer = GetComponent<SpriteRenderer> ();
@@ -78,7 +78,7 @@ public class Bomb : Casting, HasTeam {
 	{
 		if (state == CastingState.inGame && other.GetComponent<Unit>())
 		{
-			explosionList.Add(other.gameObject);
+			//explosionList.Add(other);
 		}
 	}
 
@@ -86,7 +86,7 @@ public class Bomb : Casting, HasTeam {
 	{
 		if (state == CastingState.inGame && other.GetComponent<Unit>() )
 		{
-			explosionList.Remove(other.gameObject);
+			//explosionList.Remove(other.gameObject);
 		}
 	}
 }
