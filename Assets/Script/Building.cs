@@ -66,7 +66,6 @@ public class Building : MonoBehaviour {
 			else
 				setCanBuild (false);
 		}
-		if (Input.GetKeyDown (KeyCode.I))
-			changeState (BuildingState.inConstruction);
+
 	}
 }
