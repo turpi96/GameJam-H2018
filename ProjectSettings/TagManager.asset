@@ -11,6 +11,7 @@ TagManager:
   - Unit
   - Turret
   - Tower
+  - Background
   layers:
   - Default
   - TransparentFX
