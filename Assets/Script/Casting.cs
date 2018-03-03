@@ -10,7 +10,6 @@ public class Casting : MonoBehaviour {
 	}
 
 	public bool canCast = true;
-	public List<Collider2D> colliders;
 	public CastingState state = CastingState.inGame;
 
 	public void changeState(CastingState newState){
@@ -37,10 +36,7 @@ public class Casting : MonoBehaviour {
 	// Update is called once per frame
 	public void Update () {
 		if (state == CastingState.isTargeting) {
-			if (colliders.Count == 0)
 				setCanCast (true);
-			else
-				setCanCast (false);
 		}
 		if (Input.GetKeyDown (KeyCode.I))
 			changeState (CastingState.isTargeting);

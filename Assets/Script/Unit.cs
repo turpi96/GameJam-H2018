@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     public int attack;
     public float attackDelay;
     public bool isRange;
+    public bool isAttackingTurret;
     public int defense;
     public int cost;
     public int value;
@@ -77,7 +78,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
         
 		if (collision.GetComponent<HasTeam> () != null) {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
-				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret")) || collision.tag == "Tower") {
+				if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower") {
 					if (collision.GetComponent<CanBeHurt> () != null) {
 						//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
 						isAttacking = true;
@@ -93,8 +94,9 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     {
 		if (collision.GetComponent<HasTeam> () != null) {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
-				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) {
-					targetList.Remove (collision);
+                if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
+                {
+                    targetList.Remove (collision);
 					if (targetList.Count == 0) {
 						isAttacking = false;
 						animator.SetBool ("IsAttacking", false);
