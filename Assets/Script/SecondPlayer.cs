@@ -12,6 +12,7 @@ public class SecondPlayer : Player {
 	// Update is called once per frame
 	new public void Update () {
 		base.Update ();
+
 	}
 
 	public override void checkInput(){
