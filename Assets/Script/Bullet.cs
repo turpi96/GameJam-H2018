@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     public float speed = 10.0f;
     public float maxLiveTime = 10.0f;
+    public int hurtValue = 3;
 
     // Use this for initialization
     void Start()
@@ -25,10 +26,10 @@ public class Bullet : MonoBehaviour
             transform.right = target.transform.position - transform.position;
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
-            if (transform.position == target.transform.position)
+            /*if (transform.position == target.transform.position)
             {
                 Destroy(gameObject);
-            }
+            }*/
             
         }
         
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.GetComponent<Unit>() != null)
         {
+            other.GetComponent<Unit>().Hurt(hurtValue);
             Destroy(gameObject);
         }
     }
