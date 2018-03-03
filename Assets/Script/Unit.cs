@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, CanBeHurt {
+public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     public string team;
     public int health;
@@ -17,9 +17,7 @@ public class Unit : MonoBehaviour, CanBeHurt {
     private float timeLeft = 0;
     private List<Collider2D> targetList;
     private Animator animator;
-    private bool isUnit = false;
-    private bool isTurret = false;
-    private bool isTower = false;
+  
 
 
 	// Use this for initialization
@@ -28,7 +26,9 @@ public class Unit : MonoBehaviour, CanBeHurt {
         targetList = new List<Collider2D>();
         animator = GetComponent<Animator>();
 	}
-	
+	public string getTeam(){
+		return team;
+	}
 	// Update is called once per frame
 	void Update () {
         if(targetList.Count >= 1)
@@ -70,20 +70,16 @@ public class Unit : MonoBehaviour, CanBeHurt {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Unit>() != null)
-            isUnit = true;
-        if (collision.GetComponent<Turret>() != null)
-            isTurret = true;
-        if (collision.GetComponent<Tower>() != null)
-            isTower = true;
-
-        if ((isUnit && team != collision.GetComponent<Unit>().team) || (isTurret && team != collision.GetComponent<Turret>().team) || (isTower && team != collision.GetComponent<Tower>().team)) {
-			if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret")) || collision.tag == "Tower") {
-				if (collision.GetComponent<CanBeHurt> () != null) {
-					//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
-					isAttacking = true;
-                    animator.SetBool("IsAttacking", true);
-					targetList.Add (collision);
+        
+		if (collision.GetComponent<HasTeam> () != null) {
+			if (team != collision.GetComponent<HasTeam>().getTeam()) {
+				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret")) || collision.tag == "Tower") {
+					if (collision.GetComponent<CanBeHurt> () != null) {
+						//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
+						isAttacking = true;
+						animator.SetBool ("IsAttacking", true);
+						targetList.Add (collision);
+					}
 				}
 			}
 		}
@@ -91,21 +87,16 @@ public class Unit : MonoBehaviour, CanBeHurt {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ((isUnit && team != collision.GetComponent<Unit>().team) || (isTurret && team != collision.GetComponent<Turret>().team) || (isTower && team != collision.GetComponent<Tower>().team))
-        {
-            if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) {
+		if (collision.GetComponent<HasTeam> () != null) {
+			if (team != collision.GetComponent<HasTeam>().getTeam()) {
+				if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) {
 					targetList.Remove (collision);
-                if (collision.GetComponent<Unit>() != null)
-                    isUnit = false;
-                if (collision.GetComponent<Turret>() != null)
-                    isTurret = false;
-                if (collision.GetComponent<Tower>() != null)
-                    isTower = false;
-                if (targetList.Count == 0) {
+					if (targetList.Count == 0) {
 						isAttacking = false;
-                        animator.SetBool("IsAttacking", false);
-                    }
+						animator.SetBool ("IsAttacking", false);
+					}
                 
+				}
 			}
 		}
     }

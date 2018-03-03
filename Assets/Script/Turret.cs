@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : Building {
+public class Turret : Building, HasTeam {
 
    
     private List<GameObject> shootingList;
@@ -19,9 +19,12 @@ public class Turret : Building {
         shootingList = new List<GameObject>();
         timeLeft = 0.0f;
     }
-	
+
+	public string getTeam(){
+		return team;
+	}
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		if (state == BuildingState.inGame) {
 			if (isShooting) {
