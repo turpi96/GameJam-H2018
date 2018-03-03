@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour {
 
 	private int timeleft= 2;
+	private bool alreadyIn = false;
 
 	void Start () {
 		StartCoroutine ("explosion");
@@ -12,7 +13,7 @@ public class Bomb : MonoBehaviour {
 	}
 
 	void Update(){
-		if (timeleft <= 0) {
+		if (timeleft <= 0 && !alreadyIn) {
 			StopCoroutine ("explosion");
 			waitAndExplode ();
 		}
@@ -25,14 +26,10 @@ public class Bomb : MonoBehaviour {
 		}
 	}
 	public void waitAndExplode(){
-		Debug.Log ("Yo");
-		//OnDrawGizmosSelected ();
+		alreadyIn = true;
+		Debug.Log ("Yooo");
+		//insert fancy explosion here;
 		Destroy (gameObject, 1);
 	}
-
-	/*public void OnDrawGizmosSelected(){
-		Gizmos.color = Color.yellow;
-		Gizmos.DrawSphere (transform.position, 5);
-	}*/
 }
 
