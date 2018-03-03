@@ -33,11 +33,12 @@ public class Bomb : MonoBehaviour {
 		}
 	}
 	public void waitAndExplode(){
+		matBomb.color = Color.yellow;
 		Destroy (gameObject, 1);
 	}
 
 	void OnCollisionEnter(Collision collision){
-		if (collision.gameObject.name != this.name) {
+		if (collision.gameObject.tag != this.tag) {
 			Destroy (collision.gameObject);
 		}
 	}
