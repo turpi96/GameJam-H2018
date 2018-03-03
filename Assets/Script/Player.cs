@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public abstract class Player : MonoBehaviour {
 
 	public enum PlayerState{
 		Building = 1,
@@ -20,13 +20,17 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	 void Update () {
-		
+	public void Update () {
+		checkInput ();
+		checkPosition ();
 
 	}
 
 	public void changeState(PlayerState newState){
 		playerState = newState;
 	}
+
+	public abstract void checkInput();
+	public abstract void checkPosition();
 
 }

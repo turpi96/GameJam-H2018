@@ -10,7 +10,11 @@ public class FirstPlayer : Player {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new public void Update () {
+		base.Update ();
+	}
+
+	public  override void checkInput(){
 		if (playerState == PlayerState.Ingame) {
 			float x = 0;
 			float y = 0;
@@ -22,16 +26,20 @@ public class FirstPlayer : Player {
 
 			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 		}
+
+	}
+
+	public override void checkPosition(){
 		Camera cam = FindObjectOfType<Camera> ();
 		Vector2 halfSize;
 		halfSize.x = GetComponent<SpriteRenderer> ().sprite.rect.x / 2.0f;
 		halfSize.y = GetComponent<SpriteRenderer> ().sprite.rect.y / 2.0f;
 		//GetComponent<SpriteRenderer> ().sprite.rect.x;
-	
+
 		Vector3 pos = cam.WorldToScreenPoint (transform.position);
 		if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
 			pos.x = cam.pixelWidth / 2.0f - halfSize.x;
-	
+
 		} 
 		if (pos.x + halfSize.x > cam.pixelWidth) {
 			pos.x = cam.pixelWidth - halfSize.x;
@@ -46,6 +54,5 @@ public class FirstPlayer : Player {
 			pos.x = 0 + halfSize.x;
 		}
 		transform.position = cam.ScreenToWorldPoint (pos);
-
 	}
 }

@@ -10,7 +10,11 @@ public class SecondPlayer : Player {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new public void Update () {
+		base.Update ();
+	}
+
+	public override void checkInput(){
 		if (playerState == PlayerState.Ingame) {
 			float x = 0;
 			float y = 0;
@@ -21,7 +25,8 @@ public class SecondPlayer : Player {
 
 			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 		}
-
+	}
+	public override void checkPosition(){
 		Camera cam = FindObjectOfType<Camera> ();
 		Vector2 halfSize;
 		halfSize.x = GetComponent<SpriteRenderer> ().sprite.rect.x / 2.0f;
@@ -45,6 +50,5 @@ public class SecondPlayer : Player {
 			pos.x = 0 + halfSize.x;
 		}
 		transform.position = cam.ScreenToWorldPoint (pos);
-
 	}
 }
