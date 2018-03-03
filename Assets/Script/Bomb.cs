@@ -17,8 +17,11 @@ public class Bomb : Casting, HasTeam {
 
 	public string team;
 
+	private List<GameObject> explosionList;
+
 	void Start () {
 
+		explosionList = new List<GameObject>();
 
 		audio = GetComponent<AudioSource> ();
 		renderer = GetComponent<SpriteRenderer> ();
@@ -29,6 +32,7 @@ public class Bomb : Casting, HasTeam {
 	}
 
 	new void Update () {
+		Debug.Log (transform.tag);
 		base.Update ();
 		if (state == CastingState.inGame) {
 			if (activateTimer) {
@@ -62,10 +66,20 @@ public class Bomb : Casting, HasTeam {
 		Destroy (gameObject, 1);
 	}
 
-	void OnCollisionEnter(Collision collision){
-		if (collision.gameObject.tag != this.tag) {
-			Destroy (collision.gameObject);
+	 void OnTriggerEnter2D(Collider2D other)
+	{
+		if (state == CastingState.inGame && other.GetComponent<Unit>())
+		{
+			explosionList.Add(other.gameObject);
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		if (state == CastingState.inGame && other.GetComponent<Unit>() )
+		{
+			explosionList.Remove(other.gameObject);
+
 		}
 	}
 }
-

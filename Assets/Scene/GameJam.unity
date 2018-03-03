@@ -241,6 +241,16 @@ Prefab:
       propertyPath: PathToFollow
       value: 
       objectReference: {fileID: 2014480674}
+    - target: {fileID: 114633137363330224, guid: 01b85bdf90cbc6b4e9bae943376beee1,
+        type: 2}
+      propertyPath: attack
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 114842656748490774, guid: 01b85bdf90cbc6b4e9bae943376beee1,
+        type: 2}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01b85bdf90cbc6b4e9bae943376beee1, type: 2}
   m_IsPrefabParent: 0
@@ -282,15 +292,6 @@ Prefab:
     - target: {fileID: 4392601098141252, guid: 89659c1328fea4243a59fe81bf3196cd, type: 2}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503095974750452, guid: 89659c1328fea4243a59fe81bf3196cd, type: 2}
-      propertyPath: m_TagString
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 50216159040250694, guid: 89659c1328fea4243a59fe81bf3196cd,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89659c1328fea4243a59fe81bf3196cd, type: 2}
@@ -403,28 +404,6 @@ Prefab:
     - target: {fileID: 4787922369092584, guid: 8946e1976fe56ed40b486c5ebcf51b28, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1951296121250136, guid: 8946e1976fe56ed40b486c5ebcf51b28, type: 2}
-      propertyPath: m_TagString
-      value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787922369092584, guid: 8946e1976fe56ed40b486c5ebcf51b28, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4787922369092584, guid: 8946e1976fe56ed40b486c5ebcf51b28, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114865130593676434, guid: 8946e1976fe56ed40b486c5ebcf51b28,
-        type: 2}
-      propertyPath: team
-      value: p2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50795368472248644, guid: 8946e1976fe56ed40b486c5ebcf51b28,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8946e1976fe56ed40b486c5ebcf51b28, type: 2}
@@ -675,7 +654,7 @@ Prefab:
     - target: {fileID: 114040263336733164, guid: c30771a65be21d04da430bd0ea2ca909,
         type: 2}
       propertyPath: speed
-      value: 20
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 114948815610008214, guid: c30771a65be21d04da430bd0ea2ca909,
         type: 2}
