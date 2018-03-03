@@ -88,13 +88,12 @@ public class FirstPlayer : Player {
 	}
 
 	public override void spawnBomb(){
-		if (Input.GetMouseButtonDown (0)) {
-			matBomb.color = Color.red;
+		/*if (Input.GetMouseButtonDown (0)) {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
 			Instantiate (bomb,posCam , Quaternion.identity,transform);
 			
-		}
+		}*/
 	}
 }
