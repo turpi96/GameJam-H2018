@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxLiveTime: 10
+  hurtValue: 3
 --- !u!212 &212664738626285700
 SpriteRenderer:
   m_ObjectHideFlags: 1

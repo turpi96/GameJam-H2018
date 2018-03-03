@@ -55,11 +55,15 @@ MonoBehaviour:
   cam: {fileID: 0}
   cursorSpeed: 5
   bomb: {fileID: 0}
-  matBomb: {fileID: 0}
   UnitPlayerShop: {fileID: 0}
   TowerPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
   PlayerGoldUI: {fileID: 0}
+  currentSlot: 0
+  chooseItem: {fileID: 0}
+  UnitSlotTable: []
+  TowerSlotTable: []
+  SpellSlotTable: []
   dumbTower: {fileID: 114063943872513246, guid: d5d485bd453e9ec48828d71c19a869e8,
     type: 2}
 --- !u!212 &212823791323296208
