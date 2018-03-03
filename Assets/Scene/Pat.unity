@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 286006480}
   - component: {fileID: 286006479}
   - component: {fileID: 286006483}
+  - component: {fileID: 286006484}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -241,6 +242,23 @@ MonoBehaviour:
   defense: 0
   cost: 0
   value: 0
+--- !u!95 &286006484
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286006478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4326137e6321e0942954f1dff8be092f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &447310618
 Prefab:
   m_ObjectHideFlags: 0

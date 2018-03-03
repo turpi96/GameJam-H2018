@@ -16,7 +16,7 @@ public class TurretFreeze : Building {
 		
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    new void OnTriggerEnter2D(Collider2D other)
     {
 		
         if (state == BuildingState.inGame && other.GetComponent<Unit>())

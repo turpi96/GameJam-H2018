@@ -107,10 +107,12 @@ public class Unit : MonoBehaviour, CanBeHurt {
     public void StartFreeze(float freezePercentage)
     {
         GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
+        GetComponent<Animator>().SetFloat("FreezePercentage", 0.5f);
     }
 
     public void StopFreeze()
     {
         GetComponent<MoveOnPath>().ResetSpeed();
+        GetComponent<Animator>().SetFloat("FreezePercentage", 1.0f);
     }
 }
