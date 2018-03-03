@@ -27,7 +27,23 @@ public class Turret : Building {
 
 				if (timeLeft <= 0) {
 					if (shootingObject != null) {
-						GameObject go = Instantiate (bulletToShoot, transform.position, transform.rotation) as GameObject;
+                        Vector3 diff = shootingObject.transform.position - transform.position;
+                        diff.Normalize();
+                        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+
+                        Vector3 bulletPos;
+                        Transform spawn = transform.Find("BulletSpawn");
+                        if (spawn != null)
+                        {
+                            bulletPos = spawn.position;
+                        }
+                        else
+                        {
+                            bulletPos = transform.position;
+                        }
+
+                        GameObject go = Instantiate (bulletToShoot, bulletPos, Quaternion.identity) as GameObject;
 						go.GetComponent<Bullet> ().Initialise (shootingObject);
 						timeLeft = shootingDelay;
 					} else {
