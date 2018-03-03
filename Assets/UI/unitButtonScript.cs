@@ -29,12 +29,12 @@ public class unitButtonScript : MonoBehaviour {
                         unitScript.attackDelay.ToString() + "\n" +
                         unitScript.cost.ToString();
 
-        //checkMoneyButton();
+        checkMoneyButton();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        checkMoneyButton();
+        //checkMoneyButton();
 
     }
 
@@ -62,9 +62,11 @@ public class unitButtonScript : MonoBehaviour {
 
         //Debug.Log(interactable);
         if (interactable == false)
-            imgButton.color = Color.gray;
+            btnColor.a = 0.5f;
         else
             btnColor.a = 1f;
+
+        imgButton.color = btnColor;
 
 
     }
@@ -72,5 +74,17 @@ public class unitButtonScript : MonoBehaviour {
     public GameObject returnSelectedObject()
     {
         return myUnit;
+    }
+
+    public void enableOutline()
+    {
+        Outline myOutline = GetComponent<Outline>();
+        myOutline.enabled = true;
+    }
+
+    public void disableOutline()
+    {
+        Outline myOutline = GetComponent<Outline>();
+        myOutline.enabled = false;
     }
 }

@@ -280,7 +280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &148197605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +868,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: workingShop.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: UnitSlotTable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4529509982836372, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.8114753
@@ -920,6 +930,36 @@ Prefab:
       propertyPath: PlayerGoldUI
       value: 
       objectReference: {fileID: 1439816731}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: UnitSlotTable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1488507226}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: UnitSlotTable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1447973738}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: UnitSlotTable.Array.data[2]
+      value: 
+      objectReference: {fileID: 2047207892}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: workingShop.Array.data[0]
+      value: 
+      objectReference: {fileID: 1488507226}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: workingShop.Array.data[1]
+      value: 
+      objectReference: {fileID: 1447973738}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: workingShop.Array.data[2]
+      value: 
+      objectReference: {fileID: 2047207892}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
   m_IsPrefabParent: 0
@@ -1097,6 +1137,7 @@ GameObject:
   - component: {fileID: 1447973742}
   - component: {fileID: 1447973741}
   - component: {fileID: 1447973740}
+  - component: {fileID: 1447973745}
   m_Layer: 5
   m_Name: SlotShop (1)
   m_TagString: Untagged
@@ -1240,11 +1281,44 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1447973738}
+--- !u!114 &1447973745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1447973738}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!224 &1463472883 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224786956706968856, guid: e66647c38191e1f4d80ab9cceae1898b,
     type: 2}
   m_PrefabInternal: {fileID: 2053933776}
+--- !u!1 &1488507226 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1584791115658072, guid: e66647c38191e1f4d80ab9cceae1898b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2053933776}
+--- !u!114 &1488507232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488507226}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1556040895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1678,7 @@ GameObject:
   - component: {fileID: 2047207896}
   - component: {fileID: 2047207895}
   - component: {fileID: 2047207894}
+  - component: {fileID: 2047207899}
   m_Layer: 5
   m_Name: SlotShop (2)
   m_TagString: Untagged
@@ -1747,6 +1822,20 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2047207892}
+--- !u!114 &2047207899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047207892}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.26665226, b: 0.26665226, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &2053933776
 Prefab:
   m_ObjectHideFlags: 0
@@ -1889,7 +1978,7 @@ Prefab:
         type: 2}
       propertyPath: unitSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 29b752495f946db4284cbb3935c72a0c,
+      objectReference: {fileID: 21300000, guid: 592b0a7d475cd874b87df878971eae82,
         type: 3}
     - target: {fileID: 114254008193712266, guid: e66647c38191e1f4d80ab9cceae1898b,
         type: 2}
