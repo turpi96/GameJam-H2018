@@ -16,15 +16,15 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-        if (PlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
-        {
-            changeState(PlayerState.Ingame);
-            PlayerShop.SetActive(false);
-        } else if (PlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
-        {
-            changeState(PlayerState.Shop);
-            PlayerShop.SetActive(true);
-        }
+		if (PlayerShop != null) {
+			if (PlayerShop.active == true && Input.GetButtonDown ("Player2_Left")) {
+				changeState (PlayerState.Ingame);
+				PlayerShop.SetActive (false);
+			} else if (PlayerShop.active == false && Input.GetButtonDown ("Player2_Left")) {
+				changeState (PlayerState.Shop);
+				PlayerShop.SetActive (true);
+			}
+		}
 
         float x = 0;
 		float y = 0;
