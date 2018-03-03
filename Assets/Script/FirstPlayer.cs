@@ -96,4 +96,13 @@ public class FirstPlayer : Player {
 			
 		}*/
 	}
+
+	public override void spawnArrow(){
+		if (Input.GetMouseButtonDown (1)) {
+			Vector3 mousePos = Input.mousePosition;
+			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
+			posCam.z = 0;
+			Instantiate (bomb, posCam, Quaternion.identity, transform);
+		}
+	}
 }

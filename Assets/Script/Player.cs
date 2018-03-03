@@ -34,6 +34,7 @@ public abstract class Player : MonoBehaviour {
 		checkInput ();
 		checkPosition ();
 		spawnBomb ();
+		spawnArrow ();
         UpdateMoney();
     }
 
@@ -44,6 +45,7 @@ public abstract class Player : MonoBehaviour {
 	public abstract void checkInput();
 	public abstract void checkPosition();
 	public abstract void spawnBomb();
+	public abstract void spawnArrow ();
 
     public void UpdateMoney()
     {
