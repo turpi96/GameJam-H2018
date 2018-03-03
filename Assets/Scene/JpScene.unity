@@ -384,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.403, y: -8.73}
-  m_SizeDelta: {x: 36.81, y: -17.46}
+  m_AnchoredPosition: {x: -18.403, y: -9.81}
+  m_SizeDelta: {x: 36.81, y: -19.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226708885
 MonoBehaviour:
@@ -413,7 +413,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -421,11 +421,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '100
 
-    10
-
     5
-
-    2
 
     100'
 --- !u!222 &226708886
@@ -693,6 +689,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a042555f0deb4e44a7248c50f9474d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurret: {fileID: 1433604639583674, guid: d5d485bd453e9ec48828d71c19a869e8, type: 2}
+  buttonSprite: {fileID: 245764301}
+  statText: {fileID: 245764300}
+  towerSprite: {fileID: 21300000, guid: 93ce026ea65a0064aac929bdc7c7c88e, type: 3}
+  myMoneyText: {fileID: 1439816731}
+  interactable: 0
+  customText: 0
 --- !u!1 &467051883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1786,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1791,11 +1794,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Hp:
 
-    Att:
-
     Def:
-
-    AS:
 
     Cost:
 
@@ -2332,7 +2331,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Witch
+  m_Text: 'Golden Tur.
+
+'
 --- !u!222 &1576899620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2412,6 +2413,82 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1592419923}
+--- !u!1 &1667118215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1667118216}
+  - component: {fileID: 1667118218}
+  - component: {fileID: 1667118217}
+  m_Layer: 5
+  m_Name: effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1667118216
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1667118215}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0037684706, w: 0.99999297}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1725288916}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.432}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 30.53, y: -32.56}
+  m_SizeDelta: {x: 76.68, y: 31.75}
+  m_Pivot: {x: 0.49999994, y: 0.5}
+--- !u!114 &1667118217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1667118215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Effect: Slow
+
+'
+--- !u!222 &1667118218
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1667118215}
 --- !u!1 &1725288915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2527,7 @@ RectTransform:
   - {fileID: 1021076557}
   - {fileID: 226708884}
   - {fileID: 1903737864}
+  - {fileID: 1667118216}
   m_Father: {fileID: 2051177492}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2483,10 +2561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8e0b8ad24d30a4784aa5feeca0734e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myUnit: {fileID: 1209105304545064, guid: 6d35b4c79d9f9e0429f72249710239d3, type: 2}
+  myUnit: {fileID: 1874971641915784, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
   buttonSprite: {fileID: 1021076558}
   statText: {fileID: 226708885}
-  unitSprite: {fileID: 21300000, guid: ed16b803c92bc324a93db6fd8119ff06, type: 3}
+  unitSprite: {fileID: 0}
   myMoneyText: {fileID: 1439816731}
   interactable: 1
 --- !u!114 &1725288919
@@ -3289,7 +3367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2051177492
 RectTransform:
   m_ObjectHideFlags: 0
