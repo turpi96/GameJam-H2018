@@ -109,13 +109,13 @@ public class SecondPlayer : Player {
 	}
 
 	public override void spawnBomb(){
-		/*if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0)) {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
 			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
 			g.tag = transform.tag;
-		}*/
+		}
 	}
 
 
@@ -131,14 +131,14 @@ public class SecondPlayer : Player {
 
     private void checkShopInput()
     {
-		if (UnitPlayerShop.SetActive(true) && Input.GetButtonDown("Player2_Left"))
+		if (UnitPlayerShop.activeSelf == true && Input.GetButtonDown("Player2_Left"))
         {
             workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
 
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
         }
-		else if (UnitPlayerShop.SetActive(false) && Input.GetButtonDown("Player2_Left"))
+        else if (UnitPlayerShop.activeSelf == false && Input.GetButtonDown("Player2_Left"))
         {
             currentSlot = 0;
             copyArray(UnitSlotTable);
