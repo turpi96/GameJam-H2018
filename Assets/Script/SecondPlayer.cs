@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SecondPlayer : Player {
 
+     public GameObject[] workingShop;
+
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -37,7 +39,22 @@ public class SecondPlayer : Player {
 					Debug.Log ("NO BUILDING FOUND");
 				break;
             case PlayerState.Shop:
-                
+                if(Input.GetButtonDown("Player2_Up") )
+                {
+                    workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
+
+
+                    if (Input.GetAxis("Player2_Up") > 0)
+                        currentSlot--;
+                    else if (Input.GetAxis("Player2_Up") < 0)
+                        currentSlot++;
+                    if (currentSlot < 0)
+                        currentSlot = 2;
+                    if (currentSlot > 2)
+                        currentSlot = 0;
+
+                    workingShop[currentSlot].GetComponent<unitButtonScript>().enableOutline();
+                }
 
                 break;
 
@@ -86,17 +103,51 @@ public class SecondPlayer : Player {
 		}
 	}
 
+
+
     private void checkShopInput()
     {
-      /*if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+      if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
+            workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
+
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
         }
         else if (UnitPlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
         {
+            currentSlot = 0;
+            copyArray(UnitSlotTable);
+            workingShop[currentSlot].GetComponent<unitButtonScript>().enableOutline();
+
             changeState(PlayerState.Shop);
             UnitPlayerShop.SetActive(true);
-        }*/
+        }
+
+       if (Input.GetButtonDown("Player2_Accept") && 
+            workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
+        {
+            setChoosenItem();
+        }
+    }
+
+    private void copyArray(GameObject[] tempArray)
+    {
+        for(int i = 0; i < tempArray.Length; i++)
+        {
+            workingShop[i] = tempArray[i];       
+        }
+
+    }
+
+    public void setChoosenItem()
+    {
+        chooseItem = workingShop[currentSlot];
+        Debug.Log("I, IS A GENIUS!!!!");
+    }
+
+    public void emptyChoosenItem()
+    {
+        chooseItem = null;
     }
 }
