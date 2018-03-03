@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour {
+public class Building : MonoBehaviour , HasTeam {
 	public enum BuildingState{
 		inGame = 1,
 		inConstruction = 2
 	}
+	public string team;
 	public bool canBuild = true;
 	public List<Collider2D> colliders;
 
 	public BuildingState state = BuildingState.inGame;
 
+	public string getTeam(){
+		return team;
+	}
 	public void changeState(BuildingState newState){
 		state = newState;
 		if (newState == BuildingState.inConstruction) {

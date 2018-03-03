@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FirstPlayer : Player {
 	public Building dumbTower;
+	public Unit dumbUnit;
+	public Transform spawnPoint;
 	// Use this for initialization
 	new public void Start () {
-		
+		base.Start ();
 	}
 	
 	// Update is called once per frame
@@ -17,6 +19,7 @@ public class FirstPlayer : Player {
 			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
+			currentlyBuilding.team = "p1";
 		} else if (Input.GetKeyDown (KeyCode.O) && playerState == PlayerState.Building && currentlyBuilding.canBuild) {
 			changeState (PlayerState.Ingame);
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
@@ -36,6 +39,11 @@ public class FirstPlayer : Player {
 			currentlyCasting.changeState (Casting.CastingState.inGame);
 			currentlyCasting = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.J) && playerState == PlayerState.Ingame) { 
+			Unit unit = Instantiate (dumbUnit, spawnPoint.position, spawnPoint.rotation);
+			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 		}
 	}
 
