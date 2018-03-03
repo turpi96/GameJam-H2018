@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : Building {
+public class Turret : Building, HasTeam {
 
    
     private List<GameObject> shootingList;
@@ -19,9 +19,12 @@ public class Turret : Building {
         shootingList = new List<GameObject>();
         timeLeft = 0.0f;
     }
-	
+
+	public string getTeam(){
+		return team;
+	}
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		if (state == BuildingState.inGame) {
 			if (isShooting) {
@@ -65,13 +68,10 @@ public class Turret : Building {
 		}
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    new void OnTriggerEnter2D(Collider2D other)
     {
-		//base.OnTriggerEnter2D (other);
-		if (other.tag == "Turret") {
-			if(state == BuildingState.inConstruction)
-				colliders.Add (GetComponent<Collider2D> ());
-		}
+		
+		base.OnTriggerEnter2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Add(other.gameObject);
@@ -83,12 +83,9 @@ public class Turret : Building {
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    new void OnTriggerExit2D(Collider2D other)
     {
-		if (other.tag == "Turret") {
-			if(state == BuildingState.inConstruction)
-				colliders.Remove (GetComponent<Collider2D> ());
-		}
+		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Remove(other.gameObject);

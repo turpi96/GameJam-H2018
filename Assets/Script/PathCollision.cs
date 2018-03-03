@@ -17,13 +17,13 @@ public class PathCollision : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		//Debug.Log (other.tag);
 		if (other.tag == "Turret") {
-			other.gameObject.GetComponent<Turret> ().colliders.Add(GetComponent<Collider2D>());
+			other.gameObject.GetComponent<Building> ().colliders.Add(GetComponent<Collider2D>());
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		if (other.tag == "Turret") {
-			other.gameObject.GetComponent<Turret> ().colliders.Remove(GetComponent<Collider2D>());
+			other.gameObject.GetComponent<Building> ().colliders.Remove(GetComponent<Collider2D>());
 		}
 
 	}
