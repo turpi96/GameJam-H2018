@@ -86,14 +86,13 @@ public class SecondPlayer : Player {
 	}
 
 	public override void spawnBomb(){
-		if (Input.GetMouseButtonDown (0)) {
+		/*if (Input.GetMouseButtonDown (0)) {
 			matBomb.color = Color.green;
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			Debug.Log (mousePos.ToString ());
-			Instantiate (bomb, posCam, Quaternion.identity);
-		}
+			Instantiate (bomb, posCam, Quaternion.identity,transform);
+		}*/
 	}
 
     private void checkInterfaceInput()
