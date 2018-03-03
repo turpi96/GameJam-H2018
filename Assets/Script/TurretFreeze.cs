@@ -21,7 +21,10 @@ public class TurretFreeze : Building {
 		base.OnTriggerEnter2D (other);
         if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            other.GetComponent<Unit>().StartFreeze(freezePercentage);
+            if (team != other.GetComponent<HasTeam>().getTeam())
+            {
+                other.GetComponent<Unit>().StartFreeze(freezePercentage);
+            }
         }
     }
 
@@ -30,7 +33,10 @@ public class TurretFreeze : Building {
 		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            other.GetComponent<Unit>().StopFreeze();
+            if (team != other.GetComponent<HasTeam>().getTeam())
+            {
+                other.GetComponent<Unit>().StopFreeze();
+            }
         }
     }
 }
