@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour {
-
-    public string unitName;
+    
     public int health;
     public int attack;
     public int defense;
     public int cost;
+    public int value;
+
+    private bool isAttacking;
 
 	// Use this for initialization
 	void Start () {
@@ -34,24 +36,49 @@ public class Unit : MonoBehaviour {
     {
         //MAYBE PLAY AN ANIMATION
         //MAYBE PLAY A SOUND
-        Destroy(this);
+        //GIVE VALUE ($) TO THE OTHER PLAYER
+        Destroy(this.gameObject);
     }
 
     void Attack()
     {
+        
         //PLAY ANIMATION
         //PLAY SOUND
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "unit")
+        if(this.gameObject.tag != collision.tag)
         {
-            collision.gameObject.GetComponent<Unit>().Hurt(attack);
+            isAttacking = true;
+
+            if (collision.GetComponent<Unit>() != null)
+            {
+                collision.gameObject.GetComponent<Unit>().Hurt(attack);
+            }
+            if (collision.GetComponent<Tower>() != null)
+            {
+                collision.gameObject.GetComponent<Tower>().Hurt(attack);
+            }
         }
-        if(collision.tag == "tower")
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(this.gameObject.tag != collision.tag)
         {
-            collision.gameObject.GetComponent<Tower>().Hurt(attack);
+            isAttacking = false;
         }
+    }
+
+    public bool GetIsAttacking()
+    {
+        if (isAttacking)
+            return true;
+        else
+            return false;
     }
 }

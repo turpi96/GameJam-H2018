@@ -13,9 +13,12 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	protected int health;
 	protected int money;
+	protected Tower currentlyBuilding = null;
 	public float cursorSpeed = 5;
 	public GameObject bomb;
 
+    public GameObject PlayerShop;
+    public GameObject PlayerGold;
 	// Use this for initialization
 	void Start () {
 		

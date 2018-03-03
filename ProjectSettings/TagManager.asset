@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bomb
+  - Test
   layers:
   - Default
   - TransparentFX
