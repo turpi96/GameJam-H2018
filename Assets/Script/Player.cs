@@ -16,11 +16,12 @@ public abstract class Player : MonoBehaviour {
 	protected Tower currentlyBuilding = null;
 	public float cursorSpeed = 5;
 	public GameObject bomb;
+	public Material matBomb;
 
     public GameObject PlayerShop;
     public GameObject PlayerGold;
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		cam = FindObjectOfType<Camera> ();
 	}
 	

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstPlayer : Player {
 	public Tower noobTower;
 	// Use this for initialization
-	void Start () {
+	new public void Start () {
 		
 	}
 	
@@ -29,7 +29,7 @@ public class FirstPlayer : Player {
 			y = Input.GetAxis ("Player1_Vertical");
 		switch(playerState){
 			case PlayerState.Ingame:
-			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
 			case PlayerState.Building:
 				if (currentlyBuilding != null) {
@@ -83,9 +83,13 @@ public class FirstPlayer : Player {
 	}
 
 	public override void spawnBomb(){
-		if (Input.GetMouseButtonDown (0)) {
+		/*if (Input.GetMouseButtonDown (0)) {
+			matBomb.color = Color.red;
 			Vector3 mousePos = Input.mousePosition;
-			Instantiate (bomb, mousePos, Quaternion.identity);
-		}
+			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
+			posCam.z = 0;
+			Debug.Log (mousePos.ToString());
+			Instantiate (bomb,posCam , Quaternion.identity);
+		}*/
 	}
 }
