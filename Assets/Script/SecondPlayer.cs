@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondPlayer : Player {
-
+	public Building dumbTower;
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -14,6 +14,17 @@ public class SecondPlayer : Player {
     new public void Update () {
 		base.Update ();
 
+		if (Input.GetKeyDown (KeyCode.P) && playerState == PlayerState.Ingame) {
+			changeState (PlayerState.Building);
+			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
+		} else if (Input.GetKeyDown (KeyCode.P) && playerState == PlayerState.Building && currentlyBuilding.canBuild) {
+			changeState (PlayerState.Ingame);
+			currentlyBuilding.changeState (Building.BuildingState.inGame);
+			currentlyBuilding = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
 	}
 
 	public override void checkInput(){
@@ -82,7 +93,8 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			Instantiate (bomb, posCam, Quaternion.identity,transform);
+			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
+			g.tag = transform.tag;
 		}
 	}
 

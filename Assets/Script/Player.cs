@@ -8,7 +8,8 @@ public abstract class Player : MonoBehaviour {
 	public enum PlayerState{
 		Building = 1,
 		Ingame = 2,
-		Shop = 3};
+		Shop = 3,
+		CastingSpell = 4};
 
 
 	protected PlayerState playerState = PlayerState.Ingame;
