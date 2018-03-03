@@ -48,7 +48,7 @@ public class Turret : Building {
 
     new void OnTriggerEnter2D(Collider2D other)
     {
-		base.OnTriggerEnter2D (other);
+		//base.OnTriggerEnter2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             shootingList.Add(other.gameObject);
