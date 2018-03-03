@@ -16,12 +16,14 @@ public class Unit : MonoBehaviour, CanBeHurt {
     private bool isAttacking;
     private float timeLeft = 0;
     private List<Collider2D> targetList;
+    private Animator animator;
 
 
 	// Use this for initialization
 	void Start () {
         timeLeft = attackDelay;
         targetList = new List<Collider2D>();
+        animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -107,12 +109,12 @@ public class Unit : MonoBehaviour, CanBeHurt {
     public void StartFreeze(float freezePercentage)
     {
         GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
-        GetComponent<Animator>().SetFloat("FreezePercentage", 0.5f);
+        animator.SetFloat("FreezePercentage", 0.5f);
     }
 
     public void StopFreeze()
     {
         GetComponent<MoveOnPath>().ResetSpeed();
-        GetComponent<Animator>().SetFloat("FreezePercentage", 1.0f);
+        animator.SetFloat("FreezePercentage", 1.0f);
     }
 }
