@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attack: 100
+  attack: 10
   defense: 0
   cost: 0
   value: 0

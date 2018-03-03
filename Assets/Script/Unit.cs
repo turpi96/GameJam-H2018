@@ -48,16 +48,14 @@ public class Unit : MonoBehaviour, CanBeHurt {
         //PLAY SOUND
     }
 
-
-
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(this.gameObject.tag != collision.tag)
+        if (this.gameObject.tag != collision.tag)
         {
             isAttacking = true;
-			if(collision.GetComponent<CanBeHurt>() != null)
-				collision.GetComponent<CanBeHurt> ().Hurt (attack);
-          
+            if (collision.GetComponent<CanBeHurt>() != null)
+                collision.GetComponent<CanBeHurt>().Hurt(attack);
+
         }
     }
 
