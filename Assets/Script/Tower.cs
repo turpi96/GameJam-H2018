@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour {
 
 
     public int health;
+    public string team;
 
 	// Use this for initialization
 	void Start () {
