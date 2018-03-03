@@ -23,6 +23,10 @@ public class FirstPlayer : Player {
 			currentlyBuilding = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
+
+		if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.Ingame) { 
+			changeState (PlayerState.CastingSpell);
+		}
 	}
 
 	public  override void checkInput(){
@@ -44,6 +48,9 @@ public class FirstPlayer : Player {
 				else
 					Debug.Log ("NO BUILDING FOUND");
 				break;
+			 default:
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				break;
 
 
 		}
@@ -51,40 +58,42 @@ public class FirstPlayer : Player {
 	}
 
 	public override void checkPosition(){
-		Camera cam = FindObjectOfType<Camera> ();
+		if (playerState != PlayerState.CastingSpell) {
+			Camera cam = FindObjectOfType<Camera> ();
 
-		Vector2 halfSize;
-		switch (playerState) {
-		case PlayerState.Building:
-			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
-			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
-			break;
-		default:
-			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
-			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
-			break;
-		}
+			Vector2 halfSize;
+			switch (playerState) {
+			case PlayerState.Building:
+				halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+				halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
+				break;
+			default:
+				halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+				halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
+				break;
+			}
 
-		//GetComponent<SpriteRenderer> ().sprite.rect.x;
+			//GetComponent<SpriteRenderer> ().sprite.rect.x;
 
-		Vector3 pos = cam.WorldToScreenPoint (transform.position);
-		if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
-			pos.x = cam.pixelWidth / 2.0f - halfSize.x;
+			Vector3 pos = cam.WorldToScreenPoint (transform.position);
+			if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
+				pos.x = cam.pixelWidth / 2.0f - halfSize.x;
 
-		} 
-		if (pos.x + halfSize.x > cam.pixelWidth) {
-			pos.x = cam.pixelWidth - halfSize.x;
+			} 
+			if (pos.x + halfSize.x > cam.pixelWidth) {
+				pos.x = cam.pixelWidth - halfSize.x;
+			}
+			if (pos.y + halfSize.y > cam.pixelHeight) {
+				pos.y = cam.pixelHeight - halfSize.y;
+			} 
+			if (pos.y < 0 + halfSize.y) {
+				pos.y = 0 + halfSize.y;
+			}
+			if (pos.x < 0 + halfSize.x) {
+				pos.x = 0 + halfSize.x;
+			}
+			transform.position = cam.ScreenToWorldPoint (pos);
 		}
-		if (pos.y + halfSize.y > cam.pixelHeight) {
-			pos.y = cam.pixelHeight - halfSize.y;
-		} 
-		if (pos.y < 0 + halfSize.y) {
-			pos.y = 0 + halfSize.y;
-		}
-		if (pos.x < 0 + halfSize.x) {
-			pos.x = 0 + halfSize.x;
-		}
-		transform.position = cam.ScreenToWorldPoint (pos);
 	}
 
 	public override void spawnBomb(){

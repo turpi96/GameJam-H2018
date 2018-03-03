@@ -17,8 +17,7 @@ public class Bomb : MonoBehaviour {
 		renderer.material = matBomb;
 
 		audio = GetComponent<AudioSource> ();
-
-		this.tag = this.transform.parent.tag;
+	
 
 		if (this.tag == "Player1") {
 			matBomb.color = Color.red;
