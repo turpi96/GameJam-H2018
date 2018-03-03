@@ -146,7 +146,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.095867336
+  m_Radius: 2.6665292
 --- !u!50 &286006480
 Rigidbody2D:
   serializedVersion: 4
@@ -201,8 +201,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 1, b: 0.21379304, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 592b0a7d475cd874b87df878971eae82, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,8 +218,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 286006478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.37, y: 3.18, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalPosition: {x: 4.45, y: 2.08, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -235,8 +235,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -279,7 +280,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114063943872513246, guid: d5d485bd453e9ec48828d71c19a869e8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d5d485bd453e9ec48828d71c19a869e8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &561664072
@@ -436,3 +438,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &932730668 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1433604639583674, guid: d5d485bd453e9ec48828d71c19a869e8,
+    type: 2}
+  m_PrefabInternal: {fileID: 447310618}
+--- !u!114 &932730669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932730668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ed37c73ae3bbc489f44de331b5f773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezePercentage: 0.7

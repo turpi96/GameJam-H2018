@@ -95,4 +95,14 @@ public class Unit : MonoBehaviour, CanBeHurt {
         else
             return false;
     }
+
+    public void StartFreeze(float freezePercentage)
+    {
+        GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
+    }
+
+    public void StopFreeze()
+    {
+        GetComponent<MoveOnPath>().ResetSpeed();
+    }
 }

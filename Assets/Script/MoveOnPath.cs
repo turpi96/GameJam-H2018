@@ -8,6 +8,7 @@ public class MoveOnPath : MonoBehaviour {
     public float speed = 1;
     public bool isReverse = false;
 
+    private float currentSpeed;
     private int CurrentWayPointID = 0;
     private bool isFinished = false;
     private float reachDistance = 0f;
@@ -17,6 +18,7 @@ public class MoveOnPath : MonoBehaviour {
     //Vector3 current_position;
 
 	void Start () {
+        currentSpeed = speed;
         if(isReverse)
         {
             CurrentWayPointID = PathToFollow.path_objs.Count -1;
@@ -47,7 +49,7 @@ public class MoveOnPath : MonoBehaviour {
         {
             distance = Vector3.Distance(PathToFollow.path_objs[CurrentWayPointID].position, transform.position);
             if(!this.gameObject.GetComponent<Unit>().GetIsAttacking())
-                transform.position = Vector3.MoveTowards(transform.position, PathToFollow.path_objs[CurrentWayPointID].position, Time.deltaTime * speed);
+                transform.position = Vector3.MoveTowards(transform.position, PathToFollow.path_objs[CurrentWayPointID].position, Time.deltaTime * currentSpeed);
         }
 
         
@@ -65,4 +67,14 @@ public class MoveOnPath : MonoBehaviour {
 
 
 	}
+
+    public void MultiplySpeed(float speedPercentage)
+    {
+        currentSpeed = (currentSpeed * speedPercentage);
+    }
+
+    public void ResetSpeed()
+    {
+        currentSpeed = speed;
+    }
 }
