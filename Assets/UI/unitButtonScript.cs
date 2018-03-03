@@ -14,10 +14,13 @@ public class unitButtonScript : MonoBehaviour {
     public bool interactable;
     
     Unit unitScript;
+    int buttonCost;
 
     // Use this for initialization
     void Start () {
         unitScript = myUnit.GetComponent<Unit>();
+
+        buttonCost = unitScript.cost;
 
         buttonSprite.sprite = unitSprite;
         statText.text = unitScript.health.ToString() + "\n" +
@@ -26,7 +29,7 @@ public class unitButtonScript : MonoBehaviour {
                         unitScript.attackDelay.ToString() + "\n" +
                         unitScript.cost.ToString();
 
-        checkMoneyButton();
+        //checkMoneyButton();
     }
 	
 	// Update is called once per frame
@@ -39,10 +42,10 @@ public class unitButtonScript : MonoBehaviour {
     {
         int myMoney = int.Parse(myMoneyText.text);
 
-        Debug.Log(unitScript.cost.ToString());
+        Debug.Log(buttonCost.ToString());
         //Debug.Log(myMoney.ToString());
 
-        if (unitScript.cost < myMoney)
+        if (unitScript.cost > myMoney)
             interactable = false;
         else
             interactable = true;
@@ -53,14 +56,17 @@ public class unitButtonScript : MonoBehaviour {
 
     void grayOutButton()
     {
-        Image imgButton = GetComponent<Image>();
+        Image imgButton = base.GetComponent<Image>();
         Color btnColor = imgButton.color;
+        
 
         //Debug.Log(interactable);
-        //if (interactable == false)
-        //    btnColor.a = 0.5f;
-        //else
-        //    btnColor.a = 1f;
+        if (interactable == false)
+            imgButton.color = Color.gray;
+        else
+            btnColor.a = 1f;
+
+
     }
 
     public GameObject returnSelectedObject()

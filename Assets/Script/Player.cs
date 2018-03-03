@@ -14,7 +14,7 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	protected int money = 100;
+	protected int money = 90;
 	protected Building currentlyBuilding = null;
 	public float cursorSpeed = 5;
 	public GameObject bomb;

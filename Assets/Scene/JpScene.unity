@@ -280,7 +280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &148197605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1929,6 +1929,10 @@ Prefab:
     - target: {fileID: 114245809322491054, guid: e66647c38191e1f4d80ab9cceae1898b,
         type: 2}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584791115658072, guid: e66647c38191e1f4d80ab9cceae1898b, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
