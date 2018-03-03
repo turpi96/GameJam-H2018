@@ -89,7 +89,7 @@ public class SecondPlayer : Player {
 
     private void checkInterfaceInput()
     {
-    /*    if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+       if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
@@ -98,6 +98,6 @@ public class SecondPlayer : Player {
         {
             changeState(PlayerState.Shop);
             UnitPlayerShop.SetActive(true);
-        }*/
+        }
     }
 }

@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class unitButtonScript : MonoBehaviour {
 
     public GameObject myUnit;
+
+    public Image buttonSprite;
     public Text statText;
+    public Sprite unitSprite;
 
 	// Use this for initialization
 	void Start () {
         Unit unitScript = myUnit.GetComponent<Unit>();
 
+        buttonSprite.sprite = unitSprite;
         statText.text = unitScript.health.ToString() + "\n" +
                         unitScript.attack.ToString() + "\n" +
                         unitScript.defense.ToString() + "\n" +
@@ -31,5 +35,10 @@ public class unitButtonScript : MonoBehaviour {
             this.interactable = false;
         else
             this.interactable = true;*/
-    } 
+    }
+
+    public GameObject returnSelectedObject()
+    {
+        return myUnit;
+    }
 }
