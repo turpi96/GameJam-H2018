@@ -145,7 +145,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
         }
     }
 
-    public int GetMaxHealth()
+    public float GetMaxHealth()
     {
         return maxHealth;
     }
