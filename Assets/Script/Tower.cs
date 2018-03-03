@@ -39,13 +39,13 @@ public class Tower : MonoBehaviour, CanBeHurt, HasTeam {
         if(team == "p1")
         {
             //SCENE 1
-            SceneManager.LoadScene("WinP1");
+            SceneManager.LoadScene("WinP2");
            
         }
         else if(team == "p2")
         {
             //SCENE 2
-            SceneManager.LoadScene("WinP2");
+            SceneManager.LoadScene("WinP1");
         }
     }
 }

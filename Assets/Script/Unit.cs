@@ -77,20 +77,25 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "RangeCollider")
-            Debug.Log("Penis lbleu");
-		if (collision.GetComponent<HasTeam> () != null) {
-			if (team != collision.GetComponent<HasTeam>().getTeam()) {
-				if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower") {
-					if (collision.GetComponent<CanBeHurt> () != null) {
-						//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
-						isAttacking = true;
-						animator.SetBool ("IsAttacking", true);
-						targetList.Add (collision);
-					}
-				}
-			}
-		}
+        if(collision.tag != "RangeCollider")
+        {
+            if (collision.GetComponent<HasTeam>() != null)
+            {
+                if (team != collision.GetComponent<HasTeam>().getTeam())
+                {
+                    if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
+                    {
+                        if (collision.GetComponent<CanBeHurt>() != null)
+                        {
+                            //if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
+                            isAttacking = true;
+                            animator.SetBool("IsAttacking", true);
+                            targetList.Add(collision);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
