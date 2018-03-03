@@ -57,11 +57,7 @@ public class Turret : Building {
 							isShooting = false;
 						}
 					}
-                
-                
-				}
-
-            
+				}     
 			}
 		}
     }
