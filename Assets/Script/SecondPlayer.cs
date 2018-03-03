@@ -140,29 +140,28 @@ public class SecondPlayer : Player {
 
     private void checkShopInput()
     {
-       
-		if (UnitPlayerShop.activeSelf == true &&
-		    TowerPlayerShop.activeSelf == false &&
-		    Input.GetButtonDown ("Player2_Left")) {
-			workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
+		if (UnitPlayerShop != null) {
+			if (UnitPlayerShop.activeSelf == true &&
+			   TowerPlayerShop.activeSelf == false &&
+			   Input.GetButtonDown ("Player2_Left")) {
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
 
-			changeState (PlayerState.Ingame);
-			UnitPlayerShop.SetActive (false);
-		} else if (UnitPlayerShop.activeSelf == false &&
-		               TowerPlayerShop.activeSelf == false &&
-		               Input.GetButtonDown ("Player2_Left")) {
-			currentSlot = 0;
-			copyArray (UnitSlotTable);
-			workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
+				changeState (PlayerState.Ingame);
+				UnitPlayerShop.SetActive (false);
+			} else if (UnitPlayerShop.activeSelf == false &&
+			          TowerPlayerShop.activeSelf == false &&
+			          Input.GetButtonDown ("Player2_Left")) {
+				currentSlot = 0;
+				copyArray (UnitSlotTable);
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
 
+			}
+			if (Input.GetButtonDown ("Player2_Accept") &&
+			        UnitPlayerShop.activeSelf == true &&
+			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true) {
+				setChoosenItem ();
+			}
 		}
-       if (Input.GetButtonDown("Player2_Accept") && 
-            UnitPlayerShop.activeSelf == true &&
-            workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
-        {
-            setChoosenItem();
-        }
-
     }
 
     private void copyArray(GameObject[] tempArray)
