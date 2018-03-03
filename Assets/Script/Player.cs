@@ -20,7 +20,7 @@ public abstract class Player : MonoBehaviour {
     public GameObject PlayerShop;
     public GameObject PlayerGold;
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		cam = FindObjectOfType<Camera> ();
 	}
 	

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstPlayer : Player {
 	public Tower noobTower;
 	// Use this for initialization
-	void Start () {
+	new public void Start () {
 		
 	}
 	
