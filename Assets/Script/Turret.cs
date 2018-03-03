@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour {
 
     private List<GameObject> shootingList;
     private bool isShooting = false;
-    private GameObject shootingOject;
+    private GameObject shootingObject;
     private float timeLeft;
 
     public float shootingDelay = 1.0f;
@@ -26,13 +26,26 @@ public class Turret : MonoBehaviour {
 
             if(timeLeft <= 0)
             {
-                if (shootingOject != null)
+                if (shootingObject != null)
                 {
                     GameObject go = Instantiate(bulletToShoot,transform.position,transform.rotation) as GameObject;
-                    go.GetComponent<Bullet>().Initialise(shootingOject);
+                    go.GetComponent<Bullet>().Initialise(shootingObject);
+                    timeLeft = shootingDelay;
+                }
+                else
+                {
+                    shootingList.Remove(shootingObject);
+                    if(shootingList.Count > 0)
+                    {
+                        shootingObject = shootingList[0];
+                    }
+                    else
+                    {
+                        isShooting = false;
+                    }
                 }
                 
-                timeLeft = shootingDelay;
+                
             }
 
             
@@ -47,7 +60,7 @@ public class Turret : MonoBehaviour {
             isShooting = true;
             if (shootingList.Count == 1)
             {
-                shootingOject = shootingList[0];
+                shootingObject = shootingList[0];
             }
         }
     }
@@ -59,7 +72,7 @@ public class Turret : MonoBehaviour {
             shootingList.Remove(other.gameObject);
             if (shootingList.Count > 0)
             {
-                shootingOject = shootingList[0];
+                shootingObject = shootingList[0];
                 isShooting = true;
             }
             else
