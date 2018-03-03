@@ -124,7 +124,7 @@ MonoBehaviour:
   attackDelay: 2
   isRange: 1
   defense: 0
-  cost: 0
+  cost: 10
   value: 0
 --- !u!114 &114511509075762546
 MonoBehaviour:
