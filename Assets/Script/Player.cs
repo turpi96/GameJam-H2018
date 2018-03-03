@@ -11,7 +11,7 @@ public abstract class Player : MonoBehaviour {
 
 
 	protected PlayerState playerState = PlayerState.Ingame;
-	protected int health;
+	public Camera cam;
 	protected int money;
 	protected Tower currentlyBuilding = null;
 	public float cursorSpeed = 5;
@@ -21,7 +21,7 @@ public abstract class Player : MonoBehaviour {
     public GameObject PlayerGold;
 	// Use this for initialization
 	void Start () {
-		
+		cam = FindObjectOfType<Camera> ();
 	}
 	
 	// Update is called once per frame

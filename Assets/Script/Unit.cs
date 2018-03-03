@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
+public class Unit : CanBeHurt , MonoBehaviour {
     
     public int health;
     public int attack;
@@ -22,7 +22,8 @@ public class Unit : MonoBehaviour {
 		
 	}
 
-    public void Hurt(int amount)
+
+    public  override void Hurt(int amount)
     {
         health = health - (amount - defense);
 
@@ -54,15 +55,9 @@ public class Unit : MonoBehaviour {
         if(this.gameObject.tag != collision.tag)
         {
             isAttacking = true;
-
-            if (collision.GetComponent<Unit>() != null)
-            {
-                collision.gameObject.GetComponent<Unit>().Hurt(attack);
-            }
-            if (collision.GetComponent<Tower>() != null)
-            {
-                collision.gameObject.GetComponent<Tower>().Hurt(attack);
-            }
+			if(collision.GetComponent<CanBeHurt>() != null)
+				collision.GetComponent<CanBeHurt> ().Hurt (attack);
+          
         }
     }
 

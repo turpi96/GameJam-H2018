@@ -42,7 +42,6 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkPosition(){
-		Camera cam = FindObjectOfType<Camera> ();
 		Vector2 halfSize;
 		switch (playerState) {
 		case PlayerState.Building:
