@@ -32,6 +32,7 @@ public class Bomb : Casting, HasTeam {
 	}
 
 	new void Update () {
+		Debug.Log (transform.tag);
 		base.Update ();
 		if (state == CastingState.inGame) {
 			if (activateTimer) {
