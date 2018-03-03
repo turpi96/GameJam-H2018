@@ -29,7 +29,7 @@ public class FirstPlayer : Player {
 			y = Input.GetAxis ("Player1_Vertical");
 		switch(playerState){
 			case PlayerState.Ingame:
-			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
 			case PlayerState.Building:
 				if (currentlyBuilding != null) {
