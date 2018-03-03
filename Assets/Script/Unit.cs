@@ -21,11 +21,13 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     private float timeLeft = 0;
     private List<Collider2D> targetList;
     private Animator animator;
+    private int maxHealth;
   
 
 
 	// Use this for initialization
 	void Start () {
+        maxHealth = health;
         currentDelay = attackDelay;
         timeLeft = currentDelay;
         targetList = new List<Collider2D>();
@@ -75,7 +77,8 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "RangeCollider")
+            Debug.Log("Penis lbleu");
 		if (collision.GetComponent<HasTeam> () != null) {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
 				if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower") {
@@ -135,5 +138,10 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
             currentDelay = attackDelay;
             animator.SetFloat("FreezePercentage", 1.0f);
         }
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 }
