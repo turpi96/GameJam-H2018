@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstPlayer : Player {
 	public Tower noobTower;
 	// Use this for initialization
-	void Start () {
+	new public void Start () {
 		
 	}
 	
@@ -85,7 +85,10 @@ public class FirstPlayer : Player {
 	public override void spawnBomb(){
 		if (Input.GetMouseButtonDown (0)) {
 			Vector3 mousePos = Input.mousePosition;
-			Instantiate (bomb, mousePos, Quaternion.identity);
+			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
+			posCam.z = 0;
+			Debug.Log (mousePos.ToString());
+			Instantiate (bomb,posCam , Quaternion.identity);
 		}
 	}
 }

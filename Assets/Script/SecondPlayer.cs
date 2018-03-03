@@ -5,13 +5,14 @@ using UnityEngine;
 public class SecondPlayer : Player {
 
 	// Use this for initialization
-	void Start () {
-		
+	new public void Start () {
+		base.Start ();
 	}
 	
 	// Update is called once per frame
 	new public void Update () {
 		base.Update ();
+
 	}
 
 	public override void checkInput(){
