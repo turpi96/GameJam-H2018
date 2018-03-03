@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 
-    int health;
-    int attack;
+    public int health;
+    public int attack;
+    public int walkspeed;
+    public int defense;
+    public int cost;
 
 	// Use this for initialization
 	void Start () {
@@ -16,4 +19,26 @@ public class Unit : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Hurt(int amount)
+    {
+        health = health - (amount - defense);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        //MAYBE PLAY AN ANIMATION
+        //MAYBE PLAY A SOUND
+        Destroy(this);
+    }
+
+    void Attack()
+    {
+
+    }
 }
