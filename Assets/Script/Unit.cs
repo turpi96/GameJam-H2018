@@ -64,10 +64,13 @@ public class Unit : MonoBehaviour, CanBeHurt {
     {
         if (this.gameObject.tag != collision.tag)
         {
-            isAttacking = true;
-            if (collision.GetComponent<CanBeHurt>() != null)
+            if(collision.tag == "Player1" || collision.tag == "Player2")
             {
-                target = collision;
+                isAttacking = true;
+                if (collision.GetComponent<CanBeHurt>() != null)
+                {
+                    target = collision;
+                }
             }
 
         }
@@ -77,8 +80,11 @@ public class Unit : MonoBehaviour, CanBeHurt {
     {
         if(this.gameObject.tag != collision.tag)
         {
-            isAttacking = false;
-            target = null;
+            if (collision.tag == "Player1" || collision.tag == "Player2")
+            {
+                isAttacking = false;
+                target = null;
+            }
         }
     }
 

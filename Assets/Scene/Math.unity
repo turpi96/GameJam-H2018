@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 102925244}
   m_Layer: 0
   m_Name: New Sprite (4)
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -518,7 +519,7 @@ GameObject:
   - component: {fileID: 521107547}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -607,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -807,7 +809,7 @@ GameObject:
   - component: {fileID: 748246385}
   m_Layer: 0
   m_Name: Ennemy (2)
-  m_TagString: Finish
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -870,6 +872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -1015,7 +1018,7 @@ GameObject:
   - component: {fileID: 1047141777}
   m_Layer: 0
   m_Name: New Sprite (3)
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1078,6 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 10
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -1167,7 +1171,7 @@ GameObject:
   - component: {fileID: 1061217794}
   m_Layer: 0
   m_Name: Ennemy (3)
-  m_TagString: Finish
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,6 +1234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -1319,7 +1324,7 @@ GameObject:
   - component: {fileID: 1083901568}
   m_Layer: 0
   m_Name: Ennemy (1)
-  m_TagString: Finish
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,6 +1387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -1527,7 +1533,7 @@ GameObject:
   - component: {fileID: 1488911865}
   m_Layer: 0
   m_Name: New Sprite (2)
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1590,6 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
@@ -1860,7 +1867,7 @@ GameObject:
   - component: {fileID: 1950107232}
   m_Layer: 0
   m_Name: Ennemy
-  m_TagString: Finish
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1878,6 +1885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   attack: 0
+  attackDelay: 0
   defense: 0
   cost: 0
   value: 0
