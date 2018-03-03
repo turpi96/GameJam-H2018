@@ -119,7 +119,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
         if (freezeTurretsCount == 1)
         {
             GetComponent<MoveOnPath>().MultiplySpeed(freezePercentage);
-            currentDelay = (currentDelay * freezePercentage);
+            currentDelay = (currentDelay * (2 - freezePercentage));
             animator.SetFloat("FreezePercentage", 0.5f);
         }
     }
