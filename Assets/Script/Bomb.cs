@@ -24,8 +24,14 @@ public class Bomb : MonoBehaviour {
 		}
 	}
 	public void waitAndExplode(){
-		Debug.Log (this.transform.parent.name);
+		this.name = this.transform.parent.name;
 		Destroy (gameObject, 1);
+	}
+
+	void OnCollisionEnter(Collision collision){
+		if (collision.gameObject.name != this.name) {
+			Destroy (collision.gameObject);
+		}
 	}
 }
 
