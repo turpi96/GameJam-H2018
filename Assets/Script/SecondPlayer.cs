@@ -9,11 +9,6 @@ public class SecondPlayer : Player {
 
 	public Building dumbTower;
 
-
-
-     public GameObject[] workingShop;
-
-	public Building dumbTower;
 	public Unit dumbUnit;
 	public Transform spawnPoint;
 	// Use this for initialization
@@ -126,7 +121,7 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
+			GameObject g = Instantiate (bomb, posCam, Quaternion.identity) as Casting;
 			g.tag = transform.tag;
 		}
 	}
@@ -141,30 +136,7 @@ public class SecondPlayer : Player {
 		}*/
 	}
 
-    private void checkShopInput()
-    {
-/*      if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
-        {
-            workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
 
-            changeState(PlayerState.Ingame);
-            UnitPlayerShop.SetActive(false);
-        }
-        else if (UnitPlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
-        {
-            currentSlot = 0;
-            copyArray(UnitSlotTable);
-            workingShop[currentSlot].GetComponent<unitButtonScript>().enableOutline();
-
-            changeState(PlayerState.Shop);
-            UnitPlayerShop.SetActive(true);
-        }
-
-       if (Input.GetButtonDown("Player2_Accept") && 
-            workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
-        {
-            setChoosenItem();*/
-        }
 
 
     private void checkShopInput()

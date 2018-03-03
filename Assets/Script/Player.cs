@@ -61,12 +61,12 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-<<<<<<< HEAD
+
 //        PlayerGoldUI.text = money.ToString();
-=======
+
 		if(PlayerGoldUI != null)
      	   PlayerGoldUI.text = money.ToString();
->>>>>>> 66b79b7998c31f7ed40547f236d8cee146ee934c
+
     }
 
 
