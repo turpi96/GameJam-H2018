@@ -18,7 +18,6 @@ public abstract class Player : MonoBehaviour {
 	protected Building currentlyBuilding = null;
 	public float cursorSpeed = 5;
 	public GameObject bomb;
-	public Material matBomb;
 //	public Text PlayerShop;
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;

@@ -77,18 +77,17 @@ public class SecondPlayer : Player {
 	}
 
 	public override void spawnBomb(){
-		/*if (Input.GetMouseButtonDown (0)) {
-			matBomb.color = Color.green;
+		if (Input.GetMouseButtonDown (0)) {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
 			Instantiate (bomb, posCam, Quaternion.identity,transform);
-		}*/
+		}
 	}
 
     private void checkShopInput()
     {
-       if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+/*       if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
@@ -97,6 +96,6 @@ public class SecondPlayer : Player {
         {
             changeState(PlayerState.Shop);
             UnitPlayerShop.SetActive(true);
-        }
+        }*/
     }
 }
