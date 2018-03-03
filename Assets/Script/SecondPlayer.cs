@@ -59,12 +59,12 @@ public class SecondPlayer : Player {
 		Vector2 halfSize;
 		switch (playerState) {
 		case PlayerState.Building:
-			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		default:
-			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 25;
-			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
 		}
 		//GetComponent<SpriteRenderer> ().sprite.rect.x;

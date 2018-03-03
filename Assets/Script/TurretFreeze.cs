@@ -12,21 +12,22 @@ public class TurretFreeze : Building {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	new void Update () {
+		base.Update ();	
 	}
 
     new void OnTriggerEnter2D(Collider2D other)
     {
-		
+		base.OnTriggerEnter2D (other);
         if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             other.GetComponent<Unit>().StartFreeze(freezePercentage);
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    new void OnTriggerExit2D(Collider2D other)
     {
+		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
             other.GetComponent<Unit>().StopFreeze();
