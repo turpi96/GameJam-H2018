@@ -15,21 +15,17 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-<<<<<<< HEAD
         if (Input.GetButtonDown("Player2_Left"))
             changeState(PlayerState.Shop);
-
-=======
 		float x = 0;
 		float y = 0;
 		if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
 			x = Input.GetAxis ("Player2_Horizontal");
 		if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
 			y = Input.GetAxis ("Player2_Vertical");
->>>>>>> 93250436af2800d84c97c29e6744ed18123056d6
 		switch(playerState){
 			case PlayerState.Ingame:
-			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
 			case PlayerState.Building:
 				if (currentlyBuilding != null) {
