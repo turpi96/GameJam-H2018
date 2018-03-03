@@ -14,7 +14,7 @@ public class FirstPlayer : Player {
 		base.Update ();
 		if (Input.GetKeyDown (KeyCode.O) && playerState == PlayerState.Ingame) {
 			changeState (PlayerState.Building);
-			currentlyBuilding = Instantiate (dumbTower, transform.position,transform.rotation);
+			currentlyBuilding = Instantiate (dumbTower, new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
 		} else if (Input.GetKeyDown (KeyCode.O) && playerState == PlayerState.Building) {
