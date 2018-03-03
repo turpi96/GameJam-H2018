@@ -32,12 +32,13 @@ public class Bomb : Casting, HasTeam {
 	}
 
 	new void Update () {
-		Debug.Log (transform.tag);
 		base.Update ();
+
 		if (state == CastingState.inGame) {
 			if (activateTimer) {
 				StartCoroutine ("explosion");
 				activateTimer = false;
+
 			}
 			if (timeleft <= 0) {
 				
@@ -60,6 +61,13 @@ public class Bomb : Casting, HasTeam {
 	public void waitAndExplode(){
 		renderer.color = Color.yellow;
 		if (play == true && toggleChange == true) {
+			
+			foreach (Unit u in explosionList) {
+				if(this.getTeam() != u.getTeam()){
+					Destroy(u);
+				}
+			}
+			explosionList = null;
 			myAudio.Play ();
 			toggleChange = false;
 		}
@@ -79,7 +87,6 @@ public class Bomb : Casting, HasTeam {
 		if (state == CastingState.inGame && other.GetComponent<Unit>() )
 		{
 			explosionList.Remove(other.gameObject);
-
 		}
 	}
 }
