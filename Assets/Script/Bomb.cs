@@ -13,6 +13,7 @@ public class Bomb : Casting, HasTeam {
 
 	private bool play = true;
 	private bool toggleChange = true;
+	private bool activateTimer = true;
 
 	public string team;
 
@@ -25,14 +26,17 @@ public class Bomb : Casting, HasTeam {
 		myAudio = GetComponent<AudioSource> ();
 
 
-		StartCoroutine ("explosion");
 	}
 
 	new void Update () {
 		base.Update ();
 		if (state == CastingState.inGame) {
-			
+			if (activateTimer) {
+				StartCoroutine ("explosion");
+				activateTimer = false;
+			}
 			if (timeleft <= 0) {
+				
 				StopCoroutine ("explosion");
 				waitAndExplode ();
 			}
