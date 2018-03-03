@@ -100,6 +100,8 @@ public class FirstPlayer : Player {
 				break;
 			}
 
+			//GetComponent<SpriteRenderer> ().sprite.rect.x;
+
 			Vector3 pos = cam.WorldToScreenPoint (transform.position);
 			if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
 				pos.x = cam.pixelWidth / 2.0f - halfSize.x;
