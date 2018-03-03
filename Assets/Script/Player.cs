@@ -13,17 +13,13 @@ public abstract class Player : MonoBehaviour {
 
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
-<<<<<<< HEAD
+
 	protected int money = 100;
-	protected Tower currentlyBuilding = null;
-=======
-	protected int money;
 	protected Building currentlyBuilding = null;
->>>>>>> 57ac45b4cab24e9eb70fd8c2620b9e4642bb2e56
 	public float cursorSpeed = 5;
 	public GameObject bomb;
 	public Material matBomb;
-
+//	public Text PlayerShop;
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;
     public GameObject SpellPlayerShop;
@@ -52,7 +48,7 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-        PlayerGoldUI.text = money.ToString();
+        //PlayerGoldUI.text = money.ToString();
     }
 
 

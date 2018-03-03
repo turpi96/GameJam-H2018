@@ -8,6 +8,9 @@ TagManager:
   - Test
   - Player1
   - Player2
+  - Unit
+  - Turret
+  - Tower
   layers:
   - Default
   - TransparentFX
