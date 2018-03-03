@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour , HasTeam {
+public class Building : MonoBehaviour , HasTeam , CanBeHurt {
 	public enum BuildingState{
 		inGame = 1,
 		inConstruction = 2
@@ -77,4 +77,19 @@ public class Building : MonoBehaviour , HasTeam {
 		}
 
 	}
+
+    public void Hurt(int amount)
+    {
+        health = health - (amount - defense);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }
