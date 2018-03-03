@@ -15,6 +15,9 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
+        if (Input.GetButtonDown("Player2_Left"))
+            changeState(PlayerState.Shop);
+
 		switch(playerState){
 			case PlayerState.Ingame:
 				float x = 0;
@@ -26,8 +29,13 @@ public class SecondPlayer : Player {
 
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
+            case PlayerState.Shop:
+                
+                break;
+
 			}
 	}
+
 	public override void checkPosition(){
 		Camera cam = FindObjectOfType<Camera> ();
 		Vector2 halfSize;

@@ -14,6 +14,8 @@ public abstract class Player : MonoBehaviour {
 	protected int health;
 	protected int money;
 	public float cursorSpeed = 5;
+    public GameObject PlayerShop;
+    public GameObject PlayerGold;
 	// Use this for initialization
 	void Start () {
 		
