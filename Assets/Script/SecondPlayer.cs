@@ -15,9 +15,17 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-        if (Input.GetButtonDown("Player2_Left"))
+        if (PlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+        {
+            changeState(PlayerState.Ingame);
+            PlayerShop.SetActive(false);
+        } else if (PlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
+        {
             changeState(PlayerState.Shop);
-		float x = 0;
+            PlayerShop.SetActive(true);
+        }
+
+        float x = 0;
 		float y = 0;
 		if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
 			x = Input.GetAxis ("Player2_Horizontal");
@@ -36,6 +44,7 @@ public class SecondPlayer : Player {
 				break;
             case PlayerState.Shop:
                 
+
                 break;
 
 			}
