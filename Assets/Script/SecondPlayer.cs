@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SecondPlayer : Player {
-<<<<<<< HEAD
+
 
      public GameObject[] workingShop;
 
-=======
 	public Building dumbTower;
->>>>>>> a0f29e52b29f2c9cc8b69d47f09d9307b6ed5e8d
+
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -119,9 +118,7 @@ public class SecondPlayer : Player {
 		}
 	}
 
-<<<<<<< HEAD
 
-=======
 	public override void spawnArrow(){
 		/*if (Input.GetMouseButtonDown (1)) {
 			Vector3 mousePos = Input.mousePosition;
@@ -130,18 +127,18 @@ public class SecondPlayer : Player {
 			Instantiate (bomb,posCam , Quaternion.identity,transform);
 		}*/
 	}
->>>>>>> a0f29e52b29f2c9cc8b69d47f09d9307b6ed5e8d
+
 
     private void checkShopInput()
     {
-      if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+		if (UnitPlayerShop.SetActive(true) && Input.GetButtonDown("Player2_Left"))
         {
             workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
 
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
         }
-        else if (UnitPlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
+		else if (UnitPlayerShop.SetActive(false) && Input.GetButtonDown("Player2_Left"))
         {
             currentSlot = 0;
             copyArray(UnitSlotTable);
