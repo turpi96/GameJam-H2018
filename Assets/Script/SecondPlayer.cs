@@ -7,25 +7,17 @@ public class SecondPlayer : Player {
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
-	}
-	
-	// Update is called once per frame
-	new public void Update () {
+        //UnitPlayerShop.SetActive(false);
+    }
+
+    // Update is called once per frame
+    new public void Update () {
 		base.Update ();
 
 	}
 
 	public override void checkInput(){
-        checkInterfaceInput();
-	/*	if (PlayerShop != null) {
-			if (PlayerShop.active == true && Input.GetButtonDown ("Player2_Left")) {
-				changeState (PlayerState.Ingame);
-				PlayerShop.SetActive (false);
-			} else if (PlayerShop.active == false && Input.GetButtonDown ("Player2_Left")) {
-				changeState (PlayerState.Shop);
-				PlayerShop.SetActive (true);
-			}
-		}*/
+        checkShopInput();
 
         float x = 0;
 		float y = 0;
@@ -87,18 +79,16 @@ public class SecondPlayer : Player {
 
 	public override void spawnBomb(){
 		if (Input.GetMouseButtonDown (0)) {
-			matBomb.color = Color.green;
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			Debug.Log (mousePos.ToString ());
-			Instantiate (bomb, posCam, Quaternion.identity);
+			Instantiate (bomb, posCam, Quaternion.identity,transform);
 		}
 	}
 
-    private void checkInterfaceInput()
+    private void checkShopInput()
     {
-    /*    if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
+      /*if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
