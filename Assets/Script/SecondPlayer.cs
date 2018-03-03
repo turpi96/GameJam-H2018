@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SecondPlayer : Player {
 
-
      public GameObject[] workingShop;
 
+
 	public Building dumbTower;
+
 	public Unit dumbUnit;
 	public Transform spawnPoint;
 	// Use this for initialization
@@ -120,7 +121,7 @@ public class SecondPlayer : Player {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;
-			GameObject g = Instantiate (bomb, posCam, Quaternion.identity);
+			GameObject g = Instantiate (bomb, posCam, Quaternion.identity) as Casting;
 			g.tag = transform.tag;
 		}
 	}
@@ -134,6 +135,8 @@ public class SecondPlayer : Player {
 			Instantiate (bomb,posCam , Quaternion.identity,transform);
 		}*/
 	}
+
+
 
 
     private void checkShopInput()

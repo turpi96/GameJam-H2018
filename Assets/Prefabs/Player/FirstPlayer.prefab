@@ -54,7 +54,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   cursorSpeed: 5
+<<<<<<< HEAD:Assets/Prefabs/FirstPlayer.prefab
+  bomb: {fileID: 114924291326847146, guid: 4eedd0fcb13ddeb4790614d7a358cc39, type: 2}
+=======
   bomb: {fileID: 0}
+>>>>>>> 66b79b7998c31f7ed40547f236d8cee146ee934c:Assets/Prefabs/Player/FirstPlayer.prefab
   UnitPlayerShop: {fileID: 0}
   TowerPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}

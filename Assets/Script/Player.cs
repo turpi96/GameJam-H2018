@@ -17,8 +17,9 @@ public abstract class Player : MonoBehaviour {
 	protected string playerName;
 	protected int money = 90;
 	protected Building currentlyBuilding = null;
+	protected Casting currentlyCasting = null;
 	public float cursorSpeed = 5;
-	public GameObject bomb;
+	public Casting bomb;
 //	public Text PlayerShop;
 
     public GameObject UnitPlayerShop;
@@ -60,8 +61,12 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
+
+//        PlayerGoldUI.text = money.ToString();
+
 		if(PlayerGoldUI != null)
      	   PlayerGoldUI.text = money.ToString();
+
     }
 
 

@@ -29,6 +29,16 @@ public class FirstPlayer : Player {
 
 		if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.Ingame) { 
 			changeState (PlayerState.CastingSpell);
+			Debug.Log (PlayerState.CastingSpell);
+			currentlyCasting = Instantiate (bomb, new Vector3(transform.position.x,transform.position.y,1),transform.rotation) as Casting;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
+			currentlyCasting.changeState(Casting.CastingState.isTargeting);
+		} 
+		else if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.CastingSpell && currentlyCasting.canCast) {
+			changeState (PlayerState.Ingame);
+			currentlyCasting.changeState (Casting.CastingState.inGame);
+			currentlyCasting = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 
 		if (Input.GetKeyDown (KeyCode.J) && playerState == PlayerState.Ingame) { 
@@ -45,6 +55,7 @@ public class FirstPlayer : Player {
 		if (Mathf.Abs (Input.GetAxis ("Player1_Vertical")) > 0.2f)
 			y = Input.GetAxis ("Player1_Vertical");
 		switch(playerState){
+
 			case PlayerState.Ingame:
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
@@ -56,25 +67,33 @@ public class FirstPlayer : Player {
 				else
 					Debug.Log ("NO BUILDING FOUND");
 				break;
+		case PlayerState.CastingSpell:
+			if (currentlyCasting != null) {
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				currentlyCasting.transform.position = transform.position;
+			}
+			break;
 			 default:
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
-
-
 		}
 
 	}
 
 	public override void checkPosition(){
-		if (playerState != PlayerState.CastingSpell) {
 			Camera cam = FindObjectOfType<Camera> ();
 
 			Vector2 halfSize;
 			switch (playerState) {
+
 			case PlayerState.Building:
 				halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
 				halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 				break;
+			case PlayerState.CastingSpell:
+					halfSize.x = currentlyCasting.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+					halfSize.y = currentlyCasting.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
+					break;
 			default:
 				halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
 				halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
@@ -101,11 +120,10 @@ public class FirstPlayer : Player {
 				pos.x = 0 + halfSize.x;
 			}
 			transform.position = cam.ScreenToWorldPoint (pos);
-		}
 	}
 
 	public override void spawnBomb(){
-		if (Input.GetMouseButton (0) && playerState == PlayerState.Building) {
+		if (Input.GetMouseButtonDown (0) && playerState == PlayerState.CastingSpell) {
 			Vector3 mousePos = Input.mousePosition;
 			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
 			posCam.z = 0;

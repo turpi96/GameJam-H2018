@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour {
+public class Bomb : Casting, HasTeam {
 
 	private int timeleft= 2;
 
 	private SpriteRenderer renderer;
 	private AudioSource audio;
 
-	public Material matBomb;
-	private Renderer myRenderer;
 	public AudioSource myAudio;
 
 	private bool play = true;
 	private bool toggleChange = true;
+
+	public string team;
 
 	void Start () {
 
@@ -22,21 +22,25 @@ public class Bomb : MonoBehaviour {
 		audio = GetComponent<AudioSource> ();
 		renderer = GetComponent<SpriteRenderer> ();
 
-		myRenderer = GetComponent<MeshRenderer> ();
-		matBomb = new Material (matBomb);
-		myRenderer.material = matBomb;
-
 		myAudio = GetComponent<AudioSource> ();
 
 
 		StartCoroutine ("explosion");
 	}
 
-	void Update(){
-		if (timeleft <= 0) {
-			StopCoroutine ("explosion");
-			waitAndExplode ();
+	new void Update () {
+		base.Update ();
+		if (state == CastingState.inGame) {
+			
+			if (timeleft <= 0) {
+				StopCoroutine ("explosion");
+				waitAndExplode ();
+			}
 		}
+	}
+
+	public string getTeam(){
+		return team;
 	}
 
 	IEnumerator explosion(){
