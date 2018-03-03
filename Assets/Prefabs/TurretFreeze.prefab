@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ed37c73ae3bbc489f44de331b5f773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezePercentage: 0.7
+  freezePercentage: 0.5
 --- !u!212 &212220654458284462
 SpriteRenderer:
   m_ObjectHideFlags: 1
