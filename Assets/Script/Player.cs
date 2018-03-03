@@ -20,8 +20,9 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	 void Update () {
 		
+
 	}
 
 	public void changeState(PlayerState newState){
