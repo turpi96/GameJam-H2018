@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : CanBeHurt , MonoBehaviour {
+public class Unit : MonoBehaviour, CanBeHurt {
     
     public int health;
     public int attack;
@@ -23,7 +23,7 @@ public class Unit : CanBeHurt , MonoBehaviour {
 	}
 
 
-    public  override void Hurt(int amount)
+    public  void Hurt(int amount)
     {
         health = health - (amount - defense);
 
