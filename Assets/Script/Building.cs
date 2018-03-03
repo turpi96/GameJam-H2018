@@ -8,6 +8,11 @@ public class Building : MonoBehaviour , HasTeam {
 		inConstruction = 2
 	}
 	public string team;
+	public int cost= 100;
+	public int health = 10;
+
+	public int defense = 5;
+
 	public bool canBuild = true;
 	public List<Collider2D> colliders;
 
