@@ -15,16 +15,18 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-		if (playerState == PlayerState.Ingame) {
-			float x = 0;
-			float y = 0;
-			if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
-				x = Input.GetAxis ("Player2_Horizontal");
-			if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
-				y = Input.GetAxis ("Player2_Vertical");
+		switch(playerState){
+			case PlayerState.Ingame:
+				float x = 0;
+				float y = 0;
+				if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
+					x = Input.GetAxis ("Player2_Horizontal");
+				if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
+					y = Input.GetAxis ("Player2_Vertical");
 
-			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
-		}
+				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				break;
+			}
 	}
 	public override void checkPosition(){
 		Camera cam = FindObjectOfType<Camera> ();
