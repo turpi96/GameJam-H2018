@@ -60,10 +60,11 @@ public class SecondPlayer : Player {
 				} else
 					Debug.Log ("NO BUILDING FOUND");
 				break;
+
             case PlayerState.Shop:
                 if(Input.GetButtonDown("Player2_Up") )
                 {
-                    workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
+                    workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
 
 
                     if (Input.GetAxis("Player2_Up") > 0)
@@ -75,7 +76,7 @@ public class SecondPlayer : Player {
                     if (currentSlot > 2)
                         currentSlot = 0;
 
-                    workingShop[currentSlot].GetComponent<unitButtonScript>().enableOutline();
+                    workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
                 }
 
                 break;
@@ -144,21 +145,29 @@ public class SecondPlayer : Player {
 			if (UnitPlayerShop.activeSelf == true &&
 			   TowerPlayerShop.activeSelf == false &&
 			   Input.GetButtonDown ("Player2_Left")) {
-				workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
+                Debug.Log("I'VE BEEN THERE");
+                workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
 				changeState (PlayerState.Ingame);
 				UnitPlayerShop.SetActive (false);
 			} else if (UnitPlayerShop.activeSelf == false &&
 			          TowerPlayerShop.activeSelf == false &&
-			          Input.GetButtonDown ("Player2_Left")) {
-				currentSlot = 0;
+			          Input.GetButtonDown ("Player2_Left"))
+            {
+                changeState(PlayerState.Shop);
+                UnitPlayerShop.SetActive(true);
+                currentSlot = 0;
 				copyArray (UnitSlotTable);
-				workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
+				workingShop [currentSlot].GetComponent<outlineScript> ().enableOutline ();
+
 
 			}
+
+
 			if (Input.GetButtonDown ("Player2_Accept") &&
 			        UnitPlayerShop.activeSelf == true &&
-			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true) {
+			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true)
+            {
 				setChoosenItem ();
 			}
 		}
