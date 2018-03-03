@@ -15,19 +15,28 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
+<<<<<<< HEAD
         if (Input.GetButtonDown("Player2_Left"))
             changeState(PlayerState.Shop);
 
+=======
+		float x = 0;
+		float y = 0;
+		if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
+			x = Input.GetAxis ("Player2_Horizontal");
+		if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
+			y = Input.GetAxis ("Player2_Vertical");
+>>>>>>> 93250436af2800d84c97c29e6744ed18123056d6
 		switch(playerState){
 			case PlayerState.Ingame:
-				float x = 0;
-				float y = 0;
-				if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)
-					x = Input.GetAxis ("Player2_Horizontal");
-				if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
-					y = Input.GetAxis ("Player2_Vertical");
-
-				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+			transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				break;
+			case PlayerState.Building:
+				if (currentlyBuilding != null) {
+					transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+					currentlyBuilding.transform.position = transform.position;
+				} else
+					Debug.Log ("NO BUILDING FOUND");
 				break;
             case PlayerState.Shop:
                 
@@ -39,8 +48,16 @@ public class SecondPlayer : Player {
 	public override void checkPosition(){
 		Camera cam = FindObjectOfType<Camera> ();
 		Vector2 halfSize;
-		halfSize.x = GetComponent<SpriteRenderer> ().sprite.rect.x / 2.0f;
-		halfSize.y = GetComponent<SpriteRenderer> ().sprite.rect.y / 2.0f;
+		switch (playerState) {
+		case PlayerState.Building:
+			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 25;
+			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			break;
+		default:
+			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 25;
+			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 25;
+			break;
+		}
 		//GetComponent<SpriteRenderer> ().sprite.rect.x;
 		Vector3 pos = cam.WorldToScreenPoint (transform.position);
 		if (pos.x - halfSize.x < cam.pixelWidth / 2.0f) {
