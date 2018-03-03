@@ -3,33 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour, CanBeHurt {
-    
+
+    public string team;
     public int health;
     public int attack;
     public int attackDelay;
+    public bool isRange;
     public int defense;
     public int cost;
     public int value;
 
     private bool isAttacking;
     private float timeLeft = 0;
-    private Collider2D target;
+    private List<Collider2D> targetList;
+
 
 	// Use this for initialization
 	void Start () {
         timeLeft = attackDelay;
-        target = null;
+        targetList = new List<Collider2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(target != null)
+        if(targetList.Count >= 1)
         {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
                 timeLeft = attackDelay;
-                target.GetComponent<CanBeHurt>().Hurt(attack);
+                targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
             }
         }
     }
@@ -62,14 +65,15 @@ public class Unit : MonoBehaviour, CanBeHurt {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (this.gameObject.tag != collision.tag)
+        if (team != collision.GetComponent<Unit>().team)
         {
-            if(collision.tag == "Player1" || collision.tag == "Player2")
+            if((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret"))) 
             {
-                isAttacking = true;
                 if (collision.GetComponent<CanBeHurt>() != null)
                 {
-                    target = collision;
+                    //if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
+                        isAttacking = true;
+                        targetList.Add(collision);
                 }
             }
 
@@ -78,12 +82,16 @@ public class Unit : MonoBehaviour, CanBeHurt {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(this.gameObject.tag != collision.tag)
+        if(team != collision.GetComponent<Unit>().team)
         {
-            if (collision.tag == "Player1" || collision.tag == "Player2")
+            if ((!isRange && collision.tag == "Unit") || (isRange && (collision.tag == "Unit" || collision.tag == "Turret")))
             {
-                isAttacking = false;
-                target = null;
+                targetList.Remove(collision);
+                if(targetList.Count == 0)
+                {
+                    isAttacking = false;
+                }
+                
             }
         }
     }

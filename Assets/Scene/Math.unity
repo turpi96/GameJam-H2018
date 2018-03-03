@@ -178,7 +178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4742925814538104, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 102925244}
   m_Layer: 0
   m_Name: New Sprite (4)
-  m_TagString: Player1
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,9 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p2
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -334,7 +336,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &168350022
 Prefab:
@@ -373,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4529509982836372, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
@@ -519,7 +521,7 @@ GameObject:
   - component: {fileID: 521107547}
   m_Layer: 0
   m_Name: New Sprite
-  m_TagString: Player1
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,7 +595,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &521107545
 MonoBehaviour:
@@ -606,9 +608,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: 
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -809,7 +813,7 @@ GameObject:
   - component: {fileID: 748246385}
   m_Layer: 0
   m_Name: Ennemy (2)
-  m_TagString: Player2
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -870,9 +874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p1
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -945,7 +951,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &805287321
 GameObject:
@@ -1003,6 +1009,62 @@ Transform:
   m_Father: {fileID: 1838490288}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &936986838
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.6453576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.8452954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271078981342368, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874971641915784, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 58954844415762050, guid: 47f21af37c94c1d4a8405bfac790d3d8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58399697809339950, guid: 47f21af37c94c1d4a8405bfac790d3d8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 47f21af37c94c1d4a8405bfac790d3d8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1047141776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1080,7 @@ GameObject:
   - component: {fileID: 1047141777}
   m_Layer: 0
   m_Name: New Sprite (3)
-  m_TagString: Player1
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,9 +1141,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p2
   health: 100
-  attack: 10
-  attackDelay: 0
+  attack: 25
+  attackDelay: 2
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -1154,7 +1218,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1061217793
 GameObject:
@@ -1171,7 +1235,7 @@ GameObject:
   - component: {fileID: 1061217794}
   m_Layer: 0
   m_Name: Ennemy (3)
-  m_TagString: Player2
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,9 +1296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p1
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -1307,7 +1373,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083901567
 GameObject:
@@ -1324,7 +1390,7 @@ GameObject:
   - component: {fileID: 1083901568}
   m_Layer: 0
   m_Name: Ennemy (1)
-  m_TagString: Player2
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1385,9 +1451,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p1
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -1460,7 +1528,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1285907401
 GameObject:
@@ -1533,7 +1601,7 @@ GameObject:
   - component: {fileID: 1488911865}
   m_Layer: 0
   m_Name: New Sprite (2)
-  m_TagString: Player1
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1594,9 +1662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p2
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -1669,7 +1739,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1502977716
 GameObject:
@@ -1822,7 +1892,7 @@ Transform:
   - {fileID: 442859247}
   - {fileID: 1285907402}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1880663774
 GameObject:
@@ -1867,7 +1937,7 @@ GameObject:
   - component: {fileID: 1950107232}
   m_Layer: 0
   m_Name: Ennemy
-  m_TagString: Player2
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1883,9 +1953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p1
   health: 100
   attack: 0
   attackDelay: 0
+  isRange: 0
   defense: 0
   cost: 0
   value: 0
@@ -1958,7 +2030,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1950107231
 BoxCollider2D:
@@ -2076,5 +2148,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
