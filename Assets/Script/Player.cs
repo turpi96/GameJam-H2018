@@ -20,13 +20,21 @@ public abstract class Player : MonoBehaviour {
 	public float cursorSpeed = 5;
 	public GameObject bomb;
 //	public Text PlayerShop;
+
     public GameObject UnitPlayerShop;
     public GameObject TowerPlayerShop;
     public GameObject SpellPlayerShop;
     public Text PlayerGoldUI;
 
-	// Use this for initialization
-	public void Start () {
+    public int currentSlot = 0;
+    public GameObject chooseItem;
+    public GameObject[] UnitSlotTable;
+    public GameObject[] TowerSlotTable;
+    public GameObject[] SpellSlotTable;
+
+
+    // Use this for initialization
+    public void Start () {
 		cam = FindObjectOfType<Camera> ();
     }
 	
@@ -50,7 +58,7 @@ public abstract class Player : MonoBehaviour {
 
     public void UpdateMoney()
     {
-//        PlayerGoldUI.text = money.ToString();
+        PlayerGoldUI.text = money.ToString();
     }
 
 
