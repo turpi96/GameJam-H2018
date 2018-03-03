@@ -29,7 +29,6 @@ public class FirstPlayer : Player {
 
 		if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.Ingame) { 
 			changeState (PlayerState.CastingSpell);
-			Debug.Log (PlayerState.CastingSpell);
 			currentlyCasting = Instantiate (bomb, new Vector3(transform.position.x,transform.position.y,1),transform.rotation) as Casting;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			currentlyCasting.changeState(Casting.CastingState.isTargeting);
