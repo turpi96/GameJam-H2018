@@ -95,16 +95,18 @@ public class FirstPlayer : Player {
 					halfSize.y = currentlyCasting.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 					break;
 			default:
-				halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
-				halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
+				halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x ;
+				halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y;
 				break;
 			}
+		Vector3 pos = cam.WorldToScreenPoint (transform.position);
 
-			Vector3 pos = cam.WorldToScreenPoint (transform.position);
+		if (playerState != PlayerState.CastingSpell) {
 			if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
 				pos.x = cam.pixelWidth / 2.0f - halfSize.x;
 
 			} 
+		}
 			if (pos.x + halfSize.x > cam.pixelWidth) {
 				pos.x = cam.pixelWidth - halfSize.x;
 			}
@@ -118,23 +120,5 @@ public class FirstPlayer : Player {
 				pos.x = 0 + halfSize.x;
 			}
 			transform.position = cam.ScreenToWorldPoint (pos);
-	}
-
-	public override void spawnBomb(){
-		if (Input.GetMouseButtonDown (0) && playerState == PlayerState.CastingSpell) {
-			Vector3 mousePos = Input.mousePosition;
-			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
-			posCam.z = 0;
-			Instantiate (bomb,posCam , Quaternion.identity,transform);
-		}
-	}
-
-	public override void spawnArrow(){
-		/*if (Input.GetMouseButtonDown (1)) {
-			Vector3 mousePos = Input.mousePosition;
-			Vector3 posCam = cam.ScreenToWorldPoint (mousePos);
-			posCam.z = 0;
-			Instantiate (bomb, posCam, Quaternion.identity, transform);
-		}*/
 	}
 }
