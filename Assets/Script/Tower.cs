@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tower : MonoBehaviour, CanBeHurt {
+public class Tower : MonoBehaviour, CanBeHurt, HasTeam {
 
 
     public int health;
@@ -19,6 +19,9 @@ public class Tower : MonoBehaviour, CanBeHurt {
 
 	}
 
+	public string getTeam(){
+		return team;
+	}
     public void Hurt(int amount)
     {
         health -= amount;
