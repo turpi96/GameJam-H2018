@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour {
 
+    public string unitName;
     public int health;
     public int attack;
-    public int walkspeed;
     public int defense;
     public int cost;
 
@@ -30,7 +30,7 @@ public class Unit : MonoBehaviour {
         }
     }
 
-    private void Die()
+    void Die()
     {
         //MAYBE PLAY AN ANIMATION
         //MAYBE PLAY A SOUND
@@ -39,6 +39,19 @@ public class Unit : MonoBehaviour {
 
     void Attack()
     {
+        //PLAY ANIMATION
+        //PLAY SOUND
+    }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "unit")
+        {
+            collision.gameObject.GetComponent<Unit>().Hurt(attack);
+        }
+        if(collision.tag == "tower")
+        {
+            collision.gameObject.GetComponent<Tower>().Hurt(attack);
+        }
     }
 }
