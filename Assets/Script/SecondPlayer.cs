@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class SecondPlayer : Player {
 
+     public GameObject[] workingShop;
+
+
+	public Building dumbTower;
+
+
 
      public GameObject[] workingShop;
 
 	public Building dumbTower;
-
+	public Unit dumbUnit;
+	public Transform spawnPoint;
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
@@ -30,6 +37,11 @@ public class SecondPlayer : Player {
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
 			currentlyBuilding = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+		}
+
+		if (Input.GetKeyDown (KeyCode.K) && playerState == PlayerState.Ingame) { 
+			Unit unit = Instantiate (dumbUnit, spawnPoint.position, spawnPoint.rotation);
+			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 		}
 	}
 
@@ -129,17 +141,16 @@ public class SecondPlayer : Player {
 		}*/
 	}
 
-
     private void checkShopInput()
     {
-		if (UnitPlayerShop.activeSelf == true && Input.GetButtonDown("Player2_Left"))
+/*      if (UnitPlayerShop.active == true && Input.GetButtonDown("Player2_Left"))
         {
             workingShop[currentSlot].GetComponent<unitButtonScript>().disableOutline();
 
             changeState(PlayerState.Ingame);
             UnitPlayerShop.SetActive(false);
         }
-        else if (UnitPlayerShop.activeSelf == false && Input.GetButtonDown("Player2_Left"))
+        else if (UnitPlayerShop.active == false && Input.GetButtonDown("Player2_Left"))
         {
             currentSlot = 0;
             copyArray(UnitSlotTable);
@@ -152,8 +163,32 @@ public class SecondPlayer : Player {
        if (Input.GetButtonDown("Player2_Accept") && 
             workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
         {
-            setChoosenItem();
+            setChoosenItem();*/
         }
+
+
+    private void checkShopInput()
+    {
+		if (UnitPlayerShop != null) {
+			if (UnitPlayerShop.activeSelf == true && Input.GetButtonDown ("Player2_Left")) {
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().disableOutline ();
+
+				changeState (PlayerState.Ingame);
+				UnitPlayerShop.SetActive (false);
+			} else if (UnitPlayerShop.activeSelf == false && Input.GetButtonDown ("Player2_Left")) {
+				currentSlot = 0;
+				copyArray (UnitSlotTable);
+				workingShop [currentSlot].GetComponent<unitButtonScript> ().enableOutline ();
+
+				changeState (PlayerState.Shop);
+				UnitPlayerShop.SetActive (true);
+			}
+
+			if (Input.GetButtonDown ("Player2_Accept") &&
+			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true) {
+				setChoosenItem ();
+			}
+		}
     }
 
     private void copyArray(GameObject[] tempArray)
