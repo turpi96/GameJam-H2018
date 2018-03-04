@@ -18,6 +18,9 @@ public abstract class Player : MonoBehaviour {
 	protected string playerName;
 	public int money = 90;
 
+    [SerializeField] protected AudioClip[] sounds;
+
+    protected AudioSource audioS;
 
 	protected Building currentlyBuilding = null;
 	protected Casting currentlyCasting = null;
@@ -43,9 +46,15 @@ public abstract class Player : MonoBehaviour {
     public void Start () {
 		cam = FindObjectOfType<Camera> ();
 		pathToFollow = FindObjectOfType<Path> ();
+        audioS = GetComponent<AudioSource>();
     }
 
 	public void addMoney(int amount){
+        if(amount < 0)
+        {
+            audioS.clip = sounds[0];
+            audioS.Play();
+        }   
         money += amount;
 	}
 
