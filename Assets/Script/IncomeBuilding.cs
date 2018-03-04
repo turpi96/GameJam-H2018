@@ -17,10 +17,10 @@ public class IncomeBuilding : Building {
 			timerIncome = 3.0f;
 			switch (team) {
 			case "p1":
-				FindObjectOfType<FirstPlayer> ().addMoney (75);
+				FindObjectOfType<FirstPlayer> ().addMoney (25);
 				break;
 			case "p2":
-				FindObjectOfType<SecondPlayer> ().addMoney (75);
+				FindObjectOfType<SecondPlayer> ().addMoney (25);
 				break;
 			default:
 				Debug.Log ("I do exist but i dont have friends yet");
