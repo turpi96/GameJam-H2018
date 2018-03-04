@@ -292,7 +292,7 @@ MonoBehaviour:
   isRange: 0
   isAttackingTurret: 0
   defense: 10
-  cost: 75
+  cost: 125
   value: 30
   bullet: {fileID: 0}
 --- !u!212 &212019120467895508
