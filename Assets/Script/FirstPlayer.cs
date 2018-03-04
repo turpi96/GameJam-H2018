@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPlayer : Player {
-	public Building dumbTower;
+    public GameObject[] workingShop;
+    public Building dumbTower;
 	public Unit dumbUnit;
 	public Transform spawnPoint;
 	// Use this for initialization
@@ -47,14 +48,18 @@ public class FirstPlayer : Player {
 	}
 
 	public  override void checkInput(){
-		float x = 0;
+        checkShopInputUnits();
+        checkShopInputTurret();
+        checkShopInputSpell();
+
+        float x = 0;
 		float y = 0;
 		if (Mathf.Abs (Input.GetAxis ("Player1_Horizontal")) > 0.2f)
 			x = Input.GetAxis ("Player1_Horizontal");
 		if (Mathf.Abs (Input.GetAxis ("Player1_Vertical")) > 0.2f)
 			y = Input.GetAxis ("Player1_Vertical");
-		switch(playerState){
 
+		switch(playerState){
 			case PlayerState.Ingame:
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
@@ -66,12 +71,34 @@ public class FirstPlayer : Player {
 				else
 					Debug.Log ("NO BUILDING FOUND");
 				break;
-		case PlayerState.CastingSpell:
-			if (currentlyCasting != null) {
-				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
-				currentlyCasting.transform.position = transform.position;
-			}
-			break;
+
+            case PlayerState.Shop:
+                if (Input.GetButtonDown("Player1_Up"))
+                {
+                    workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+
+
+                    if (Input.GetAxis("Player1_Up") > 0)
+                        currentSlot--;
+                    else if (Input.GetAxis("Player1_Up") < 0)
+                        currentSlot++;
+                    if (currentSlot < 0)
+                        currentSlot = 2;
+                    if (currentSlot > 2)
+                        currentSlot = 0;
+
+                    workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+                }
+
+                break;
+
+
+            case PlayerState.CastingSpell:
+			    if (currentlyCasting != null) {
+				    transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
+				    currentlyCasting.transform.position = transform.position;
+			    }
+			    break;
 			 default:
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
@@ -120,4 +147,149 @@ public class FirstPlayer : Player {
 			}
 			transform.position = cam.ScreenToWorldPoint (pos);
 	}
+
+    private void checkShopInputUnits()
+    {
+        if (UnitPlayerShop != null)
+        {
+            if (UnitPlayerShop.activeSelf == true &&
+               TurretPlayerShop.activeSelf == false &&
+               SpellPlayerShop.activeSelf == false &&
+               Input.GetButtonDown("Player1_Left"))
+            {
+                Debug.Log("I'VE BEEN THERE");
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+
+                changeState(PlayerState.Ingame);
+                UnitPlayerShop.SetActive(false);
+            }
+            else if (UnitPlayerShop.activeSelf == false &&
+                    TurretPlayerShop.activeSelf == false &&
+                    SpellPlayerShop.activeSelf == false &&
+                    Input.GetButtonDown("Player1_Left"))
+            {
+                changeState(PlayerState.Shop);
+                UnitPlayerShop.SetActive(true);
+                currentSlot = 0;
+                copyArray(UnitSlotTable);
+                workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+
+
+            }
+
+
+            if (Input.GetButtonDown("Player1_Accept") &&
+                    UnitPlayerShop.activeSelf == true &&
+                    workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+                //INSERT UNIT SPAWN FUCNTION HERE****************************************************************
+                UnitPlayerShop.SetActive(false);
+            }
+
+
+        }
+    }
+
+    private void checkShopInputTurret()
+    {
+        if (TurretPlayerShop != null)
+        {
+            if (TurretPlayerShop.activeSelf == true &&
+               UnitPlayerShop.activeSelf == false &&
+               SpellPlayerShop.activeSelf == false &&
+               Input.GetButtonDown("Player1_Right"))
+            {
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+                changeState(PlayerState.Ingame);
+                TurretPlayerShop.SetActive(false);
+            }
+            else if (TurretPlayerShop.activeSelf == false &&
+                    UnitPlayerShop.activeSelf == false &&
+                    SpellPlayerShop.activeSelf == false &&
+                    Input.GetButtonDown("Player1_Right"))
+            {
+                changeState(PlayerState.Shop);
+                TurretPlayerShop.SetActive(true);
+                currentSlot = 0;
+                copyArray(TurretSlotTable);
+                workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+
+
+            }
+
+
+            if (Input.GetButtonDown("Player1_Accept") &&
+                    TurretPlayerShop.activeSelf == true &&
+                    workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
+            {
+                //changeState(PlayerState.Building);
+                setChoosenItem();
+                //TurretPlayerShop.SetActive(false);
+            }
+
+        }
+    }
+
+    private void checkShopInputSpell()
+    {
+        if (SpellPlayerShop != null)
+        {
+            if (SpellPlayerShop.activeSelf == true &&
+               UnitPlayerShop.activeSelf == false &&
+               TurretPlayerShop.activeSelf == false &&
+               (Input.GetButtonDown("Player1_BackRight") ||
+               Input.GetAxis("Player1_BackRight") == 1))
+            {
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+                changeState(PlayerState.Ingame);
+                SpellPlayerShop.SetActive(false);
+            }
+            else if (SpellPlayerShop.activeSelf == false &&
+                    TurretPlayerShop.activeSelf == false &&
+                    UnitPlayerShop.activeSelf == false &&
+                    (Input.GetButtonDown("Player1_BackRight") ||
+                    Input.GetAxis("Player1_BackRight") == 1))
+            {
+                changeState(PlayerState.Shop);
+                SpellPlayerShop.SetActive(true);
+                currentSlot = 0;
+                copyArray(SpellSlotTable);
+                workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+
+            }
+
+
+            if (Input.GetButtonDown("Player1_Accept") &&
+                    SpellPlayerShop.activeSelf == true &&
+                    workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+                //changeState(PlayerState.CastingSpell);
+                //SpellPlayerShop.SetActive(false);
+            }
+
+        }
+    }
+
+    private void copyArray(GameObject[] tempArray)
+    {
+        for (int i = 0; i < tempArray.Length; i++)
+        {
+            workingShop[i] = tempArray[i];
+        }
+
+        Debug.Log("TESTWEE!");
+    }
+
+    public void setChoosenItem()
+    {
+        chooseItem = workingShop[currentSlot];
+        Debug.Log("I, IS A GENIUS!!!!");
+    }
+
+    public void emptyChoosenItem()
+    {
+        chooseItem = null;
+    }
 }

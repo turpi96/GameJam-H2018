@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SecondPlayer : Player {
 
-     public GameObject[] workingShop;
-
-
+    public GameObject[] workingShop;
 	public Building dumbTower;
 
 	public Unit dumbUnit;
@@ -51,10 +49,12 @@ public class SecondPlayer : Player {
 			x = Input.GetAxis ("Player2_Horizontal");
 		if (Mathf.Abs (Input.GetAxis ("Player2_Vertical")) > 0.2f)
 			y = Input.GetAxis ("Player2_Vertical");
+
 		switch(playerState){
 			case PlayerState.Ingame:
 				transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
 				break;
+
 			case PlayerState.Building:
 				if (currentlyBuilding != null) {
 					transform.Translate (new Vector2 (x, y).normalized * cursorSpeed * Time.deltaTime);
@@ -234,7 +234,6 @@ public class SecondPlayer : Player {
                 currentSlot = 0;
                 copyArray(SpellSlotTable);
                 workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
-
 
             }
 
