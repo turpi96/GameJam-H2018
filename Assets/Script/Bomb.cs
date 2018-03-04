@@ -18,14 +18,17 @@ public class Bomb : Casting, HasTeam {
 
     public string team;
     public int cost;
+
+    public int attack;
     
     public Sprite explosionSprite;
 
-	private List<Unit> explosionList;
+	private List<GameObject> explosionList;
+    private bool canDoExit = true;
 
 	void Start () {
 
-		explosionList = new List<Unit>();
+		explosionList = new List<GameObject>();
         
 
 		myAudio = GetComponent<AudioSource> ();
@@ -45,7 +48,7 @@ public class Bomb : Casting, HasTeam {
 			}
 			if (timeleft <= 0) {
 				
-				StopCoroutine ("explosion");
+				//StopCoroutine ("explosion");
 				waitAndExplode ();
 			}
 		}
@@ -87,13 +90,16 @@ public class Bomb : Casting, HasTeam {
         GetComponent<SpriteRenderer>().enabled = false;
         //rendererSp.color = Color.yellow;
         if (play == true && toggleChange == true) {
-			
-			foreach (Unit u in explosionList) {
-				if(this.getTeam() != u.getTeam()){
-					Destroy(u.gameObject);
-				}
-			}
-			explosionList = null;
+
+            canDoExit = false;
+            for (int i = 0; i< explosionList.Count;i++)
+            {
+                if (team != explosionList[i].GetComponent<HasTeam>().getTeam())
+                {
+                    explosionList[i].GetComponent<CanBeHurt>().Hurt(attack);
+                }
+            }
+			explosionList.Clear();
 			myAudio.Play ();
 			toggleChange = false;
 		}
@@ -102,17 +108,30 @@ public class Bomb : Casting, HasTeam {
 
 	 void OnTriggerEnter2D(Collider2D other)
 	{
-		if (state == CastingState.inGame && other.GetComponent<Unit>())
+		if (other.tag == "Unit" || other.tag == "Turret")
 		{
-			explosionList.Add(other.GetComponent<Unit>());
+            if(!explosionList.Contains(other.gameObject))
+            {
+                //Debug.Log("Add : " + other.gameObject.name);
+                
+                explosionList.Add(other.gameObject);
+               // Debug.Log("LIST : " + explosionList.Count);
+            }
+			    
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (state == CastingState.inGame && other.GetComponent<Unit>() )
+		if ((other.tag == "Unit" || other.tag == "Turret") && canDoExit)
 		{
-			explosionList.Remove(other.GetComponent<Unit>());
+            if (explosionList.Contains(other.gameObject))
+            {
+                //Debug.Log("Remove : " + other.gameObject.name);
+                explosionList.Remove(other.gameObject);
+                //Debug.Log("LIST : " + explosionList.Count);
+            }
+                
 		}
 	}
 }

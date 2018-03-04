@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212469662196189576}
   m_Layer: 0
   m_Name: HealthBarBig
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114926131484375374}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -40,7 +40,9 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 					
 		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
-			Component[] c = GetComponentsInChildren<CircleCollider2D> ();
+            if(transform.GetChild(0).GetComponent<SpriteRenderer>() != null)
+                transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            Component[] c = GetComponentsInChildren<CircleCollider2D> ();
 			foreach (CircleCollider2D cc in c)
 				if(cc.name == "RangeRadius") 
 					cc.enabled = true;
@@ -87,20 +89,31 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 
     public void Hurt(int amount)
     {
+		if(state == BuildingState.inGame){
+	        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
+	        StartCoroutine(TimerWhiteColor());
 
-        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
-        StartCoroutine(TimerWhiteColor());
+	        health = health - (amount * (1 - defense / 100));
 
-        health = health - (amount * (1 - defense / 100));
-
-        if (health <= 0)
-        {
-            Die();
-        }
+	        if (health <= 0)
+	        {
+	            Die();
+	        }
+		}
     }
 
     private void Die()
     {
+        if (team == "p1")
+        {
+            if (FindObjectOfType<SecondPlayer>() != null)
+                FindObjectOfType<SecondPlayer>().addMoney(value);
+        }
+        else
+        {
+            if (FindObjectOfType<FirstPlayer>() != null)
+                FindObjectOfType<FirstPlayer>().addMoney(value);
+        }
         Destroy(gameObject);
     }
 

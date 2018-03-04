@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454953b8945176542b72bbfa3faef07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 40
+  attack: 75
   speed: 15
   team: p2
-  cost: 1000
+  cost: 350
 --- !u!212 &212108728258155892
 SpriteRenderer:
   m_ObjectHideFlags: 1

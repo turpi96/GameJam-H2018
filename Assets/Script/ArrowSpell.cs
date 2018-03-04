@@ -30,7 +30,7 @@ public class ArrowSpell : MonoBehaviour {
 	void Update () {
         if (!move)
         {
-            if (Input.GetButtonDown("Player2_Accept") || Input.GetKeyDown(KeyCode.F))
+			if ((Input.GetButtonDown("Player2_A") && team == "p2") || (Input.GetButtonDown("Player1_A") && team == "p1"))
             {
                 target = player.transform.position;
                 Vector3 between = target - transform.position;
@@ -39,6 +39,8 @@ public class ArrowSpell : MonoBehaviour {
                 move = true;
                 GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 StartCoroutine(DestroyTimer());
+				player.GetComponent<Player> ().changeState (Player.PlayerState.Ingame);
+                player.GetComponent<Player>().addMoney(-cost);
             }
 
             Vector3 diff = player.transform.position - transform.position;

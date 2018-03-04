@@ -53,19 +53,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  money: 90
-  cursorSpeed: 5
+  myMoney: 90
+  cursorSpeed: 8
   bomb: {fileID: 0}
   UnitPlayerShop: {fileID: 0}
   TurretPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
   PlayerGoldUI: {fileID: 0}
+  posArrow: {fileID: 4312978164332490, guid: 77e0b9d3a4f7b5045a2d78b3703e2a30, type: 2}
   currentSlot: 0
   chooseItem: {fileID: 0}
-  UnitSlotTable: []
-  TurretSlotTable: []
-  SpellSlotTable: []
-  workingShop: []
+  UnitSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TurretSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpellSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  workingShop:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   dumbTower: {fileID: 114287618788016328, guid: 47f21af37c94c1d4a8405bfac790d3d8,
     type: 2}
   dumbUnit: {fileID: 114948815610008214, guid: c30771a65be21d04da430bd0ea2ca909, type: 2}

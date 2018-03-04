@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114776427723581858}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212084311228451678}
   m_Layer: 0
   m_Name: HealthBarSmall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729415367767344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.466205, y: -5.5015144, z: -0.14871976}
+  m_LocalPosition: {x: 17.79, y: -2.5, z: -0.14871976}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4890528266229476}
@@ -136,8 +136,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: -0.20881653}
-  m_Size: {x: 3.2250843, y: 4.060341}
+  m_Offset: {x: 0.01889801, y: -0.7209358}
+  m_Size: {x: 3.0361023, y: 3.0361023}
   m_Direction: 0
 --- !u!114 &114397304202122120
 MonoBehaviour:
@@ -151,10 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p1
-  cost: 100
-  health: 10
-  defense: 5
-  value: 10
+  cost: 1250
+  health: 300
+  defense: 20
+  value: 150
   canBuild: 1
   colliders: []
   state: 1

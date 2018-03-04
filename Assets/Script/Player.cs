@@ -9,16 +9,32 @@ public abstract class Player : MonoBehaviour {
 		Building = 1,
 		Ingame = 2,
 		Shop = 3,
-		CastingSpell = 4};
+		CastingSpell = 4,
+		Arrow = 5};
 
 
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	public int money = 90;
+	public int myMoney = 90;
+
+	public int money {
+		get{
+
+			return myMoney + moneyToAdd;
+
+		}
+		set{
+			myMoney = value;
+
+
+		}
+
+
+	}
 	protected Building currentlyBuilding = null;
 	protected Casting currentlyCasting = null;
-	public float cursorSpeed = 5;
+	public float cursorSpeed = 8;
 	public Casting bomb;
 //	public Text PlayerShop;
 	 float timerIncome = 3.0f;
@@ -28,6 +44,7 @@ public abstract class Player : MonoBehaviour {
     public GameObject SpellPlayerShop;
 	protected Path pathToFollow;
     public Text PlayerGoldUI;
+	public Transform posArrow;
 
     public int currentSlot = 0;
     public GameObject chooseItem;
@@ -55,15 +72,25 @@ public abstract class Player : MonoBehaviour {
 			addMoney (20);
 		}
 		if (moneyToAdd > 50) {
-			moneyToAdd -= 5;
-			money += 5;
+			moneyToAdd -= 25;
+			myMoney+= 25;
 		} else if (moneyToAdd > 0) {
 
 			moneyToAdd--;
-			money++;
+			myMoney++;
 		}
+        else if (moneyToAdd < -100)
+        {
+			moneyToAdd+= 25;
+			myMoney-= 25;
+        }
+        else if (moneyToAdd < 00)
+        {
+            moneyToAdd++;
+			myMoney--;
+        }
 
-		checkInput ();
+        checkInput ();
 		checkPosition ();
         UpdateMoney();
     }
@@ -81,7 +108,7 @@ public abstract class Player : MonoBehaviour {
 //        PlayerGoldUI.text = money.ToString();
 
 		if(PlayerGoldUI != null)
-     	   PlayerGoldUI.text = money.ToString();
+     	   PlayerGoldUI.text = myMoney.ToString();
 
     }
 

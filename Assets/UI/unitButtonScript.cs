@@ -41,8 +41,13 @@ public class unitButtonScript : MonoBehaviour {
 
     public void checkMoneyButton()
     {
-        int myMoney = int.Parse(myMoneyText.text);
-
+      
+		Player p;
+		if (myUnit.GetComponent<Unit> ().getTeam () == "p1") {
+			p = GameObject.FindObjectOfType<FirstPlayer> ();
+		}else
+			p = GameObject.FindObjectOfType<SecondPlayer> ();
+		int myMoney = p.money;
         if (unitScript.cost > myMoney)
             interactable = false;
         else

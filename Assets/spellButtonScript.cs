@@ -41,7 +41,35 @@ public class spellButtonScript : MonoBehaviour {
 
     public void checkMoneyButton()
     {
-        int myMoney = int.Parse(myMoneyText.text);
+		Player p = null;
+		if (mySpell.GetComponent<Bomb> () != null) {
+			if (mySpell.GetComponent<Bomb> ().getTeam () == "p1") {
+				p = GameObject.FindObjectOfType<FirstPlayer> ();
+			}else
+				p = GameObject.FindObjectOfType<SecondPlayer> ();
+		}
+		if (mySpell.GetComponent<ArrowSpell> () != null) {
+			if (mySpell.GetComponent<ArrowSpell> ().team  == "p1") {
+				p = GameObject.FindObjectOfType<FirstPlayer> ();
+			}else
+				p = GameObject.FindObjectOfType<SecondPlayer> ();
+		}
+		if (mySpell.GetComponent<AllMapDamage> () != null) {
+			if (mySpell.GetComponent<AllMapDamage> ().team  == "p1") {
+				p = GameObject.FindObjectOfType<FirstPlayer> ();
+			}else
+				p = GameObject.FindObjectOfType<SecondPlayer> ();
+		}
+
+
+		int myMoney = 0;
+
+		if(p != null)
+
+		myMoney = p.money;
+
+
+
 
         if (mySpell.GetComponent<Bomb>() != null && mySpell.GetComponent<Bomb>().cost > myMoney)
             interactable = false;

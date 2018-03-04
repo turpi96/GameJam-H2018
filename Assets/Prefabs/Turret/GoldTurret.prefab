@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114753063550463802}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212189737328859752}
   m_Layer: 0
   m_Name: HealthBarSmall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4368458998537900}
   - component: {fileID: 212846064642773798}
   - component: {fileID: 114468287356069978}
-  - component: {fileID: 58859296170093390}
+  - component: {fileID: 70394122466661566}
   - component: {fileID: 50517749217828430}
   m_Layer: 0
   m_Name: GoldTurret
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282970178967632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.42, y: -3.74, z: -0.14871976}
+  m_LocalPosition: {x: 6.162094, y: -6.467252, z: -0.14871976}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 4019022643508422}
@@ -124,8 +124,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58859296170093390
-CircleCollider2D:
+--- !u!70 &70394122466661566
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -136,9 +136,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.086705685, y: -0.29479933}
-  serializedVersion: 2
-  m_Radius: 1.8757205
+  m_Offset: {x: 0.19916016, y: -0.75238204}
+  m_Size: {x: 3.628023, y: 2.3445623}
+  m_Direction: 1
 --- !u!114 &114468287356069978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,10 +151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p2
-  cost: 100
-  health: 10
-  defense: 5
-  value: 10
+  cost: 1250
+  health: 300
+  defense: 20
+  value: 150
   canBuild: 1
   colliders: []
   state: 1

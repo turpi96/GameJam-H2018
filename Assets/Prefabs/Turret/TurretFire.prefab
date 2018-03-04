@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114507093108051754}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 212948989795487438}
   m_Layer: 0
   m_Name: HealthBarSmall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1859904876850766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.13, y: -1.05, z: 0}
+  m_LocalPosition: {x: 2.9918575, y: -3.7573686, z: -3.7573686}
   m_LocalScale: {x: 0.48, y: 0.48, z: 1}
   m_Children:
   - {fileID: 4109554615929474}
@@ -144,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782262590620088}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.408, y: -0.016, z: 0}
+  m_LocalPosition: {x: -0.40800002, y: -0.015999913, z: -0.015359879}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4884978391092938}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948161006142234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.3, z: 0}
+  m_LocalPosition: {x: 0, y: 2.3000023, z: 1.104001}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4489372485401678}
@@ -196,9 +196,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
-  m_Radius: 1.6585374
+  m_Radius: 1.4741317
 --- !u!58 &58940032916512650
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -237,10 +237,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p1
-  cost: 100
-  health: 10
-  defense: 5
-  value: 10
+  cost: 750
+  health: 250
+  defense: 10
+  value: 75
   canBuild: 1
   colliders: []
   state: 1
@@ -368,7 +368,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bcd271f9bfa2c1d42a5a4e19b489779e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.272}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

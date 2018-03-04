@@ -93,6 +93,16 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
         //MAYBE PLAY AN ANIMATION
         //MAYBE PLAY A SOUND
         //GIVE VALUE ($) TO THE OTHER PLAYER
+        if (team == "p1")
+        {
+            if(FindObjectOfType<SecondPlayer>() != null)
+                FindObjectOfType<SecondPlayer>().addMoney(value);
+        }
+        else
+        {
+            if (FindObjectOfType<FirstPlayer>() != null)
+                FindObjectOfType<FirstPlayer>().addMoney(value);
+        }
         Destroy(this.gameObject);
     }
 
@@ -111,28 +121,59 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
             {
                 if (team != collision.GetComponent<HasTeam>().getTeam())
                 {
+					
                     if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag =="Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                     {
-                        if (collision.GetComponent<CanBeHurt>() != null)
-                        {
-                            //if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
-                            isAttacking = true;
-                            animator.SetBool("IsAttacking", true);
-                            targetList.Add(collision);
-                        }
+						if (isRange && collision.tag == "Turret") {
+							if (collision.GetComponent<Building> ().state == Building.BuildingState.inGame) {
+								isAttacking = true;
+								animator.SetBool ("IsAttacking", true);
+								targetList.Add (collision);
+							}
+
+						} else {
+							if (collision.GetComponent<CanBeHurt> () != null) {
+								//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
+								isAttacking = true;
+								animator.SetBool ("IsAttacking", true);
+								targetList.Add (collision);
+							}
+						}
                     }
                 }
             }
         }
     }
+	void OnTriggerStay2D(Collider2D collision){
+		if (isRange) {
+			if(collision.GetComponent<HasTeam> ()!= null){
+				if (team != collision.GetComponent<HasTeam> ().getTeam ()) {
+					if (collision.tag == "Turret") {
+						if (collision.GetComponent<Building>().state == Building.BuildingState.inGame && !targetList.Contains (collision)) {
+							targetList.Add (collision);
+							isAttacking = true;
+							animator.SetBool ("IsAttacking", true);
+						}
+					}
+				}
+			}
 
+		}
+	}
     private void OnTriggerExit2D(Collider2D collision)
     {
 		if (collision.GetComponent<HasTeam> () != null) {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
                 if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag == "Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                 {
-                    targetList.Remove (collision);
+					if (isRange && collision.tag == "Turret") {
+						if (collision.GetComponent<Building> ().state == Building.BuildingState.inGame) {
+							targetList.Remove (collision);
+				
+						}
+					}
+					else
+                   		 targetList.Remove (collision);
 					if (targetList.Count == 0) {
 						isAttacking = false;
 						animator.SetBool ("IsAttacking", false);
