@@ -87,16 +87,17 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 
     public void Hurt(int amount)
     {
+		if(state == BuildingState.inGame){_
+	        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
+	        StartCoroutine(TimerWhiteColor());
 
-        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
-        StartCoroutine(TimerWhiteColor());
+	        health = health - (amount * (1 - defense / 100));
 
-        health = health - (amount * (1 - defense / 100));
-
-        if (health <= 0)
-        {
-            Die();
-        }
+	        if (health <= 0)
+	        {
+	            Die();
+	        }
+		}
     }
 
     private void Die()
