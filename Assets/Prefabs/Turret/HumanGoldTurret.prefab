@@ -154,7 +154,7 @@ MonoBehaviour:
   cost: 1000
   health: 300
   defense: 20
-  value: 150
+  value: 200
   canBuild: 1
   colliders: []
   state: 1
