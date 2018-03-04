@@ -9,6 +9,7 @@ public class Turret : Building {
     private bool isShooting = false;
     private GameObject shootingObject;
     private float timeLeft;
+	public bool hasToRotate = true;
 
   
     public float shootingDelay = 1.0f;
@@ -32,9 +33,11 @@ public class Turret : Building {
 					if (shootingObject != null) {
                         Vector3 diff = shootingObject.transform.position - transform.position;
                         diff.Normalize();
-                        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-                        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+						if (hasToRotate) {
+							float rot_z = Mathf.Atan2 (diff.y, diff.x) * Mathf.Rad2Deg;
+							transform.rotation = Quaternion.Euler (0f, 0f, rot_z - 90);
 
+						}
                         Vector3 bulletPos;
                         Transform spawn = transform.Find("BulletSpawn");
                         if (spawn != null)
