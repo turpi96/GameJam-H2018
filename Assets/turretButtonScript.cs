@@ -7,7 +7,7 @@ public class turretButtonScript : MonoBehaviour {
 
     public GameObject myTurret;
     public Image buttonSprite;
-    public Text statText;
+    public Text[] statText;
     public Sprite towerSprite;
     public Text myMoneyText;
 
@@ -26,22 +26,23 @@ public class turretButtonScript : MonoBehaviour {
 
         buttonCost = turretScript.cost;
 
-        buttonSprite.sprite = towerSprite;
+        //buttonSprite.sprite = towerSprite;
 
         if (!customText)
         {
-            statText.text = turretScript.health.ToString() + "\n" +
-                        myTurret.GetComponent<Turret>().bulletToShoot.GetComponent<Bullet>().hurtValue.ToString() + "\n" +
-                        turretScript.defense.ToString() + "\n" +
-                        turretScript.GetComponent<Turret>().shootingDelay.ToString() + "\n" +
-                        turretScript.cost.ToString();
+            Debug.Log("42");
+            statText[0].text = turretScript.health.ToString();
+            statText[1].text = myTurret.GetComponent<Turret>().bulletToShoot.GetComponent<Bullet>().hurtValue.ToString();
+            statText[2].text = turretScript.defense.ToString();
+            statText[3].text = turretScript.GetComponent<Turret>().shootingDelay.ToString();
+            statText[5].text = turretScript.cost.ToString();
         }
         else
         {
-
-            statText.text = turretScript.health.ToString() + "\n" +
-                        turretScript.defense.ToString() + "\n" +
-                        turretScript.cost.ToString();
+            Debug.Log("43");
+            statText[0].text = turretScript.health.ToString();
+            statText[2].text = turretScript.defense.ToString();
+            statText[5].text = turretScript.cost.ToString();
         }
 
         checkMoneyButton();

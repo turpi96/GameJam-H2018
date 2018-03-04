@@ -11,7 +11,10 @@ public class AudioManagers : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		foreach (AudioManagers c in FindObjectsOfType<AudioManagers> ()) {
+			if (c != this)
+				Destroy (c.gameObject);
+		}
 	}
 		
 }
