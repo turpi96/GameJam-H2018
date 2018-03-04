@@ -40,7 +40,7 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 					
 		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
-            if(transform.GetChild(0).GetComponent<SpriteRenderer>() != null)
+            if(transform.GetChild(0).GetComponent<SpriteRenderer>() != null && GetComponent<IncomeBuilding>() == null)
                 transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             Component[] c = GetComponentsInChildren<CircleCollider2D> ();
 			foreach (CircleCollider2D cc in c)
