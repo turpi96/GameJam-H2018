@@ -342,7 +342,7 @@ MonoBehaviour:
   isAttackingTurret: 0
   defense: 5
   cost: 200
-  value: 40
+  value: 50
   bullet: {fileID: 1819512345894218, guid: 94942352453c1394a9e50f291d9d71d2, type: 2}
 --- !u!114 &114842656748490774
 MonoBehaviour:

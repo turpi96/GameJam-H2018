@@ -293,7 +293,7 @@ MonoBehaviour:
   isAttackingTurret: 0
   defense: 10
   cost: 75
-  value: 20
+  value: 30
   bullet: {fileID: 0}
 --- !u!212 &212019120467895508
 SpriteRenderer:
