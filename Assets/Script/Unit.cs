@@ -133,7 +133,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
 							}
 
 						} else {
-							if (collision.GetComponent<CanBeHurt> () != null) {
+							if (collision.GetComponent<CanBeHurt> () != null && collision.tag != "Turret") {
 								//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
 								isAttacking = true;
 								animator.SetBool ("IsAttacking", true);
