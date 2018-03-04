@@ -163,10 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c0a37edcd4ccd4f80ed9fe6326b7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  team: p1
+  cost: 100
+  health: 10
+  defense: 5
   canBuild: 1
   colliders: []
   state: 1
-  team: 
+  hasToRotate: 1
   shootingDelay: 1
   bulletToShoot: {fileID: 1018596641998038, guid: 3e673d5acef7bd1419a47db9185577a6,
     type: 2}

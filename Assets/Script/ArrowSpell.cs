@@ -7,6 +7,7 @@ public class ArrowSpell : MonoBehaviour {
     public int attack = 40;
     public float speed = 10.0f;
     public string team;
+    public int cost;
 
     private Vector3 target;
     GameObject player;
