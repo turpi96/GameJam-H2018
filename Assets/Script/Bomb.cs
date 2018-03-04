@@ -6,9 +6,8 @@ public class Bomb : Casting, HasTeam {
 
 	private int timeleft= 2;
     
-	private AudioSource audioS;
 
-	public AudioSource myAudio;
+	private AudioSource myAudio;
 
 	private bool play = true;
 	private bool toggleChange = true;
@@ -27,8 +26,7 @@ public class Bomb : Casting, HasTeam {
 	void Start () {
 
 		explosionList = new List<Unit>();
-
-		audioS = GetComponent<AudioSource> ();
+        
 
 		myAudio = GetComponent<AudioSource> ();
 

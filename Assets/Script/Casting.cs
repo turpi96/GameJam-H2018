@@ -15,7 +15,6 @@ public class Casting : MonoBehaviour {
 	public void changeState(CastingState newState){
 		state = newState;
 		if (newState == CastingState.isTargeting) {
-			GetComponent<SpriteRenderer> ().color = Color.gray;
 			canCast = true;
 		}
 	}
