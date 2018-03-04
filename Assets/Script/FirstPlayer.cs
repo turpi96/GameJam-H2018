@@ -23,10 +23,9 @@ public class FirstPlayer : Player {
 		if (Input.GetButtonDown ("Player1_A") && playerState == PlayerState.Building && currentlyBuilding.canBuild) {
 			changeState (PlayerState.Ingame);
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
-			currentlyBuilding = null;
-			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
             addMoney(-currentlyBuilding.cost);
-
+            currentlyBuilding = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
         }
 
 		if (Input.GetButtonDown ("Player1_A") && playerState == PlayerState.CastingSpell) {
