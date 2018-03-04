@@ -10,7 +10,7 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 	public string team;
 	public int cost= 100;
 	public float health;
-	public const float maxHealth = 10;
+	private float maxHealth;
 	public int defense = 5;
 
 	public bool canBuild = true;
@@ -48,7 +48,7 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 	}
 	// Use this for initialization
 	public void Start () {
-		health = maxHealth;
+        maxHealth = health;
 	}
 
 	public void setCanBuild(bool val){
@@ -86,6 +86,10 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 
     public void Hurt(int amount)
     {
+
+        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
+        StartCoroutine(TimerWhiteColor());
+
         health = health - (amount * (1 - defense / 100));
 
         if (health <= 0)
@@ -97,5 +101,11 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    IEnumerator TimerWhiteColor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
