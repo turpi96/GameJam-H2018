@@ -47,7 +47,7 @@ public class Bomb : Casting, HasTeam {
 			}
 			if (timeleft <= 0) {
 				
-				StopCoroutine ("explosion");
+				//StopCoroutine ("explosion");
 				waitAndExplode ();
 			}
 		}
@@ -91,11 +91,12 @@ public class Bomb : Casting, HasTeam {
         if (play == true && toggleChange == true) {
 			
 			foreach (GameObject g in explosionList) {
+                Debug.Log("caca");
 				if(team != g.GetComponent<HasTeam>().getTeam()){
-                    g.GetComponent<CanBeHurt>().Hurt(attack);
+                    g.GetComponent<CanBeHurt>().Hurt(1);
 				}
 			}
-			explosionList = null;
+			explosionList.Clear();
 			myAudio.Play ();
 			toggleChange = false;
 		}
@@ -104,17 +105,19 @@ public class Bomb : Casting, HasTeam {
 
 	 void OnTriggerEnter2D(Collider2D other)
 	{
-		if (state == CastingState.inGame && (other.tag == "Unit" || other.tag == "Turret"))
+		if (other.tag == "Unit" || other.tag == "Turret")
 		{
-			explosionList.Add(other.gameObject);
+            if(!explosionList.Contains(other.gameObject))
+			    explosionList.Add(other.gameObject);
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (state == CastingState.inGame && (other.tag == "Unit" || other.tag == "Turret"))
+		if (other.tag == "Unit" || other.tag == "Turret")
 		{
-			explosionList.Remove(other.gameObject);
+            if (explosionList.Contains(other.gameObject))
+                explosionList.Remove(other.gameObject);
 		}
 	}
 }
