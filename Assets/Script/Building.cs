@@ -101,6 +101,14 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 
     private void Die()
     {
+        if (team == "p1")
+        {
+            GameObject.FindObjectOfType<SecondPlayer>().addMoney(value);
+        }
+        else
+        {
+            GameObject.FindObjectOfType<FirstPlayer>().addMoney(value);
+        }
         Destroy(gameObject);
     }
 

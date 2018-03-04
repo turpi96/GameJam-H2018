@@ -7,7 +7,7 @@ public class unitButtonScript : MonoBehaviour {
 
     public GameObject myUnit;
     public Image buttonSprite;
-    public Text statText;
+    public Text[] statText;
     public Sprite unitSprite;
     public Text myMoneyText;
 
@@ -22,12 +22,13 @@ public class unitButtonScript : MonoBehaviour {
 
         buttonCost = unitScript.cost;
 
-        buttonSprite.sprite = unitSprite;
-        statText.text = unitScript.health.ToString() + "\n" +
-                        unitScript.attack.ToString() + "\n" +
-                        unitScript.defense.ToString() + "\n" +
-                        unitScript.attackDelay.ToString() + "\n" +
-                        unitScript.cost.ToString();
+        statText[0].text = unitScript.health.ToString();
+        statText[1].text = unitScript.attack.ToString();
+        statText[2].text = unitScript.defense.ToString();
+        statText[3].text = unitScript.attackDelay.ToString();
+        statText[4].text = unitScript.GetComponent<MoveOnPath>().speed.ToString();
+        statText[5].text = unitScript.health.ToString();
+
 
         checkMoneyButton();
     }
@@ -56,7 +57,7 @@ public class unitButtonScript : MonoBehaviour {
         Image imgButton = base.GetComponent<Image>();
         Color btnColor = imgButton.color;
         
-
+        /////////////////////*******************LE CHANGEMENT D'ALPHA N'EST PAS VISIBLE**********************////////////////////////////
         if (interactable == false)
             btnColor.a = 0.5f;
         else

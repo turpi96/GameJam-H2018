@@ -93,6 +93,14 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
         //MAYBE PLAY AN ANIMATION
         //MAYBE PLAY A SOUND
         //GIVE VALUE ($) TO THE OTHER PLAYER
+        if (team == "p1")
+        {
+            FindObjectOfType<SecondPlayer>().addMoney(value);
+        }
+        else
+        {
+            FindObjectOfType<FirstPlayer>().addMoney(value);
+        }
         Destroy(this.gameObject);
     }
 
