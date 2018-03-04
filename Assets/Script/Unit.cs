@@ -154,11 +154,6 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
         }
     }
 
-    public float GetMaxHealth()
-    {
-        return maxHealth;
-    }
-
     IEnumerator TimerWhiteColor()
     {
         yield return new WaitForSeconds(0.2f);
