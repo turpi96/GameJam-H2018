@@ -42,6 +42,13 @@ public class FirstPlayer : Player {
 
 			checkShopInputSpell ();
 		}
+		if(Input.GetButtonDown ("Player1_B") && playerState == PlayerState.CastingSpell){
+			Destroy (currentlyCasting.gameObject);
+			currentlyCasting = null;
+			changeState (PlayerState.Ingame);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+
+		}
 		if(Input.GetButtonDown ("Player1_B") && playerState == PlayerState.Building){
 			Destroy (currentlyBuilding.gameObject);
 			currentlyBuilding = null;

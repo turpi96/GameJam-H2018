@@ -316,7 +316,7 @@ MonoBehaviour:
   colliders: []
   state: 1
   hasToRotate: 1
-  shootingDelay: 1
+  shootingDelay: 0.5
   bulletToShoot: {fileID: 1018596641998038, guid: 3e673d5acef7bd1419a47db9185577a6,
     type: 2}
 --- !u!114 &114578697446699502

@@ -50,6 +50,13 @@ public class SecondPlayer : Player {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 
 		}
+		if(Input.GetButtonDown ("Player2_B") && playerState == PlayerState.CastingSpell){
+			Destroy (currentlyCasting.gameObject);
+			currentlyCasting = null;
+			changeState (PlayerState.Ingame);
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+
+		}
         float x = 0;
 		float y = 0;
 		if (Mathf.Abs (Input.GetAxis ("Player2_Horizontal")) > 0.2f)

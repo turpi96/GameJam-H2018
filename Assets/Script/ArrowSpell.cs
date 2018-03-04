@@ -43,6 +43,13 @@ public class ArrowSpell : MonoBehaviour {
                 player.GetComponent<Player>().addMoney(-cost);
                 GetComponent<AudioSource>().Play();
             }
+			else if ((Input.GetButtonDown("Player2_B") && team == "p2") || (Input.GetButtonDown("Player1_B") && team == "p1"))
+			{
+			
+				player.GetComponent<Player> ().changeState (Player.PlayerState.Ingame);
+			
+				Destroy(gameObject);
+			}
 
             Vector3 diff = player.transform.position - transform.position;
             diff.Normalize();
