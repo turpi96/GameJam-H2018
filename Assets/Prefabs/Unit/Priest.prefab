@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 2
+  speed: 2.5
   isReverse: 1
 --- !u!114 &114783788592548360
 MonoBehaviour:
@@ -351,7 +351,7 @@ MonoBehaviour:
   team: p1
   health: 100
   attack: 60
-  attackDelay: 3
+  attackDelay: 2.5
   isRange: 1
   isAttackingTurret: 1
   defense: 10

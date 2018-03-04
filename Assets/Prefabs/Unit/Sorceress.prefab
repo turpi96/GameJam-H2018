@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 7
+  speed: 6.5
   isReverse: 0
 --- !u!114 &114985633732419954
 MonoBehaviour:

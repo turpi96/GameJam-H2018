@@ -48,30 +48,38 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
 	void Update () {
         if(targetList.Count >= 1)
         {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft <= 0)
+            if(targetList[0].gameObject != null)
             {
-                if(bullet != null)
+                timeLeft -= Time.deltaTime;
+                if (timeLeft <= 0)
                 {
-                    shootingObject = targetList[0].gameObject;
-                    Vector3 bulletPos;
-                    Transform spawn = transform.Find("SpawnBullet");
-                    if (spawn != null)
+                    if (bullet != null)
                     {
-                        bulletPos = spawn.position;
+                        shootingObject = targetList[0].gameObject;
+                        Vector3 bulletPos;
+                        Transform spawn = transform.Find("SpawnBullet");
+                        if (spawn != null)
+                        {
+                            bulletPos = spawn.position;
+                        }
+                        else
+                        {
+                            bulletPos = transform.position;
+                        }
+                        GameObject go = Instantiate(bullet, bulletPos, Quaternion.identity) as GameObject;
+                        go.GetComponent<Bullet>().Initialise(shootingObject);
                     }
-                    else
-                    {
-                        bulletPos = transform.position;
-                    }
-                    GameObject go = Instantiate(bullet, bulletPos, Quaternion.identity) as GameObject;
-                    go.GetComponent<Bullet>().Initialise(shootingObject);
+                    timeLeft = currentDelay;
+                    if (!isRange)
+                        targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
+                    GetComponent<AudioSource>().Play();
                 }
-                timeLeft = currentDelay;
-                if(!isRange)
-                    targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
-                GetComponent<AudioSource>().Play();
             }
+            else
+            {
+                targetList.Remove(targetList[0]);
+            }
+
         }
     }
 
@@ -146,7 +154,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
         }
     }
 	void OnTriggerStay2D(Collider2D collision){
-		if (isRange) {
+		if (isRange && isAttackingTurret) {
 			if(collision.GetComponent<HasTeam> ()!= null){
 				if (team != collision.GetComponent<HasTeam> ().getTeam ()) {
 					if (collision.tag == "Turret") {

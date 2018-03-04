@@ -348,7 +348,7 @@ MonoBehaviour:
   team: p2
   health: 100
   attack: 60
-  attackDelay: 3
+  attackDelay: 2.5
   isRange: 1
   isAttackingTurret: 1
   defense: 10
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 2
+  speed: 2.5
   isReverse: 0
 --- !u!212 &212279266071348414
 SpriteRenderer:
