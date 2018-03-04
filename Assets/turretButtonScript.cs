@@ -56,7 +56,12 @@ public class turretButtonScript : MonoBehaviour {
 
     public void checkMoneyButton()
     {
-        int myMoney = int.Parse(myMoneyText.text);
+		Player p;
+		if (myTurret.GetComponent<Building> ().getTeam () == "p1") {
+			p = GameObject.FindObjectOfType<FirstPlayer> ();
+		}else
+			p = GameObject.FindObjectOfType<SecondPlayer> ();
+		int myMoney = p.money;
 
         if (turretScript.cost > myMoney)
             interactable = false;
