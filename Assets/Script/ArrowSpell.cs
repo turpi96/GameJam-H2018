@@ -40,6 +40,7 @@ public class ArrowSpell : MonoBehaviour {
                 GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 StartCoroutine(DestroyTimer());
 				player.GetComponent<Player> ().changeState (Player.PlayerState.Ingame);
+                player.GetComponent<Player>().addMoney(-cost);
             }
 
             Vector3 diff = player.transform.position - transform.position;

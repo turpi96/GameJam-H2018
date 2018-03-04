@@ -64,8 +64,18 @@ public abstract class Player : MonoBehaviour {
 			moneyToAdd--;
 			money++;
 		}
+        else if (moneyToAdd < -100)
+        {
+            moneyToAdd+=5;
+            money-=5;
+        }
+        else if (moneyToAdd < 00)
+        {
+            moneyToAdd++;
+            money--;
+        }
 
-		checkInput ();
+        checkInput ();
 		checkPosition ();
         UpdateMoney();
     }

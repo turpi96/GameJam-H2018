@@ -27,14 +27,16 @@ public class SecondPlayer : Player {
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
 			currentlyBuilding = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
-		}
+            addMoney(-currentlyBuilding.cost);
+        }
 
 		if (Input.GetButtonDown ("Player2_A") && playerState == PlayerState.CastingSpell) {
 			changeState (PlayerState.Ingame);
 			currentlyCasting.changeState (Casting.CastingState.inGame);
 			currentlyCasting = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
-		}
+            addMoney(-currentlyCasting.GetComponent<Bomb>().cost);
+        }
 		if (playerState == PlayerState.Ingame || playerState == PlayerState.Shop) {
 			checkShopInputTurret ();
 			checkShopInputUnits ();
@@ -298,7 +300,8 @@ public class SecondPlayer : Player {
 			Unit unit = Instantiate (chooseItem.GetComponent<unitButtonScript> ().myUnit.GetComponent<Unit> (), spawnPoint.position, spawnPoint.rotation);
 			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 			unit.team = "p2";
-			changeState (PlayerState.Ingame);
+            addMoney(-unit.cost);
+            changeState (PlayerState.Ingame);
 		} else if (chooseItem.GetComponent<turretButtonScript> () != null) {
 			changeState (PlayerState.Building);
 			currentlyBuilding = Instantiate (chooseItem.GetComponent<turretButtonScript>().myTurret.GetComponent<Building>(), new Vector3(transform.position.x,transform.position.y,1),transform.rotation);
@@ -322,7 +325,8 @@ public class SecondPlayer : Player {
 			else if(g.GetComponent<AllMapDamage>() != null){
 				Instantiate (g.GetComponent < AllMapDamage> ());
 				changeState (PlayerState.Ingame);
-			}
+                addMoney(-g.GetComponent<AllMapDamage>().cost);
+            }
 
 		}
     }

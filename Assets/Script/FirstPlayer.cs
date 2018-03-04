@@ -25,13 +25,16 @@ public class FirstPlayer : Player {
 			currentlyBuilding.changeState (Building.BuildingState.inGame);
 			currentlyBuilding = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
-		}
+            addMoney(-currentlyBuilding.cost);
+
+        }
 
 		if (Input.GetButtonDown ("Player1_A") && playerState == PlayerState.CastingSpell) {
 			changeState (PlayerState.Ingame);
 			currentlyCasting.changeState (Casting.CastingState.inGame);
 			currentlyCasting = null;
 			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
+            addMoney(-currentlyCasting.GetComponent<Bomb>().cost);
 		}
 		if (playerState == PlayerState.Ingame || playerState == PlayerState.Shop) {
 			checkShopInputTurret ();
@@ -296,6 +299,7 @@ public class FirstPlayer : Player {
 			Unit unit = Instantiate (chooseItem.GetComponent<unitButtonScript> ().myUnit.GetComponent<Unit> (), spawnPoint.position, spawnPoint.rotation);
 			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
 			unit.team = "p1";
+            addMoney(-unit.cost);
 			changeState (PlayerState.Ingame);
 		} else if (chooseItem.GetComponent<turretButtonScript> () != null) {
 			changeState (PlayerState.Building);
@@ -303,7 +307,7 @@ public class FirstPlayer : Player {
 			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
 			currentlyBuilding.changeState (Building.BuildingState.inConstruction);
 			currentlyBuilding.team = "p1";
-		} else if (chooseItem.GetComponent<spellButtonScript> () != null) {
+        } else if (chooseItem.GetComponent<spellButtonScript> () != null) {
 
 			GameObject g = chooseItem.GetComponent<spellButtonScript> ().mySpell;
 			if (g.GetComponent<Bomb> () != null) {
@@ -320,6 +324,7 @@ public class FirstPlayer : Player {
 			else if(g.GetComponent<AllMapDamage>() != null){
 				Instantiate (g.GetComponent < AllMapDamage> ());
 				changeState (PlayerState.Ingame);
+                addMoney(-g.GetComponent<AllMapDamage>().cost);
 			}
 	
 		}
