@@ -87,7 +87,7 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 
     public void Hurt(int amount)
     {
-		if(state == BuildingState.inGame){_
+		if(state == BuildingState.inGame){
 	        GetComponent<SpriteRenderer>().color = new Color(0.604f, 0.13f, 0.13f);
 	        StartCoroutine(TimerWhiteColor());
 
