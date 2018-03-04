@@ -53,7 +53,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -133,14 +133,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83001d977ea7743468f73dcceae20b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerState: 2
   cam: {fileID: 0}
   money: 750
-  moneyGeneration: 30
+  moneyGeneration: 50
   sounds:
   - {fileID: 8300000, guid: 6082bf6e9de0aa24a90b0196c2edaedb, type: 3}
   - {fileID: 8300000, guid: a699ad83e04c81840ba29e8bd657a8e2, type: 3}
   - {fileID: 8300000, guid: 33c6b046d0757494f960ab99763f269e, type: 3}
-  cursorSpeed: 8
+  cursorSpeed: 10
   bomb: {fileID: 114924291326847146, guid: 4eedd0fcb13ddeb4790614d7a358cc39, type: 2}
   UnitPlayerShop: {fileID: 0}
   TurretPlayerShop: {fileID: 0}
