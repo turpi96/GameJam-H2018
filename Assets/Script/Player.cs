@@ -57,6 +57,7 @@ public abstract class Player : MonoBehaviour {
     public void Start () {
 		cam = FindObjectOfType<Camera> ();
 		pathToFollow = FindObjectOfType<Path> ();
+		//openMenu = GetComponent<AudioClip>;
     }
 
 	public void addMoney(int amount){

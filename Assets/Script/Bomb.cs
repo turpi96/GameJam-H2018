@@ -7,7 +7,7 @@ public class Bomb : Casting, HasTeam {
 	private int timeleft= 2;
     
 
-	private AudioSource myAudio;
+	private AudioSource audioExplosion;
 
 	private bool play = true;
 	private bool toggleChange = true;
@@ -31,7 +31,7 @@ public class Bomb : Casting, HasTeam {
 		explosionList = new List<GameObject>();
         
 
-		myAudio = GetComponent<AudioSource> ();
+		audioExplosion = GetComponent<AudioSource> ();
 
 
 	}
@@ -100,7 +100,7 @@ public class Bomb : Casting, HasTeam {
                 }
             }
 			explosionList.Clear();
-			myAudio.Play ();
+			audioExplosion.Play ();
 			toggleChange = false;
 		}
 		Destroy (gameObject, 1);
