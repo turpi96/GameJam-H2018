@@ -235,7 +235,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fc957ce75ff54ca458b9d3aae39bf896, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 7
+  speed: 6.5
   isReverse: 1
 --- !u!114 &114862080206332616
 MonoBehaviour:

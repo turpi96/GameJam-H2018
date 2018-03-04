@@ -66,6 +66,6 @@ public class AllMapDamage : MonoBehaviour {
 
         GetComponent<AudioSource>().Play();
 
-        Destroy(gameObject,0.8f);
+        Destroy(gameObject,6.0f);
     }
 }

@@ -17,6 +17,7 @@ public abstract class Player : MonoBehaviour {
 	public Camera cam;
 	protected string playerName;
 	public int money = 90;
+    public int moneyGeneration = 0;
 
     [SerializeField] protected AudioClip[] sounds;
 
@@ -63,8 +64,8 @@ public abstract class Player : MonoBehaviour {
 	public void Update () {
 		timerIncome -= Time.deltaTime;
 		if (timerIncome <= 0) {
-			timerIncome = 3.0f;
-			addMoney (20);
+			timerIncome = 1.0f;
+			addMoney (moneyGeneration);
 		}
 
         checkInput ();
