@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -89,10 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b09f6cb908181054f83cc2547d2c0809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: p1
+  team: p2
   speed: 10
   maxLiveTime: 5
-  hurtValue: 65
+  hurtValue: 50
   hasToRotate: 0
   isAttackingTurret: 1
 --- !u!212 &212767246638564438
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 298a60124ac5eb24fa63fad37ff40b28, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90f5cd60fe4a06540a50038d405fa965, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

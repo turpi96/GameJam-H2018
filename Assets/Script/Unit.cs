@@ -111,7 +111,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
             {
                 if (team != collision.GetComponent<HasTeam>().getTeam())
                 {
-                    if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
+                    if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag =="Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                     {
                         if (collision.GetComponent<CanBeHurt>() != null)
                         {
@@ -130,7 +130,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
     {
 		if (collision.GetComponent<HasTeam> () != null) {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
-                if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && collision.tag == "Turret") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
+                if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag == "Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                 {
                     targetList.Remove (collision);
 					if (targetList.Count == 0) {

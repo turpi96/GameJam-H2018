@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scene/Menu.unity
+    guid: e538491a3240c26478ef8292fbf4f4d1
+  - enabled: 1
     path: Assets/Scene/GameJam.unity
     guid: 6a5b09a1df7aaad438c679436c91a2c5
   - enabled: 1
@@ -17,6 +20,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/ButtonLayout.unity
     guid: bd11d76f85db71e408db6e645e070d36
-  - enabled: 1
-    path: Assets/Scene/MainMenu.unity
-    guid: 92caf47748a5ddc47b93e9d3ac8822b2
