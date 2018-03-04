@@ -78,9 +78,9 @@ public class SecondPlayer : Player {
 						workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
 
-						if (Input.GetAxis ("Player2_Up") < 0)
+						if (Input.GetAxis ("Player2_Up") > 0)
 							currentSlot--;
-						else if (Input.GetAxis ("Player2_Up") > 0)
+						else if (Input.GetAxis ("Player2_Up") < 0)
 							currentSlot++;
 						if (currentSlot < 0)
 							currentSlot = 2;
