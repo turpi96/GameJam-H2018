@@ -20,7 +20,7 @@ public class SceneManagers : MonoBehaviour {
 	}
 
 	public void startGame(){
-		SceneManager.LoadScene ("Gamejam");
+		SceneManager.LoadScene ("ButtonLayout");
 
 
 	}
