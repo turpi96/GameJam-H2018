@@ -136,7 +136,7 @@ public class SecondPlayer : Player {
                TurretPlayerShop.activeSelf == false &&
                SpellPlayerShop.activeSelf == false && 
                Input.GetButtonDown ("Player2_Left")) {
-                workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
+                workingShop [currentSlot].GetComponent<outlineScript>().disableOutline();
 
 				changeState (PlayerState.Ingame);
 				UnitPlayerShop.SetActive (false);
@@ -145,6 +145,7 @@ public class SecondPlayer : Player {
                       SpellPlayerShop.activeSelf == false &&
                       Input.GetButtonDown ("Player2_Left"))
             {
+                Debug.Log("42");
                 changeState(PlayerState.Shop);
                 UnitPlayerShop.SetActive(true);
                 currentSlot = 0;
