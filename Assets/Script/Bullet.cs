@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     public float speed = 10.0f;
     public float maxLiveTime = 10.0f;
     public int hurtValue = 3;
+    public bool hasToRotate = true;
+    public bool isAttackingTurret = false;
 
     // Use this for initialization
     void Start()
@@ -26,7 +28,17 @@ public class Bullet : MonoBehaviour
         {
             if(target != null)
             {
-                transform.Rotate(Vector3.forward * Time.deltaTime * 1200);
+                if(hasToRotate)
+                {
+                    transform.Rotate(Vector3.forward * Time.deltaTime * 1200);
+                }
+                else
+                {
+                    Vector3 diff = target.transform.position - transform.position;
+                    diff.Normalize();
+                    float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+                }
                 float step = speed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
             }
@@ -41,12 +53,40 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<Unit>() != null)
+        if (hasToRotate)
         {
-            if (team != other.GetComponent<HasTeam>().getTeam())
+            if (other.GetComponent<Unit>() != null)
             {
-                other.GetComponent<Unit>().Hurt(hurtValue);
-                Destroy(gameObject);
+                if (team != other.GetComponent<HasTeam>().getTeam())
+                {
+                    other.GetComponent<Unit>().Hurt(hurtValue);
+                    Destroy(gameObject);
+                }
+            }
+        }
+        else
+        {
+            if (other.GetComponent<HasTeam>() != null)
+            {
+                if (team != other.GetComponent<HasTeam>().getTeam())
+                {
+                    if (isAttackingTurret )
+                    {
+                        if (other.GetComponent<CanBeHurt>() != null)
+                        {
+                            other.GetComponent<CanBeHurt>().Hurt(hurtValue);
+                            Destroy(gameObject);
+                        }
+                    }
+                    else if(other.tag =="Unit" || other.tag =="Tower")
+                    {
+                        if (other.GetComponent<CanBeHurt>() != null)
+                        {
+                            other.GetComponent<CanBeHurt>().Hurt(hurtValue);
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
         }
     }
