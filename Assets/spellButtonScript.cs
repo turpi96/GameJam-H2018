@@ -45,10 +45,10 @@ public class spellButtonScript : MonoBehaviour {
     {
         int myMoney = int.Parse(myMoneyText.text);
 
-        if (turretScript.cost > myMoney)
+        /*if (turretScript.cost > myMoney)
             interactable = false;
         else
-            interactable = true;
+            interactable = true;*/
 
 
         grayOutButton();
@@ -72,6 +72,6 @@ public class spellButtonScript : MonoBehaviour {
 
     public GameObject returnSelectedObject()
     {
-        return myTurret;
+        return mySpell;
     }
 }
