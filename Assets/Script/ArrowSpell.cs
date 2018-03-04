@@ -41,6 +41,7 @@ public class ArrowSpell : MonoBehaviour {
                 StartCoroutine(DestroyTimer());
 				player.GetComponent<Player> ().changeState (Player.PlayerState.Ingame);
                 player.GetComponent<Player>().addMoney(-cost);
+                GetComponent<AudioSource>().Play();
             }
 
             Vector3 diff = player.transform.position - transform.position;
