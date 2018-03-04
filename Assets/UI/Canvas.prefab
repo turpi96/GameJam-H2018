@@ -2379,10 +2379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128e13201dc2fe24e831b35796fa6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpell: {fileID: 1487948388816986, guid: 5defa05e72c1d714384c0d2072dc9ebb, type: 2}
+  mySpell: {fileID: 1710594081303292, guid: 73fb9f7ba04ce074c8a16dd04ec579d5, type: 2}
   buttonSprite: {fileID: 114555636086920712}
   statText: {fileID: 114727824014715394}
-  spellSprite: {fileID: 21300000, guid: 28a76ea05ddfbb5428612bfe9f0d58ed, type: 3}
+  spellSprite: {fileID: 21300000, guid: 52f9f24b8015fd844bbf1864d43fe1ae, type: 3}
   myMoneyText: {fileID: 114910201960074126}
   interactable: 0
 --- !u!114 &114032032360399372
@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a042555f0deb4e44a7248c50f9474d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTurret: {fileID: 1433604639583674, guid: d5d485bd453e9ec48828d71c19a869e8, type: 2}
+  myTurret: {fileID: 1814322571671710, guid: 00af7ec43e2055d4b873e42fda57fac6, type: 2}
   buttonSprite: {fileID: 114688778593822954}
   statText: {fileID: 114104869529196994}
   towerSprite: {fileID: 21300000, guid: 94715de61f7f5c24a800d0ce7758812a, type: 3}
@@ -4498,7 +4498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128e13201dc2fe24e831b35796fa6d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpell: {fileID: 1203422000845224, guid: 4eedd0fcb13ddeb4790614d7a358cc39, type: 2}
+  mySpell: {fileID: 1587298778831344, guid: bd758b2cb371e0642bb12c440cc9c8b0, type: 2}
   buttonSprite: {fileID: 114176450977718702}
   statText: {fileID: 114705831644328458}
   spellSprite: {fileID: 21300000, guid: 03ab8ae4cea31bb49886bdad207df478, type: 3}

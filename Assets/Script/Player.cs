@@ -9,7 +9,8 @@ public abstract class Player : MonoBehaviour {
 		Building = 1,
 		Ingame = 2,
 		Shop = 3,
-		CastingSpell = 4};
+		CastingSpell = 4,
+		Arrow = 5};
 
 
 	protected PlayerState playerState = PlayerState.Ingame;
@@ -28,6 +29,7 @@ public abstract class Player : MonoBehaviour {
     public GameObject SpellPlayerShop;
 	protected Path pathToFollow;
     public Text PlayerGoldUI;
+	public Transform posArrow;
 
     public int currentSlot = 0;
     public GameObject chooseItem;

@@ -404,7 +404,110 @@ RectTransform:
 --- !u!114 &31786501
 MonoBehaviour:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224915026736099338, guid: ebdb70444f50d11429fccbf3d2dd949e,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ebdb70444f50d11429fccbf3d2dd949e, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &387243390 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1791276101126938, guid: ebdb70444f50d11429fccbf3d2dd949e,
+=======
   m_PrefabParentObject: {fileID: 114424060982467816, guid: ebdb70444f50d11429fccbf3d2dd949e,
+>>>>>>> 9944b33d83d044cf1f40353fa7ac3ad3122723a4
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 31786499}
@@ -963,6 +1066,8 @@ GameObject:
 --- !u!224 &96035145
 RectTransform:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
+=======
   m_PrefabParentObject: {fileID: 224546851737154722, guid: ebdb70444f50d11429fccbf3d2dd949e,
     type: 2}
   m_PrefabInternal: {fileID: 0}
@@ -4524,10 +4629,13 @@ CanvasRenderer:
 --- !u!1001 &689492500
 Prefab:
   m_ObjectHideFlags: 0
+>>>>>>> 9944b33d83d044cf1f40353fa7ac3ad3122723a4
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
+=======
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
       propertyPath: workingShop.Array.size
@@ -4548,6 +4656,7 @@ Prefab:
       propertyPath: TurretSlotTable.Array.size
       value: 3
       objectReference: {fileID: 0}
+>>>>>>> 9944b33d83d044cf1f40353fa7ac3ad3122723a4
     - target: {fileID: 4742925814538104, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
       propertyPath: m_LocalPosition.x
       value: -9.278415
@@ -4582,6 +4691,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
+<<<<<<< HEAD
+=======
       propertyPath: PlayerGoldUI
       value: 
       objectReference: {fileID: 951819345}
@@ -4593,6 +4704,7 @@ Prefab:
         type: 2}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
+>>>>>>> 9944b33d83d044cf1f40353fa7ac3ad3122723a4
       propertyPath: UnitPlayerShop
       value: 
       objectReference: {fileID: 1102598115}
@@ -4606,6 +4718,11 @@ Prefab:
       propertyPath: SpellPlayerShop
       value: 
       objectReference: {fileID: 1773271025}
+    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
+        type: 2}
+      propertyPath: PlayerGoldUI
+      value: 
+      objectReference: {fileID: 951819345}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
       propertyPath: UnitSlotTable.Array.data[0]
@@ -13725,26 +13842,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: workingShop.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: UnitSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: SpellSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: TurretSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4529509982836372, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.171587
@@ -13779,11 +13876,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
         type: 2}
-      propertyPath: PlayerGoldUI
-      value: 
-      objectReference: {fileID: 2070983224}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
       propertyPath: UnitPlayerShop
       value: 
       objectReference: {fileID: 1253297345}
@@ -13797,6 +13889,11 @@ Prefab:
       propertyPath: SpellPlayerShop
       value: 
       objectReference: {fileID: 12660584}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: PlayerGoldUI
+      value: 
+      objectReference: {fileID: 2070983224}
     - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
         type: 2}
       propertyPath: UnitSlotTable.Array.data[0]
