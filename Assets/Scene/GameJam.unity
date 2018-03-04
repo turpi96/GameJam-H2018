@@ -464,6 +464,11 @@ Prefab:
       propertyPath: SpellSlotTable.Array.data[2]
       value: 
       objectReference: {fileID: 809016109}
+    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
+        type: 2}
+      propertyPath: money
+      value: 44874684
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
   m_IsPrefabParent: 0
