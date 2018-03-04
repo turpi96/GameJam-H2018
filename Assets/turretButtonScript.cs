@@ -24,15 +24,7 @@ public class turretButtonScript : MonoBehaviour {
 
         turretScript = myTurret.GetComponent<Building>();
 
-        //if(myTurret.GetComponent<Building>() != null)
-            buttonCost = turretScript.cost;
-
-        //if (myTurret.GetComponent<TurretFreeze>() != null)
-        //    buttonCost = myTurret.GetComponent<TurretFreeze>().cost;
-
-        //if (myTurret.GetComponent<IncomeBuilding>() != null)
-        //    buttonCost = myTurret.GetComponent<IncomeBuilding>().cost;
-
+        buttonCost = turretScript.cost;
 
         buttonSprite.sprite = towerSprite;
 

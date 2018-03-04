@@ -133,7 +133,8 @@ public class SecondPlayer : Player {
 		if (UnitPlayerShop != null) {
 			if (UnitPlayerShop.activeSelf == true &&
                TurretPlayerShop.activeSelf == false &&
-			   Input.GetButtonDown ("Player2_Left")) {
+               SpellPlayerShop.activeSelf == false && 
+               Input.GetButtonDown ("Player2_Left")) {
                 Debug.Log("I'VE BEEN THERE");
                 workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
@@ -141,7 +142,8 @@ public class SecondPlayer : Player {
 				UnitPlayerShop.SetActive (false);
 			} else if (UnitPlayerShop.activeSelf == false &&
                       TurretPlayerShop.activeSelf == false &&
-			          Input.GetButtonDown ("Player2_Left"))
+                      SpellPlayerShop.activeSelf == false &&
+                      Input.GetButtonDown ("Player2_Left"))
             {
                 changeState(PlayerState.Shop);
                 UnitPlayerShop.SetActive(true);
@@ -176,6 +178,7 @@ public class SecondPlayer : Player {
         {
             if (TurretPlayerShop.activeSelf == true &&
                UnitPlayerShop.activeSelf == false &&
+               SpellPlayerShop.activeSelf == false &&
                Input.GetButtonDown("Player2_Right"))
             {
                 workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
@@ -184,6 +187,7 @@ public class SecondPlayer : Player {
             }
             else if (TurretPlayerShop.activeSelf == false &&
                     UnitPlayerShop.activeSelf == false &&
+                    SpellPlayerShop.activeSelf == false &&
                     Input.GetButtonDown("Player2_Right"))
             {
                 changeState(PlayerState.Shop);
@@ -204,7 +208,7 @@ public class SecondPlayer : Player {
             }
 
             if (Input.GetButtonDown("Player2_Accept") &&
-                 UnitPlayerShop.activeSelf == true &&
+                 TurretPlayerShop.activeSelf == true &&
                  workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
             {
                 setChoosenItem();
@@ -212,6 +216,51 @@ public class SecondPlayer : Player {
 
         }
     }
+
+   /* private void checkShopInputSpell()
+    {
+        if (SpellPlayerShop != null)
+        {
+            if (SpellPlayerShop.activeSelf == true &&
+               UnitPlayerShop.activeSelf == false &&
+               TurretPlayerShop.activeSelf == false &&
+               Input.GetAxis("Player2_BackRight") == 1)
+            {
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+                changeState(PlayerState.Ingame);
+                SpellPlayerShop.SetActive(false);
+            }
+            else if (SpellPlayerShop.activeSelf == false &&
+                    TurretPlayerShop.activeSelf == false &&
+                    UnitPlayerShop.activeSelf == false &&
+                    Input.GetAxis("Player2_BackRight") == 1)
+            {
+                changeState(PlayerState.Shop);
+                SpellPlayerShop.SetActive(true);
+                currentSlot = 0;
+                copyArray(SpellSlotTable);
+                workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+
+
+            }
+
+
+            if (Input.GetButtonDown("Player2_Accept") &&
+                    SpellPlayerShop.activeSelf == true &&
+                    workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+            }
+
+            if (Input.GetButtonDown("Player2_Accept") &&
+                 SpellPlayerShop.activeSelf == true &&
+                 workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+            }
+
+        }
+    }*/
 
     private void copyArray(GameObject[] tempArray)
     {

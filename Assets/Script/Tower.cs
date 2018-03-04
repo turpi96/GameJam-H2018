@@ -7,12 +7,12 @@ public class Tower : MonoBehaviour, CanBeHurt, HasTeam, HasHealth {
 
 
 	public float health;
-	public const float maxHealth = 10;
+	private float maxHealth;
     public string team;
 
 	// Use this for initialization
 	void Start () {
-		health = maxHealth;
+        maxHealth = health;
 	}
 
 	// Update is called once per frame
