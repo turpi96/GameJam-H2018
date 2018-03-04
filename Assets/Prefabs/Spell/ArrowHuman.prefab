@@ -92,6 +92,7 @@ MonoBehaviour:
   attack: 40
   speed: 15
   team: p1
+  cost: 1000
 --- !u!212 &212459132729078652
 SpriteRenderer:
   m_ObjectHideFlags: 1
