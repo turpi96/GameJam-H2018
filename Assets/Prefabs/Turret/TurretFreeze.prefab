@@ -233,7 +233,7 @@ MonoBehaviour:
   canBuild: 1
   colliders: []
   state: 1
-  freezePercentage: 1
+  freezePercentage: 0.5
 --- !u!114 &114941300482414358
 MonoBehaviour:
   m_ObjectHideFlags: 1
