@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  money: 90
-  cursorSpeed: 5
+  myMoney: 90
+  cursorSpeed: 8
   bomb: {fileID: 0}
   UnitPlayerShop: {fileID: 0}
   TurretPlayerShop: {fileID: 0}
