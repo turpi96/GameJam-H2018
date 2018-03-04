@@ -130,7 +130,6 @@ public class FirstPlayer : Player {
 		if (playerState != PlayerState.CastingSpell) {
 			if (pos.x + halfSize.x > cam.pixelWidth / 2.0f) {
 				pos.x = cam.pixelWidth / 2.0f - halfSize.x;
-
 			} 
 		}
 			if (pos.x + halfSize.x > cam.pixelWidth) {
