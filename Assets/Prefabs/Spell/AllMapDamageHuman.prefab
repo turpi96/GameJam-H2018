@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1487948388816986}
+  m_RootGameObject: {fileID: 1710594081303292}
   m_IsPrefabParent: 1
---- !u!1 &1487948388816986
+--- !u!1 &1710594081303292
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4630960595766434}
-  - component: {fileID: 114166457978112716}
+  - component: {fileID: 4044819860907438}
+  - component: {fileID: 114587095770289184}
   m_Layer: 0
-  m_Name: AllMapDamage
+  m_Name: AllMapDamageHuman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4630960595766434
+--- !u!4 &4044819860907438
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487948388816986}
+  m_GameObject: {fileID: 1710594081303292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,17 +40,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114166457978112716
+--- !u!114 &114587095770289184
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487948388816986}
+  m_GameObject: {fileID: 1710594081303292}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1f27ea8029898f419c9da2de57281f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 
+  team: p1
   damage: 50
   cost: 3000
+  minSpawn: 10
+  maxSpawn: 13
+  ThingtoSpawn: {fileID: 1584748488601082, guid: 94e074ddb3da935489334b8aa07a66f1,
+    type: 2}

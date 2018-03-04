@@ -8,11 +8,36 @@ public class AllMapDamage : MonoBehaviour {
     public int damage;
     public int cost;
 
+    public int minSpawn;
+    public int maxSpawn;
+
+    public GameObject ThingtoSpawn;
+
     private GameObject[] units;
     private GameObject[] turrets;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        int nbToSpawn = Random.Range(minSpawn, maxSpawn);
+
+        for(int i = 0; i < nbToSpawn; i++)
+        {
+            Vector3 position = new Vector3(Random.Range(-18.0f,18.0f),Random.Range(-9.3f,9.5f),-15);
+            Instantiate(ThingtoSpawn, position, Quaternion.identity);
+        }
+
+        StartCoroutine(Explode());
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    IEnumerator Explode()
+    {
+        yield return new WaitForSeconds(1.0f);
 
         if (units == null)
         {
@@ -26,7 +51,7 @@ public class AllMapDamage : MonoBehaviour {
 
         foreach (GameObject turret in turrets)
         {
-            if(turret.GetComponent<HasTeam>().getTeam() != team)
+            if (turret.GetComponent<HasTeam>().getTeam() != team)
             {
                 turret.GetComponent<CanBeHurt>().Hurt(damage);
             }
@@ -39,10 +64,7 @@ public class AllMapDamage : MonoBehaviour {
                 unit.GetComponent<CanBeHurt>().Hurt(damage);
             }
         }
+
+        Destroy(gameObject);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
