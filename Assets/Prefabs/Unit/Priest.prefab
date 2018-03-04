@@ -235,7 +235,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f603dfa7b09a23642a9b4b4ad3c74ee0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 2
+  speed: 2.5
   isReverse: 1
 --- !u!114 &114783788592548360
 MonoBehaviour:
@@ -351,12 +351,12 @@ MonoBehaviour:
   team: p1
   health: 100
   attack: 60
-  attackDelay: 3
+  attackDelay: 2.5
   isRange: 1
   isAttackingTurret: 1
   defense: 10
   cost: 400
-  value: 10
+  value: 75
   bullet: {fileID: 1210750085533812, guid: dfc423a813f1c5e4da3b0e52faddbe83, type: 2}
 --- !u!114 &114893363027686634
 MonoBehaviour:
