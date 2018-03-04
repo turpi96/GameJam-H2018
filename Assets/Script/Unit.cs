@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
     public int defense;
     public int cost;
     public int value;
+    public GameObject bullet;
 
     private int freezeTurretsCount = 0;
 
@@ -22,11 +23,12 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
     private List<Collider2D> targetList;
     private Animator animator;
     private float maxHealth;
-  
+    private GameObject shootingObject;
 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         maxHealth = health;
         currentDelay = attackDelay;
         timeLeft = currentDelay;
@@ -49,8 +51,25 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
             timeLeft -= Time.deltaTime;
             if (timeLeft <= 0)
             {
+                if(bullet != null)
+                {
+                    shootingObject = targetList[0].gameObject;
+                    Vector3 bulletPos;
+                    Transform spawn = transform.Find("SpawnBullet");
+                    if (spawn != null)
+                    {
+                        bulletPos = spawn.position;
+                    }
+                    else
+                    {
+                        bulletPos = transform.position;
+                    }
+                    GameObject go = Instantiate(bullet, bulletPos, Quaternion.identity) as GameObject;
+                    go.GetComponent<Bullet>().Initialise(shootingObject);
+                }
                 timeLeft = currentDelay;
-                targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
+                if(!isRange)
+                    targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
             }
         }
     }
