@@ -47,6 +47,7 @@ public abstract class Player : MonoBehaviour {
 		cam = FindObjectOfType<Camera> ();
 		pathToFollow = FindObjectOfType<Path> ();
         audioS = GetComponent<AudioSource>();
+
     }
 
 	public void addMoney(int amount){

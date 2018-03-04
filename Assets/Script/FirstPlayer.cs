@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPlayer : Player {
+
     public GameObject[] workingShop;
     public Building dumbTower;
 	public Unit dumbUnit;
@@ -166,6 +167,7 @@ public class FirstPlayer : Player {
 			                  SpellPlayerShop.activeSelf == false &&
 			                  Input.GetButtonDown ("Player1_X")) {
 				changeState (PlayerState.Shop);
+
 				UnitPlayerShop.SetActive (true);
 				currentSlot = 0;
 				copyArray (UnitSlotTable);

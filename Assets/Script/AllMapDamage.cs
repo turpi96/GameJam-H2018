@@ -48,7 +48,6 @@ public class AllMapDamage : MonoBehaviour {
             turrets = GameObject.FindGameObjectsWithTag("Turret");
         }
 
-
         foreach (GameObject turret in turrets)
         {
             if (turret.GetComponent<HasTeam>().getTeam() != team)
@@ -65,6 +64,8 @@ public class AllMapDamage : MonoBehaviour {
             }
         }
 
-        Destroy(gameObject);
+        GetComponent<AudioSource>().Play();
+
+        Destroy(gameObject,0.8f);
     }
 }

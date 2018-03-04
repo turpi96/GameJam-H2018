@@ -50,6 +50,8 @@ public class Turret : Building {
                             bulletPos = transform.position;
                         }
 
+                        GetComponent<AudioSource>().Play();
+
                         GameObject go = Instantiate (bulletToShoot, bulletPos, Quaternion.identity) as GameObject;
 						go.GetComponent<Bullet> ().Initialise (shootingObject);
 						timeLeft = shootingDelay;
