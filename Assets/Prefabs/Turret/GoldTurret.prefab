@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p2
-  cost: 1250
+  cost: 1000
   health: 300
   defense: 20
   value: 150
