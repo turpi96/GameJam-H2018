@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
         {
             if(target != null)
             {
-                transform.right = target.transform.position - transform.position;
+                //transform.right = target.transform.position - transform.position;
                 float step = speed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
                 /*if (transform.position == target.transform.position)
