@@ -43,6 +43,7 @@ public class SecondPlayer : Player {
 	public override void checkInput(){
         checkShopInputUnits();
         checkShopInputTurret();
+        checkShopInputSpell();
 
         float x = 0;
 		float y = 0;
@@ -160,14 +161,10 @@ public class SecondPlayer : Player {
 			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true)
             {
 				setChoosenItem ();
-			}
-
-           if (Input.GetButtonDown("Player2_Accept") && 
-                UnitPlayerShop.activeSelf == true &&
-                workingShop[currentSlot].GetComponent<unitButtonScript>().interactable == true)
-            {
-                setChoosenItem();
+                //INSERT UNIT SPAWN FUCNTION HERE****************************************************************
+                UnitPlayerShop.SetActive(false);
             }
+
 
     	}	
 	}
@@ -204,27 +201,23 @@ public class SecondPlayer : Player {
                     TurretPlayerShop.activeSelf == true &&
                     workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
             {
+                //changeState(PlayerState.Building);
                 setChoosenItem();
-            }
-
-            if (Input.GetButtonDown("Player2_Accept") &&
-                 TurretPlayerShop.activeSelf == true &&
-                 workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
-            {
-                setChoosenItem();
+                //TurretPlayerShop.SetActive(false);
             }
 
         }
     }
 
-   /* private void checkShopInputSpell()
+    private void checkShopInputSpell()
     {
         if (SpellPlayerShop != null)
         {
             if (SpellPlayerShop.activeSelf == true &&
                UnitPlayerShop.activeSelf == false &&
                TurretPlayerShop.activeSelf == false &&
-               Input.GetAxis("Player2_BackRight") == 1)
+               (Input.GetButtonDown("Player2_BackRight") ||
+               Input.GetAxis("Player2_BackRight") == 1))
             {
                 workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 changeState(PlayerState.Ingame);
@@ -233,7 +226,8 @@ public class SecondPlayer : Player {
             else if (SpellPlayerShop.activeSelf == false &&
                     TurretPlayerShop.activeSelf == false &&
                     UnitPlayerShop.activeSelf == false &&
-                    Input.GetAxis("Player2_BackRight") == 1)
+                    (Input.GetButtonDown("Player2_BackRight") ||
+                    Input.GetAxis("Player2_BackRight") == 1))
             {
                 changeState(PlayerState.Shop);
                 SpellPlayerShop.SetActive(true);
@@ -250,17 +244,12 @@ public class SecondPlayer : Player {
                     workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
             {
                 setChoosenItem();
-            }
-
-            if (Input.GetButtonDown("Player2_Accept") &&
-                 SpellPlayerShop.activeSelf == true &&
-                 workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
-            {
-                setChoosenItem();
+                //changeState(PlayerState.CastingSpell);
+                //SpellPlayerShop.SetActive(false);
             }
 
         }
-    }*/
+    }
 
     private void copyArray(GameObject[] tempArray)
     {
