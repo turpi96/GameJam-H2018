@@ -57,11 +57,7 @@ public class Turret : Building {
 							isShooting = false;
 						}
 					}
-                
-                
-				}
-
-            
+				}     
 			}
 		}
     }
@@ -72,14 +68,11 @@ public class Turret : Building {
 		base.OnTriggerEnter2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            if (team != other.GetComponent<HasTeam>().getTeam())
+            shootingList.Add(other.gameObject);
+            isShooting = true;
+            if (shootingList.Count == 1)
             {
-                shootingList.Add(other.gameObject);
-                isShooting = true;
-                if (shootingList.Count == 1)
-                {
-                    shootingObject = shootingList[0];
-                }
+                shootingObject = shootingList[0];
             }
         }
     }
@@ -89,17 +82,14 @@ public class Turret : Building {
 		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            if (team != other.GetComponent<HasTeam>().getTeam())
+            shootingList.Remove(other.gameObject);
+            if (shootingList.Count > 0)
             {
-                shootingList.Remove(other.gameObject);
-                if (shootingList.Count > 0)
-                {
-                    shootingObject = shootingList[0];
-                    isShooting = true;
-                }
-                else
-                    isShooting = false;
+                shootingObject = shootingList[0];
+                isShooting = true;
             }
+            else
+                isShooting = false;
         }
     }
 }
