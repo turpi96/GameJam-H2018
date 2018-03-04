@@ -34,7 +34,7 @@ public class unitButtonScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //checkMoneyButton();
+        checkMoneyButton();
 
     }
 
