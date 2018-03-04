@@ -64,7 +64,7 @@ public abstract class Player : MonoBehaviour {
 	public void Update () {
 		timerIncome -= Time.deltaTime;
 		if (timerIncome <= 0) {
-			timerIncome = 3.0f;
+			timerIncome = 1.0f;
 			addMoney (moneyGeneration);
 		}
 
