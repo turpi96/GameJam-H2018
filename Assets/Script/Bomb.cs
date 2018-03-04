@@ -5,9 +5,8 @@ using UnityEngine;
 public class Bomb : Casting, HasTeam {
 
 	private int timeleft= 2;
-
-	private SpriteRenderer renderer;
-	private AudioSource audio;
+    
+	private AudioSource audioS;
 
 	public AudioSource myAudio;
 
@@ -15,8 +14,13 @@ public class Bomb : Casting, HasTeam {
 	private bool toggleChange = true;
 	private bool activateTimer = true;
 
-	public string team;
+    private bool spriteVisible = true;
+    private bool canFlash = true;
+
+    public string team;
     public int cost;
+    
+    public Sprite explosionSprite;
 
 	private List<Unit> explosionList;
 
@@ -24,8 +28,7 @@ public class Bomb : Casting, HasTeam {
 
 		explosionList = new List<Unit>();
 
-		audio = GetComponent<AudioSource> ();
-		renderer = GetComponent<SpriteRenderer> ();
+		audioS = GetComponent<AudioSource> ();
 
 		myAudio = GetComponent<AudioSource> ();
 
@@ -38,6 +41,7 @@ public class Bomb : Casting, HasTeam {
 		if (state == CastingState.inGame) {
 			if (activateTimer) {
 				StartCoroutine ("explosion");
+                StartCoroutine(flashingBomb());
 				activateTimer = false;
 
 			}
@@ -55,13 +59,36 @@ public class Bomb : Casting, HasTeam {
 
 	IEnumerator explosion(){
 		while (true) {
-			yield return new WaitForSeconds (1);
+			yield return new WaitForSeconds (0.5f);
 			timeleft--;
 		}
 	}
-	public void waitAndExplode(){
-		renderer.color = Color.yellow;
-		if (play == true && toggleChange == true) {
+
+    IEnumerator flashingBomb()
+    {
+        while (canFlash)
+        {
+            if(spriteVisible)
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+                spriteVisible = false;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = true;
+                spriteVisible = true;
+            }
+            
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public void waitAndExplode(){
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = explosionSprite;
+        canFlash = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        //rendererSp.color = Color.yellow;
+        if (play == true && toggleChange == true) {
 			
 			foreach (Unit u in explosionList) {
 				if(this.getTeam() != u.getTeam()){
