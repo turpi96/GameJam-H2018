@@ -53,16 +53,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
+  money: 90
   cursorSpeed: 5
   bomb: {fileID: 0}
   UnitPlayerShop: {fileID: 0}
-  TowerPlayerShop: {fileID: 0}
+  TurretPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
   PlayerGoldUI: {fileID: 0}
   currentSlot: 0
   chooseItem: {fileID: 0}
   UnitSlotTable: []
-  TowerSlotTable: []
+  TurretSlotTable: []
   SpellSlotTable: []
   workingShop: []
   dumbTower: {fileID: 114287618788016328, guid: 47f21af37c94c1d4a8405bfac790d3d8,
@@ -103,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cfe8ac8b94327b646b217842c539e1d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03d14925252315b44b29bcc10bfcdefb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
