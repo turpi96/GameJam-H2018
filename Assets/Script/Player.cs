@@ -24,7 +24,7 @@ public abstract class Player : MonoBehaviour {
 	 float timerIncome = 3.0f;
 	int moneyToAdd = 0;
     public GameObject UnitPlayerShop;
-    public GameObject TowerPlayerShop;
+    public GameObject TurretPlayerShop;
     public GameObject SpellPlayerShop;
 	protected Path pathToFollow;
     public Text PlayerGoldUI;
@@ -32,7 +32,7 @@ public abstract class Player : MonoBehaviour {
     public int currentSlot = 0;
     public GameObject chooseItem;
     public GameObject[] UnitSlotTable;
-    public GameObject[] TowerSlotTable;
+    public GameObject[] TurretSlotTable;
     public GameObject[] SpellSlotTable;
 
 

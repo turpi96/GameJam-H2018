@@ -64,7 +64,7 @@ public class Bomb : Casting, HasTeam {
 			
 			foreach (Unit u in explosionList) {
 				if(this.getTeam() != u.getTeam()){
-					Destroy(u);
+					Destroy(u.gameObject);
 				}
 			}
 			explosionList = null;
