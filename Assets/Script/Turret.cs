@@ -17,6 +17,7 @@ public class Turret : Building {
 
 	// Use this for initialization
 	void Start () {
+		base.Start ();
         shootingList = new List<GameObject>();
         timeLeft = 0.0f;
     }
@@ -66,16 +67,18 @@ public class Turret : Building {
     }
 
     new void OnTriggerEnter2D(Collider2D other)
-    {
-		
+    { 
 		base.OnTriggerEnter2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            shootingList.Add(other.gameObject);
-            isShooting = true;
-            if (shootingList.Count == 1)
+            if (team != other.GetComponent<HasTeam>().getTeam())
             {
-                shootingObject = shootingList[0];
+                shootingList.Add(other.gameObject);
+                isShooting = true;
+                if (shootingList.Count == 1)
+                {
+                    shootingObject = shootingList[0];
+                }
             }
         }
     }
@@ -85,14 +88,17 @@ public class Turret : Building {
 		base.OnTriggerExit2D (other);
 		if (state == BuildingState.inGame && other.GetComponent<Unit>())
         {
-            shootingList.Remove(other.gameObject);
-            if (shootingList.Count > 0)
+            if (team != other.GetComponent<HasTeam>().getTeam())
             {
-                shootingObject = shootingList[0];
-                isShooting = true;
+                shootingList.Remove(other.gameObject);
+                if (shootingList.Count > 0)
+                {
+                    shootingObject = shootingList[0];
+                    isShooting = true;
+                }
+                else
+                    isShooting = false;
             }
-            else
-                isShooting = false;
         }
     }
 }

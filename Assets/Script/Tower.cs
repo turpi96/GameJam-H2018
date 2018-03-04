@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Tower : MonoBehaviour, CanBeHurt, HasTeam {
+public class Tower : MonoBehaviour, CanBeHurt, HasTeam, HasHealth {
 
 
-    public int health;
+	public float health;
+	public const float maxHealth = 10;
     public string team;
 
 	// Use this for initialization
 	void Start () {
-		
+		health = maxHealth;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 	}
-
+	public float getHealth(){
+		return health;
+	}
+	public float getMaxHealth(){
+		return maxHealth;
+	}
 	public string getTeam(){
 		return team;
 	}

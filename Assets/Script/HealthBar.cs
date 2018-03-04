@@ -11,7 +11,7 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float scalex = (float)GetComponentInParent<Unit>().health / (float)GetComponentInParent<Unit>().GetMaxHealth();
+		float scalex = GetComponentInParent<HasHealth>().getHealth() / (float)GetComponentInParent<HasHealth>().getMaxHealth();
         transform.localScale = new Vector3(scalex, 1, 1);
     }
 }
