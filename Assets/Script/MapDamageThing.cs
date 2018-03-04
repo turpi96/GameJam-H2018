@@ -10,7 +10,7 @@ public class MapDamageThing : MonoBehaviour
     void Start()
     {
         StartCoroutine(Explode());
-        Destroy(gameObject, 2.0f);
+        Destroy(gameObject, 1.6f);
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class MapDamageThing : MonoBehaviour
 
     IEnumerator Explode()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.8f);
         GetComponent<SpriteRenderer>().sprite = explosion;
     }
 }
