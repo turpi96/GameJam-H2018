@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba14129fe29d1d14dab4237424bc4c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: p2
+  team: p1
   health: 100
   attack: 50
   attackDelay: 4
@@ -215,7 +215,7 @@ MonoBehaviour:
   defense: 5
   cost: 300
   value: 10
-  bullet: {fileID: 0}
+  bullet: {fileID: 1210750085533812, guid: dfc423a813f1c5e4da3b0e52faddbe83, type: 2}
 --- !u!212 &212448490994730938
 SpriteRenderer:
   m_ObjectHideFlags: 1
