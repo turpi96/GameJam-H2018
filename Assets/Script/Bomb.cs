@@ -16,6 +16,7 @@ public class Bomb : Casting, HasTeam {
 	private bool activateTimer = true;
 
 	public string team;
+    public int cost;
 
 	private List<Unit> explosionList;
 

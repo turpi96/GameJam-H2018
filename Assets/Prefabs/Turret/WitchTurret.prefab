@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c0a37edcd4ccd4f80ed9fe6326b7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 
+  team: p2
   cost: 100
   health: 10
   defense: 5
@@ -172,7 +172,7 @@ MonoBehaviour:
   state: 1
   hasToRotate: 0
   shootingDelay: 1
-  bulletToShoot: {fileID: 1018596641998038, guid: 3e673d5acef7bd1419a47db9185577a6,
+  bulletToShoot: {fileID: 1922525944132966, guid: 76eb8c11776d76d458518d471e8a9c71,
     type: 2}
 --- !u!212 &212535199322733802
 SpriteRenderer:
