@@ -103,11 +103,13 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
     {
         if (team == "p1")
         {
-            GameObject.FindObjectOfType<SecondPlayer>().addMoney(value);
+            if (FindObjectOfType<SecondPlayer>() != null)
+                FindObjectOfType<SecondPlayer>().addMoney(value);
         }
         else
         {
-            GameObject.FindObjectOfType<FirstPlayer>().addMoney(value);
+            if (FindObjectOfType<FirstPlayer>() != null)
+                FindObjectOfType<FirstPlayer>().addMoney(value);
         }
         Destroy(gameObject);
     }

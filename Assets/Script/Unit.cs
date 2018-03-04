@@ -95,11 +95,13 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
         //GIVE VALUE ($) TO THE OTHER PLAYER
         if (team == "p1")
         {
-            FindObjectOfType<SecondPlayer>().addMoney(value);
+            if(FindObjectOfType<SecondPlayer>() != null)
+                FindObjectOfType<SecondPlayer>().addMoney(value);
         }
         else
         {
-            FindObjectOfType<FirstPlayer>().addMoney(value);
+            if (FindObjectOfType<FirstPlayer>() != null)
+                FindObjectOfType<FirstPlayer>().addMoney(value);
         }
         Destroy(this.gameObject);
     }
