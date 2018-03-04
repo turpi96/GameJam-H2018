@@ -64,7 +64,7 @@ public class Bomb : Casting, HasTeam {
 			
 			foreach (Unit u in explosionList) {
 				if(this.getTeam() != u.getTeam()){
-					Destroy(u);
+					Destroy(u.gameObject);
 				}
 			}
 			explosionList = null;
@@ -78,7 +78,7 @@ public class Bomb : Casting, HasTeam {
 	{
 		if (state == CastingState.inGame && other.GetComponent<Unit>())
 		{
-			//explosionList.Add(other);
+			explosionList.Add(other.GetComponent<Unit>());
 		}
 	}
 
@@ -86,7 +86,7 @@ public class Bomb : Casting, HasTeam {
 	{
 		if (state == CastingState.inGame && other.GetComponent<Unit>() )
 		{
-			//explosionList.Remove(other.gameObject);
+			explosionList.Remove(other.GetComponent<Unit>());
 		}
 	}
 }
