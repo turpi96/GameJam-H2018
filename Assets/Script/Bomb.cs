@@ -108,7 +108,7 @@ public class Bomb : Casting, HasTeam {
 
 	 void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Unit" || other.tag == "Turret")
+		if ( other.tag == "Turret")
 		{
             if(!explosionList.Contains(other.gameObject))
             {
@@ -123,7 +123,7 @@ public class Bomb : Casting, HasTeam {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if ((other.tag == "Unit" || other.tag == "Turret") && canDoExit)
+		if (other.tag == "Turret" && canDoExit)
 		{
             if (explosionList.Contains(other.gameObject))
             {
