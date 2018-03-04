@@ -54,6 +54,9 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     {
         health = health - (amount * (1 - defense/100));
 
+        GetComponent<SpriteRenderer>().color = new Color(0.604f,0.13f,0.13f);
+        StartCoroutine(TimerWhiteColor());
+
         if (health <= 0)
         {
             Die();
@@ -148,5 +151,11 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
     public float GetMaxHealth()
     {
         return maxHealth;
+    }
+
+    IEnumerator TimerWhiteColor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

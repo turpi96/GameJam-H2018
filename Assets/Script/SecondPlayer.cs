@@ -41,7 +41,8 @@ public class SecondPlayer : Player {
 	}
 
 	public override void checkInput(){
-        checkShopInput();
+        checkShopInputUnits();
+        checkShopInputTurret();
 
         float x = 0;
 		float y = 0;
@@ -127,11 +128,11 @@ public class SecondPlayer : Player {
 		}
 	}*/
 
-    private void checkShopInput()
+    private void checkShopInputUnits()
     {
 		if (UnitPlayerShop != null) {
 			if (UnitPlayerShop.activeSelf == true &&
-			   TowerPlayerShop.activeSelf == false &&
+               TurretPlayerShop.activeSelf == false &&
 			   Input.GetButtonDown ("Player2_Left")) {
                 Debug.Log("I'VE BEEN THERE");
                 workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
@@ -139,7 +140,7 @@ public class SecondPlayer : Player {
 				changeState (PlayerState.Ingame);
 				UnitPlayerShop.SetActive (false);
 			} else if (UnitPlayerShop.activeSelf == false &&
-			          TowerPlayerShop.activeSelf == false &&
+                      TurretPlayerShop.activeSelf == false &&
 			          Input.GetButtonDown ("Player2_Left"))
             {
                 changeState(PlayerState.Shop);
@@ -168,6 +169,49 @@ public class SecondPlayer : Player {
 
     	}	
 	}
+
+    private void checkShopInputTurret()
+    {
+        if (TurretPlayerShop != null)
+        {
+            if (TurretPlayerShop.activeSelf == true &&
+               UnitPlayerShop.activeSelf == false &&
+               Input.GetButtonDown("Player2_Right"))
+            {
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+                changeState(PlayerState.Ingame);
+                TurretPlayerShop.SetActive(false);
+            }
+            else if (TurretPlayerShop.activeSelf == false &&
+                    UnitPlayerShop.activeSelf == false &&
+                    Input.GetButtonDown("Player2_Right"))
+            {
+                changeState(PlayerState.Shop);
+                TurretPlayerShop.SetActive(true);
+                currentSlot = 0;
+                copyArray(TurretSlotTable);
+                workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+
+
+            }
+
+
+            if (Input.GetButtonDown("Player2_Accept") &&
+                    TurretPlayerShop.activeSelf == true &&
+                    workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+            }
+
+            if (Input.GetButtonDown("Player2_Accept") &&
+                 UnitPlayerShop.activeSelf == true &&
+                 workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
+            {
+                setChoosenItem();
+            }
+
+        }
+    }
 
     private void copyArray(GameObject[] tempArray)
     {
