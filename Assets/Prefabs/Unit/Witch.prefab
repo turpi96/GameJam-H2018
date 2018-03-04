@@ -287,8 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: p2
   health: 150
-  attack: 25
-  attackDelay: 2
+  attack: 20
+  attackDelay: 2.5
   isRange: 0
   isAttackingTurret: 0
   defense: 10
