@@ -6,11 +6,11 @@ public class IncomeBuilding : Building {
 	float timerIncome = 3.0f;
 	// Use this for initialization
 	void Start () {
-		
+		base.Start ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		base.Update ();
 		timerIncome -= Time.deltaTime;
 		if (timerIncome < 0) {
@@ -29,11 +29,11 @@ public class IncomeBuilding : Building {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D collider){
+	new void OnTriggerEnter2D(Collider2D collider){
 		base.OnTriggerEnter2D(collider);
 	}
 
-	public void OnTriggerExit2D(Collider2D collider){
+	new public void OnTriggerExit2D(Collider2D collider){
 		base.OnTriggerExit2D(collider);
 	}
 

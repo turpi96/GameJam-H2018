@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
+public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
 
     public string team;
     public float health;
@@ -35,6 +35,12 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam {
 	}
 	public string getTeam(){
 		return team;
+	}
+	public float getHealth(){
+		return health;
+	}
+	public float getMaxHealth(){
+		return maxHealth;
 	}
 	// Update is called once per frame
 	void Update () {

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour , HasTeam , CanBeHurt {
+public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 	public enum BuildingState{
 		inGame = 1,
 		inConstruction = 2
 	}
 	public string team;
 	public int cost= 100;
-	public float health = 10;
-
+	public float health;
+	public const float maxHealth = 10;
 	public int defense = 5;
 
 	public bool canBuild = true;
@@ -20,6 +20,12 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt {
 
 	public string getTeam(){
 		return team;
+	}
+	public float getHealth(){
+		return health;
+	}
+	public float getMaxHealth(){
+		return maxHealth;
 	}
 	public void changeState(BuildingState newState){
 		state = newState;
@@ -41,8 +47,8 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt {
 
 	}
 	// Use this for initialization
-	void Start () {
-		
+	public void Start () {
+		health = maxHealth;
 	}
 
 	public void setCanBuild(bool val){
