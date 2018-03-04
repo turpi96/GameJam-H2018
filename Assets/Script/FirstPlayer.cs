@@ -16,25 +16,6 @@ public class FirstPlayer : Player {
 	// Update is called once per frame
 	new public void Update () {
 		base.Update ();
-
-
-		if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.Ingame) { 
-			changeState (PlayerState.CastingSpell);
-			currentlyCasting = Instantiate (bomb, new Vector3(transform.position.x,transform.position.y,1),transform.rotation) as Casting;
-			gameObject.GetComponent<SpriteRenderer> ().enabled = false;
-			currentlyCasting.changeState(Casting.CastingState.isTargeting);
-		} 
-		else if (Input.GetKeyDown (KeyCode.U) && playerState == PlayerState.CastingSpell && currentlyCasting.canCast) {
-			changeState (PlayerState.Ingame);
-			currentlyCasting.changeState (Casting.CastingState.inGame);
-			currentlyCasting = null;
-			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
-		}
-
-		if (Input.GetKeyDown (KeyCode.J) && playerState == PlayerState.Ingame) { 
-			Unit unit = Instantiate (dumbUnit, spawnPoint.position, spawnPoint.rotation);
-			unit.GetComponent<MoveOnPath> ().PathToFollow = pathToFollow;
-		}
 	}
 
 	public  override void checkInput(){
