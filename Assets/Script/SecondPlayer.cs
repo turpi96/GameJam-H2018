@@ -138,7 +138,6 @@ public class SecondPlayer : Player {
                TurretPlayerShop.activeSelf == false &&
                SpellPlayerShop.activeSelf == false && 
                Input.GetButtonDown ("Player2_Left")) {
-                Debug.Log("I'VE BEEN THERE");
                 workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
 				changeState (PlayerState.Ingame);
@@ -262,7 +261,6 @@ public class SecondPlayer : Player {
             workingShop[i] = tempArray[i];       
         }
 
-        Debug.Log("TESTWEE!");
     }
 
     public void setChoosenItem()

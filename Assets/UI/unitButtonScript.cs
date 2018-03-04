@@ -57,7 +57,6 @@ public class unitButtonScript : MonoBehaviour {
         Color btnColor = imgButton.color;
         
 
-        //Debug.Log(interactable);
         if (interactable == false)
             btnColor.a = 0.5f;
         else
