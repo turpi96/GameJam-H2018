@@ -393,8 +393,8 @@ InputManager:
     m_Name: Player2_Up
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: a
-    positiveButton: d
+    negativeButton: d
+    positiveButton: a
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -409,8 +409,8 @@ InputManager:
     m_Name: Player1_Up
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: right
+    positiveButton: left
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
