@@ -31,9 +31,9 @@ public class FirstPlayer : Player {
 		if (Input.GetButtonDown ("Player1_A") && playerState == PlayerState.CastingSpell) {
 			changeState (PlayerState.Ingame);
 			currentlyCasting.changeState (Casting.CastingState.inGame);
-			currentlyCasting = null;
-			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
             addMoney(-currentlyCasting.GetComponent<Bomb>().cost);
+            currentlyCasting = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 		}
 		if (playerState == PlayerState.Ingame || playerState == PlayerState.Shop) {
 			checkShopInputTurret ();
