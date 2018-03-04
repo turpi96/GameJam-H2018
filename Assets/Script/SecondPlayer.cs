@@ -6,7 +6,7 @@ public class SecondPlayer : Player {
 
     public GameObject[] workingShop;
 	public Building dumbTower;
-
+	float timerShop = 0.2f;
 	public Unit dumbUnit;
 	public Transform spawnPoint;
 	// Use this for initialization
@@ -64,23 +64,25 @@ public class SecondPlayer : Player {
 				break;
 
             case PlayerState.Shop:
-                if(Input.GetButtonDown("Player2_Up") )
-                {
-                    workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+			timerShop -= Time.deltaTime;
+			if (Input.GetAxisRaw ("Player2_Up") != 0) {
+				if (timerShop <= 0) {
+					timerShop = 0.2f;
+						workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
 
-                    if (Input.GetAxis("Player2_Up") > 0)
-                        currentSlot--;
-                    else if (Input.GetAxis("Player2_Up") < 0)
-                        currentSlot++;
-                    if (currentSlot < 0)
-                        currentSlot = 2;
-                    if (currentSlot > 2)
-                        currentSlot = 0;
+						if (Input.GetAxis ("Player2_Up") > 0)
+							currentSlot--;
+						else if (Input.GetAxis ("Player2_Up") < 0)
+							currentSlot++;
+						if (currentSlot < 0)
+							currentSlot = 2;
+						if (currentSlot > 2)
+							currentSlot = 0;
 
-                    workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
-                }
-
+						workingShop [currentSlot].GetComponent<outlineScript> ().enableOutline ();
+					}
+				}
                 break;
 
 			}

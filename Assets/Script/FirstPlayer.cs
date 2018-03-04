@@ -6,6 +6,7 @@ public class FirstPlayer : Player {
     public GameObject[] workingShop;
     public Building dumbTower;
 	public Unit dumbUnit;
+	public float timerShop = 0.2f;
 	public Transform spawnPoint;
 	// Use this for initialization
 	new public void Start () {
@@ -72,23 +73,27 @@ public class FirstPlayer : Player {
 					Debug.Log ("NO BUILDING FOUND");
 				break;
 
-            case PlayerState.Shop:
-                if (Input.GetButtonDown("Player1_Up"))
-                {
-                    workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
+		case PlayerState.Shop:
+				timerShop -= Time.deltaTime;
+				if (Input.GetAxisRaw ("Player1_Up") != 0) {
+				if (timerShop <= 0) {
+					timerShop = 0.2f;
+					workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 
 
-                    if (Input.GetAxis("Player1_Up") > 0)
-                        currentSlot--;
-                    else if (Input.GetAxis("Player1_Up") < 0)
-                        currentSlot++;
-                    if (currentSlot < 0)
-                        currentSlot = 2;
-                    if (currentSlot > 2)
-                        currentSlot = 0;
+					if (Input.GetAxis ("Player1_Up") > 0)
+						currentSlot--;
+					else if (Input.GetAxis ("Player1_Up") < 0)
+						currentSlot++;
+					if (currentSlot < 0)
+						currentSlot = 2;
+					if (currentSlot > 2)
+						currentSlot = 0;
 
-                    workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
-                }
+					workingShop [currentSlot].GetComponent<outlineScript> ().enableOutline ();
+				}
+				}
+			
 
                 break;
 

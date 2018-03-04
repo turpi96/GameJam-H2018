@@ -12,6 +12,7 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 	public float health;
 	private float maxHealth;
 	public int defense = 5;
+    public int value;
 
 	public bool canBuild = true;
 	public List<Collider2D> colliders;
