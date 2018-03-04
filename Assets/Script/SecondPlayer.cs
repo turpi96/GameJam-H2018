@@ -161,6 +161,7 @@ public class SecondPlayer : Player {
 			        workingShop [currentSlot].GetComponent<unitButtonScript> ().interactable == true)
             {
 				setChoosenItem ();
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 //INSERT UNIT SPAWN FUCNTION HERE****************************************************************
                 UnitPlayerShop.SetActive(false);
             }
@@ -202,6 +203,7 @@ public class SecondPlayer : Player {
                     workingShop[currentSlot].GetComponent<turretButtonScript>().interactable == true)
             {
                 //changeState(PlayerState.Building);
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 setChoosenItem();
                 //TurretPlayerShop.SetActive(false);
             }
@@ -243,6 +245,7 @@ public class SecondPlayer : Player {
                     workingShop[currentSlot].GetComponent<spellButtonScript>().interactable == true)
             {
                 setChoosenItem();
+                workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 //changeState(PlayerState.CastingSpell);
                 //SpellPlayerShop.SetActive(false);
             }
