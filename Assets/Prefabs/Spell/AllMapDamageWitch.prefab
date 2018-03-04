@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p2
-  damage: 50
-  cost: 3000
+  damage: 150
+  cost: 1000
   minSpawn: 15
   maxSpawn: 20
   ThingtoSpawn: {fileID: 1287762502223868, guid: d72ce0a470e50e440a781aa6bcdb3dff,

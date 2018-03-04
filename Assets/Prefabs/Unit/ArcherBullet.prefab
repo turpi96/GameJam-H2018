@@ -92,7 +92,7 @@ MonoBehaviour:
   team: p1
   speed: 10
   maxLiveTime: 5
-  hurtValue: 65
+  hurtValue: 17
   hasToRotate: 0
   isAttackingTurret: 0
 --- !u!212 &212552753149587532

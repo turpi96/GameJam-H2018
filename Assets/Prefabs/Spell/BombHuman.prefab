@@ -203,8 +203,8 @@ MonoBehaviour:
   canCast: 1
   state: 1
   team: p1
-  cost: 2000
-  attack: 200
+  cost: 700
+  attack: 350
   explosionSprite: {fileID: 21300000, guid: ffd61f7f873e4804097dbbceef4fc0f3, type: 3}
 --- !u!212 &212187277680834648
 SpriteRenderer:

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212398364963654312}
   m_Layer: 0
   m_Name: HealthBarSmall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114141126705974754}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PathToFollow: {fileID: 0}
-  speed: 4
+  speed: 5
   isReverse: 0
 --- !u!114 &114141126705974754
 MonoBehaviour:
@@ -205,14 +205,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p2
-  health: 100
+  health: 150
   attack: 25
   attackDelay: 2
   isRange: 0
   isAttackingTurret: 0
   defense: 10
   cost: 100
-  value: 10
+  value: 20
   bullet: {fileID: 0}
 --- !u!212 &212049750771779870
 SpriteRenderer:

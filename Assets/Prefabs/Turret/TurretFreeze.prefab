@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 212585679049744308}
   m_Layer: 0
   m_Name: HealthBarSmall
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 114941300482414358}
   m_Layer: 0
   m_Name: HealthBarGreen
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,10 +226,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: p2
-  cost: 100
-  health: 10
-  defense: 5
-  value: 10
+  cost: 750
+  health: 250
+  defense: 10
+  value: 75
   canBuild: 1
   colliders: []
   state: 1

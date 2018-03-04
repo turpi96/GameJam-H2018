@@ -92,7 +92,9 @@ MonoBehaviour:
   team: p1
   speed: 10
   maxLiveTime: 10
-  hurtValue: 3
+  hurtValue: 15
+  hasToRotate: 1
+  isAttackingTurret: 0
 --- !u!212 &212664738626285700
 SpriteRenderer:
   m_ObjectHideFlags: 1
