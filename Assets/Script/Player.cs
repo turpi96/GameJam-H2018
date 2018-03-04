@@ -13,7 +13,7 @@ public abstract class Player : MonoBehaviour {
 		Arrow = 5};
 
 
-	protected PlayerState playerState = PlayerState.Ingame;
+	public PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
 	public int money = 90;
