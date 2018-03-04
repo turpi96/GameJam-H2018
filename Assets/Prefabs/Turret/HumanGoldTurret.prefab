@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ee12163887cf4282e4bcba825b12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: p2
+  team: p1
   cost: 100
   health: 10
   defense: 5
