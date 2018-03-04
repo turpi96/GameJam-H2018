@@ -57,7 +57,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -92,7 +92,7 @@ MonoBehaviour:
   team: p1
   speed: 10
   maxLiveTime: 5
-  hurtValue: 65
+  hurtValue: 50
   hasToRotate: 0
   isAttackingTurret: 1
 --- !u!212 &212885618453377172

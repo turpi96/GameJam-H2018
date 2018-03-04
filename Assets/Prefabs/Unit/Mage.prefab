@@ -201,7 +201,7 @@ MonoBehaviour:
   defense: 5
   cost: 300
   value: 10
-  bullet: {fileID: 0}
+  bullet: {fileID: 1049470816880682, guid: ae6a2c8544d15f04f8a43720703e1827, type: 2}
 --- !u!114 &114706295870880642
 MonoBehaviour:
   m_ObjectHideFlags: 1
