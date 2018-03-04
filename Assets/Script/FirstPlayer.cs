@@ -157,7 +157,6 @@ public class FirstPlayer : Player {
                SpellPlayerShop.activeSelf == false &&
                Input.GetButtonDown("Player1_Left"))
             {
-                Debug.Log("I'VE BEEN THERE");
                 workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
 
                 changeState(PlayerState.Ingame);
@@ -282,13 +281,11 @@ public class FirstPlayer : Player {
             workingShop[i] = tempArray[i];
         }
 
-        Debug.Log("TESTWEE!");
     }
 
     public void setChoosenItem()
     {
         chooseItem = workingShop[currentSlot];
-        Debug.Log("I, IS A GENIUS!!!!");
     }
 
     public void emptyChoosenItem()
