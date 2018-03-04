@@ -11,12 +11,13 @@ public class IncomeBuilding : Building {
 	
 	// Update is called once per frame
 	void Update () {
+		base.Update ();
 		timerIncome -= Time.deltaTime;
 		if (timerIncome < 0) {
 			timerIncome = 3.0f;
 			switch (team) {
 			case "p1":
-				FindObjectOfType<FirstPlayer> ().addMoney(20);
+				FindObjectOfType<FirstPlayer> ().addMoney (20);
 				break;
 			case "p2":
 				FindObjectOfType<SecondPlayer> ().addMoney (20);
@@ -26,8 +27,17 @@ public class IncomeBuilding : Building {
 				break;
 			}
 		}
-
-
-
 	}
+
+	void OnTriggerEnter2D(Collider2D collider){
+		base.OnTriggerEnter2D(collider);
+	}
+
+	public void OnTriggerExit2D(Collider2D collider){
+		base.OnTriggerExit2D(collider);
+	}
+
+
+
+
 }

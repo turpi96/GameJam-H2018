@@ -54,10 +54,15 @@ public abstract class Player : MonoBehaviour {
 			timerIncome = 3.0f;
 			addMoney (20);
 		}
-		if (moneyToAdd > 0) {
+		if (moneyToAdd > 50) {
+			moneyToAdd -= 5;
+			money += 5;
+		} else if (moneyToAdd > 0) {
+
 			moneyToAdd--;
 			money++;
 		}
+
 		checkInput ();
 		checkPosition ();
         UpdateMoney();
