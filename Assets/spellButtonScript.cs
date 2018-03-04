@@ -13,18 +13,10 @@ public class spellButtonScript : MonoBehaviour {
 
     public bool interactable;
 
-    //Building turretScript;
-    //int buttonCost;
-
-    //public bool customText = false;
 
     // Use this for initialization
     void Start()
     {
-
-        //turretScript = myTurret.GetComponent<Building>();
-
-        //buttonCost = turretScript.cost;
 
         buttonSprite.sprite = spellSprite;
 
@@ -59,6 +51,7 @@ public class spellButtonScript : MonoBehaviour {
 
         else if (mySpell.GetComponent<AllMapDamage>() != null && mySpell.GetComponent<AllMapDamage>().cost > myMoney)
             interactable = false;
+
         else
             interactable = true;
 

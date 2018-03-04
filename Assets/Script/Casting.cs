@@ -26,10 +26,6 @@ public class Casting : MonoBehaviour {
 	}
 
 	public void setCanCast(bool val){
-		if (val)
-			GetComponent<SpriteRenderer> ().color = Color.green;
-		else
-			GetComponent<SpriteRenderer> ().color = Color.red;
 		canCast = val;
 	}
 	
