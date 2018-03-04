@@ -137,6 +137,8 @@ MonoBehaviour:
   money: 300
   sounds:
   - {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
+  - {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
+  - {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
   cursorSpeed: 8
   bomb: {fileID: 114598400224752278, guid: bd758b2cb371e0642bb12c440cc9c8b0, type: 2}
   UnitPlayerShop: {fileID: 0}

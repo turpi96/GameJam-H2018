@@ -7,7 +7,7 @@ public class spellButtonScript : MonoBehaviour {
 
     public GameObject mySpell;
     public Image buttonSprite;
-    public Text statText;
+    public Text[] statText;
     public Sprite spellSprite;
     public Text myMoneyText;
 
@@ -18,16 +18,25 @@ public class spellButtonScript : MonoBehaviour {
     void Start()
     {
 
-        buttonSprite.sprite = spellSprite;
+        //buttonSprite.sprite = spellSprite;
 
         if (mySpell.GetComponent<Bomb>() != null)
-            statText.text = mySpell.GetComponent<Bomb>().cost.ToString();
+        {
+            statText[0].text = mySpell.GetComponent<Bomb>().attack.ToString();
+            statText[1].text = mySpell.GetComponent<Bomb>().cost.ToString();
+        }
 
         if (mySpell.GetComponent<ArrowSpell>() != null)
-            statText.text = mySpell.GetComponent<ArrowSpell>().cost.ToString();
+        {
+            statText[0].text = mySpell.GetComponent<ArrowSpell>().attack.ToString();
+            statText[1].text = mySpell.GetComponent<ArrowSpell>().cost.ToString();
+        }
 
         if (mySpell.GetComponent<AllMapDamage>() != null)
-            statText.text = mySpell.GetComponent<AllMapDamage>().cost.ToString();
+        {
+            statText[0].text = mySpell.GetComponent<AllMapDamage>().damage.ToString();
+            statText[1].text = mySpell.GetComponent<AllMapDamage>().cost.ToString();
+        }
 
         checkMoneyButton();
     }
