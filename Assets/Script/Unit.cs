@@ -121,15 +121,24 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
             {
                 if (team != collision.GetComponent<HasTeam>().getTeam())
                 {
+					
                     if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag =="Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                     {
-                        if (collision.GetComponent<CanBeHurt>() != null)
-                        {
-                            //if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
-                            isAttacking = true;
-                            animator.SetBool("IsAttacking", true);
-                            targetList.Add(collision);
-                        }
+						if (isRange && collision.tag == "Turret") {
+							if (collision.GetComponent<Building> ().state == Building.BuildingState.inGame) {
+								isAttacking = true;
+								animator.SetBool ("IsAttacking", true);
+								targetList.Add (collision);
+							}
+
+						} else {
+							if (collision.GetComponent<CanBeHurt> () != null) {
+								//if (Vector3.Distance(collision.transform.position, this.transform.position) <= range)
+								isAttacking = true;
+								animator.SetBool ("IsAttacking", true);
+								targetList.Add (collision);
+							}
+						}
                     }
                 }
             }
@@ -142,7 +151,14 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
 			if (team != collision.GetComponent<HasTeam>().getTeam()) {
                 if ((!isRange && !isAttackingTurret && collision.tag == "Unit") || (isRange && isAttackingTurret && (collision.tag == "Turret") || collision.tag == "Unit") || (isRange && !isAttackingTurret && collision.tag == "Unit") || collision.tag == "Tower")
                 {
-                    targetList.Remove (collision);
+					if (isRange && collision.tag == "Turret") {
+						if (collision.GetComponent<Building> ().state == Building.BuildingState.inGame) {
+							targetList.Remove (collision);
+				
+						}
+					}
+					else
+                   		 targetList.Remove (collision);
 					if (targetList.Count == 0) {
 						isAttacking = false;
 						animator.SetBool ("IsAttacking", false);
