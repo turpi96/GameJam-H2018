@@ -144,7 +144,22 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
             }
         }
     }
+	void OnTriggerStay2D(Collider2D collision){
+		if (isRange) {
+			if(collision.GetComponent<HasTeam> ()!= null){
+				if (team != collision.GetComponent<HasTeam> ().getTeam ()) {
+					if (collision.tag == "Turret") {
+						if (collision.GetComponent<Building>().state == Building.BuildingState.inGame && !targetList.Contains (collision)) {
+							targetList.Add (collision);
+							isAttacking = true;
+							animator.SetBool ("IsAttacking", true);
+						}
+					}
+				}
+			}
 
+		}
+	}
     private void OnTriggerExit2D(Collider2D collision)
     {
 		if (collision.GetComponent<HasTeam> () != null) {

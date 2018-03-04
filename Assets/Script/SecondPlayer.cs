@@ -33,9 +33,9 @@ public class SecondPlayer : Player {
 		if (Input.GetButtonDown ("Player2_A") && playerState == PlayerState.CastingSpell) {
 			changeState (PlayerState.Ingame);
 			currentlyCasting.changeState (Casting.CastingState.inGame);
-			currentlyCasting = null;
-			gameObject.GetComponent<SpriteRenderer> ().enabled = true;
             addMoney(-currentlyCasting.GetComponent<Bomb>().cost);
+            currentlyCasting = null;
+			gameObject.GetComponent<SpriteRenderer> ().enabled = true; 
         }
 		if (playerState == PlayerState.Ingame || playerState == PlayerState.Shop) {
 			checkShopInputTurret ();
@@ -113,6 +113,11 @@ public class SecondPlayer : Player {
 			halfSize.x = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
 			halfSize.y = currentlyBuilding.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
 			break;
+		case PlayerState.CastingSpell:
+			halfSize.x = currentlyCasting.GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
+			halfSize.y = currentlyCasting.GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
+			break;
+
 		default:
 			halfSize.x = GetComponent<SpriteRenderer> ().bounds.size.x * 10.8f;
 			halfSize.y = GetComponent<SpriteRenderer> ().bounds.size.y * 10.8f;
@@ -120,9 +125,11 @@ public class SecondPlayer : Player {
 		}
 		//GetComponent<SpriteRenderer> ().sprite.rect.x;
 		Vector3 pos = cam.WorldToScreenPoint (transform.position);
-		if (pos.x - halfSize.x < cam.pixelWidth / 2.0f) {
-			pos.x = cam.pixelWidth / 2.0f + halfSize.x;
+		if (playerState != PlayerState.CastingSpell) {
+			if (pos.x - halfSize.x < cam.pixelWidth / 2.0f) {
+				pos.x = cam.pixelWidth / 2.0f + halfSize.x;
 
+			}
 		}
 		if (pos.x + halfSize.x > cam.pixelWidth) {
 			pos.x = cam.pixelWidth - halfSize.x;

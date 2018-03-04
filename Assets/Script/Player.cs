@@ -16,7 +16,7 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	private int myMoney = 90;
+	public int myMoney = 90;
 
 	public int money {
 		get{
