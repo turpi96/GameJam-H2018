@@ -30,7 +30,13 @@ public class spellButtonScript : MonoBehaviour {
 
         if (mySpell.GetComponent<Bomb>() != null)
             statText.text = mySpell.GetComponent<Bomb>().cost.ToString();
-   
+
+        if (mySpell.GetComponent<ArrowSpell>() != null)
+            statText.text = mySpell.GetComponent<ArrowSpell>().cost.ToString();
+
+        if (mySpell.GetComponent<AllMapDamage>() != null)
+            statText.text = mySpell.GetComponent<AllMapDamage>().cost.ToString();
+
         checkMoneyButton();
     }
 
@@ -45,7 +51,13 @@ public class spellButtonScript : MonoBehaviour {
     {
         int myMoney = int.Parse(myMoneyText.text);
 
-        if (turretScript.cost > myMoney)
+        if (mySpell.GetComponent<Bomb>() != null && mySpell.GetComponent<Bomb>().cost > myMoney)
+            interactable = false;
+
+        else if (mySpell.GetComponent<ArrowSpell>() != null && mySpell.GetComponent<ArrowSpell>().cost > myMoney)
+            interactable = false;
+
+        else if (mySpell.GetComponent<AllMapDamage>() != null && mySpell.GetComponent<AllMapDamage>().cost > myMoney)
             interactable = false;
         else
             interactable = true;
@@ -72,6 +84,6 @@ public class spellButtonScript : MonoBehaviour {
 
     public GameObject returnSelectedObject()
     {
-        return myTurret;
+        return mySpell;
     }
 }
