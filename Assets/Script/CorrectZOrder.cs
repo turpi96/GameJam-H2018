@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CorrectZOrder : MonoBehaviour {
 
@@ -19,6 +20,11 @@ public class CorrectZOrder : MonoBehaviour {
 
 			}
 
+		}
+
+
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			SceneManager.LoadScene ("Menu");
 		}
 			
 	}
