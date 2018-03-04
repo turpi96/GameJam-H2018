@@ -40,7 +40,9 @@ public class Building : MonoBehaviour , HasTeam , CanBeHurt, HasHealth {
 					
 		} else {
 			GetComponent<SpriteRenderer> ().color = Color.white;
-			Component[] c = GetComponentsInChildren<CircleCollider2D> ();
+            if(transform.GetChild(0).GetComponent<SpriteRenderer>() != null)
+                transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            Component[] c = GetComponentsInChildren<CircleCollider2D> ();
 			foreach (CircleCollider2D cc in c)
 				if(cc.name == "RangeRadius") 
 					cc.enabled = true;
