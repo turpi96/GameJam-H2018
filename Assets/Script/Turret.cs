@@ -17,6 +17,7 @@ public class Turret : Building {
 
 	// Use this for initialization
 	void Start () {
+		base.Start ();
         shootingList = new List<GameObject>();
         timeLeft = 0.0f;
     }

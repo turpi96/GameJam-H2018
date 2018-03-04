@@ -13,7 +13,7 @@ public class turretButtonScript : MonoBehaviour {
 
     public bool interactable;
 
-    Turret turretScript;
+    Building turretScript;
     int buttonCost;
 
     public bool customText = false;
@@ -21,22 +21,32 @@ public class turretButtonScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        turretScript = myTurret.GetComponent<Turret>();
 
-        buttonCost = turretScript.cost;
+        turretScript = myTurret.GetComponent<Building>();
+
+        //if(myTurret.GetComponent<Building>() != null)
+            buttonCost = turretScript.cost;
+
+        //if (myTurret.GetComponent<TurretFreeze>() != null)
+        //    buttonCost = myTurret.GetComponent<TurretFreeze>().cost;
+
+        //if (myTurret.GetComponent<IncomeBuilding>() != null)
+        //    buttonCost = myTurret.GetComponent<IncomeBuilding>().cost;
+
 
         buttonSprite.sprite = towerSprite;
 
         if (!customText)
         {
             statText.text = turretScript.health.ToString() + "\n" +
-                        turretScript.bulletToShoot.GetComponent<Bullet>().hurtValue.ToString() + "\n" +
+                        myTurret.GetComponent<Turret>().bulletToShoot.GetComponent<Bullet>().hurtValue.ToString() + "\n" +
                         turretScript.defense.ToString() + "\n" +
-                        turretScript.shootingDelay.ToString() + "\n" +
+                        turretScript.GetComponent<Turret>().shootingDelay.ToString() + "\n" +
                         turretScript.cost.ToString();
         }
         else
         {
+
             statText.text = turretScript.health.ToString() + "\n" +
                         turretScript.defense.ToString() + "\n" +
                         turretScript.cost.ToString();
@@ -48,16 +58,13 @@ public class turretButtonScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //checkMoneyButton();
+        checkMoneyButton();
 
     }
 
     public void checkMoneyButton()
     {
         int myMoney = int.Parse(myMoneyText.text);
-
-        Debug.Log(buttonCost.ToString());
-        //Debug.Log(myMoney.ToString());
 
         if (turretScript.cost > myMoney)
             interactable = false;
