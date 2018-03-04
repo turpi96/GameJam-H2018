@@ -60,14 +60,29 @@ MonoBehaviour:
   TurretPlayerShop: {fileID: 0}
   SpellPlayerShop: {fileID: 0}
   PlayerGoldUI: {fileID: 0}
+  posArrow: {fileID: 4646840515941504, guid: 165611766965e164590296ffd63ad31c, type: 2}
   currentSlot: 0
   chooseItem: {fileID: 0}
-  UnitSlotTable: []
-  TurretSlotTable: []
-  SpellSlotTable: []
-  dumbTower: {fileID: 114063943872513246, guid: d5d485bd453e9ec48828d71c19a869e8,
+  UnitSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TurretSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SpellSlotTable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  workingShop:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  dumbTower: {fileID: 114468287356069978, guid: efbd213d21fb70a4b877eedfc0436cc1,
     type: 2}
   dumbUnit: {fileID: 114799485587491680, guid: e0b0b0c6fdc7e4d43b3cdd7ef5d9fa3b, type: 2}
+  timerShop: 0.2
   spawnPoint: {fileID: 4297257351608078, guid: 6d29017d5f3c3454b9f4a5420c98d364, type: 2}
 --- !u!212 &212823791323296208
 SpriteRenderer:

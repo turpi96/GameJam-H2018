@@ -304,12 +304,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114021454439535294, guid: ebdb70444f50d11429fccbf3d2dd949e,
-        type: 2}
-      propertyPath: spellSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 52f9f24b8015fd844bbf1864d43fe1ae,
-        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ebdb70444f50d11429fccbf3d2dd949e, type: 2}
   m_IsPrefabParent: 0
@@ -373,26 +367,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
-      propertyPath: workingShop.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
-      propertyPath: UnitSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
-      propertyPath: SpellSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
-      propertyPath: TurretSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4742925814538104, guid: 49e9c378fd1eabe4c989320e9cee6a91, type: 2}
       propertyPath: m_LocalPosition.x
       value: -9.278415
@@ -427,17 +401,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
-      propertyPath: PlayerGoldUI
-      value: 
-      objectReference: {fileID: 951819345}
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
-      propertyPath: dumbTower
-      value: 
-      objectReference: {fileID: 114468287356069978, guid: efbd213d21fb70a4b877eedfc0436cc1,
-        type: 2}
-    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
-        type: 2}
       propertyPath: UnitPlayerShop
       value: 
       objectReference: {fileID: 1102598115}
@@ -451,6 +414,11 @@ Prefab:
       propertyPath: SpellPlayerShop
       value: 
       objectReference: {fileID: 1773271025}
+    - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
+        type: 2}
+      propertyPath: PlayerGoldUI
+      value: 
+      objectReference: {fileID: 951819345}
     - target: {fileID: 114304491180470346, guid: 49e9c378fd1eabe4c989320e9cee6a91,
         type: 2}
       propertyPath: UnitSlotTable.Array.data[0]
@@ -1301,26 +1269,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: workingShop.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: UnitSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: SpellSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
-      propertyPath: TurretSlotTable.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4529509982836372, guid: 2f5ccbf7007653848a8a65a15951f4e6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.171587
@@ -1355,11 +1303,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
         type: 2}
-      propertyPath: PlayerGoldUI
-      value: 
-      objectReference: {fileID: 2070983224}
-    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
-        type: 2}
       propertyPath: UnitPlayerShop
       value: 
       objectReference: {fileID: 1253297345}
@@ -1373,6 +1316,11 @@ Prefab:
       propertyPath: SpellPlayerShop
       value: 
       objectReference: {fileID: 12660584}
+    - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
+        type: 2}
+      propertyPath: PlayerGoldUI
+      value: 
+      objectReference: {fileID: 2070983224}
     - target: {fileID: 114199574417254838, guid: 2f5ccbf7007653848a8a65a15951f4e6,
         type: 2}
       propertyPath: UnitSlotTable.Array.data[0]
