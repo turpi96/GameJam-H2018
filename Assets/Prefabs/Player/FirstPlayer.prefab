@@ -134,7 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  money: 300
+  money: 750
+  moneyGeneration: 50
   sounds:
   - {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
   - {fileID: 8300000, guid: 23f744a1620c19d4fbdc133942c4b0be, type: 3}
