@@ -292,6 +292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myUnit: {fileID: 0}
+  buttonSprite: {fileID: 0}
+  statText: []
+  unitSprite: {fileID: 0}
+  myMoneyText: {fileID: 0}
+  interactable: 0
 --- !u!222 &222210643580128234
 CanvasRenderer:
   m_ObjectHideFlags: 1
