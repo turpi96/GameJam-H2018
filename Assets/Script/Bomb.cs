@@ -24,6 +24,7 @@ public class Bomb : Casting, HasTeam {
     public Sprite explosionSprite;
 
 	private List<GameObject> explosionList;
+    private bool canDoExit = true;
 
 	void Start () {
 
@@ -89,13 +90,15 @@ public class Bomb : Casting, HasTeam {
         GetComponent<SpriteRenderer>().enabled = false;
         //rendererSp.color = Color.yellow;
         if (play == true && toggleChange == true) {
-			
-			foreach (GameObject g in explosionList) {
-                Debug.Log("caca");
-				if(team != g.GetComponent<HasTeam>().getTeam()){
-                    g.GetComponent<CanBeHurt>().Hurt(1);
-				}
-			}
+
+            canDoExit = false;
+            for (int i = 0; i< explosionList.Count;i++)
+            {
+                if (team != explosionList[i].GetComponent<HasTeam>().getTeam())
+                {
+                    explosionList[i].GetComponent<CanBeHurt>().Hurt(attack);
+                }
+            }
 			explosionList.Clear();
 			myAudio.Play ();
 			toggleChange = false;
@@ -108,16 +111,27 @@ public class Bomb : Casting, HasTeam {
 		if (other.tag == "Unit" || other.tag == "Turret")
 		{
             if(!explosionList.Contains(other.gameObject))
-			    explosionList.Add(other.gameObject);
+            {
+                //Debug.Log("Add : " + other.gameObject.name);
+                
+                explosionList.Add(other.gameObject);
+               // Debug.Log("LIST : " + explosionList.Count);
+            }
+			    
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.tag == "Unit" || other.tag == "Turret")
+		if ((other.tag == "Unit" || other.tag == "Turret") && canDoExit)
 		{
             if (explosionList.Contains(other.gameObject))
+            {
+                //Debug.Log("Remove : " + other.gameObject.name);
                 explosionList.Remove(other.gameObject);
+                //Debug.Log("LIST : " + explosionList.Count);
+            }
+                
 		}
 	}
 }
