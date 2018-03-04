@@ -348,7 +348,7 @@ MonoBehaviour:
   team: p2
   health: 100
   attack: 60
-  attackDelay: 2.5
+  attackDelay: 2
   isRange: 1
   isAttackingTurret: 1
   defense: 10
