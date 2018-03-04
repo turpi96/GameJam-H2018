@@ -64,7 +64,10 @@ public class ArrowSpell : MonoBehaviour {
         {
             if (other.GetComponent<CanBeHurt>() != null && team != other.GetComponent<HasTeam>().getTeam())
             {
-                other.GetComponent<CanBeHurt>().Hurt(attack);
+                if(other.tag == "Tower")
+                    other.GetComponent<CanBeHurt>().Hurt(attack / 2);
+                else
+                    other.GetComponent<CanBeHurt>().Hurt(attack);
             }
         }
     }
