@@ -16,29 +16,18 @@ public abstract class Player : MonoBehaviour {
 	protected PlayerState playerState = PlayerState.Ingame;
 	public Camera cam;
 	protected string playerName;
-	public int myMoney = 90;
+	public int money = 90;
 
-	public int money {
-		get{
+    [SerializeField] protected AudioClip[] sounds;
 
-			return myMoney + moneyToAdd;
+    protected AudioSource audioS;
 
-		}
-		set{
-			myMoney = value;
-
-
-		}
-
-
-	}
 	protected Building currentlyBuilding = null;
 	protected Casting currentlyCasting = null;
 	public float cursorSpeed = 8;
 	public Casting bomb;
 //	public Text PlayerShop;
 	 float timerIncome = 3.0f;
-	int moneyToAdd = 0;
     public GameObject UnitPlayerShop;
     public GameObject TurretPlayerShop;
     public GameObject SpellPlayerShop;
@@ -57,12 +46,17 @@ public abstract class Player : MonoBehaviour {
     public void Start () {
 		cam = FindObjectOfType<Camera> ();
 		pathToFollow = FindObjectOfType<Path> ();
-		//openMenu = GetComponent<AudioClip>;
+        audioS = GetComponent<AudioSource>();
+
     }
 
 	public void addMoney(int amount){
-		moneyToAdd += amount;
-
+        if(amount < 0)
+        {
+            audioS.clip = sounds[0];
+            audioS.Play();
+        }   
+        money += amount;
 	}
 
 	// Update is called once per frame
@@ -72,24 +66,6 @@ public abstract class Player : MonoBehaviour {
 			timerIncome = 3.0f;
 			addMoney (20);
 		}
-		if (moneyToAdd > 50) {
-			moneyToAdd -= 25;
-			myMoney+= 25;
-		} else if (moneyToAdd > 0) {
-
-			moneyToAdd--;
-			myMoney++;
-		}
-        else if (moneyToAdd < -100)
-        {
-			moneyToAdd+= 25;
-			myMoney-= 25;
-        }
-        else if (moneyToAdd < 00)
-        {
-            moneyToAdd++;
-			myMoney--;
-        }
 
         checkInput ();
 		checkPosition ();
@@ -109,7 +85,7 @@ public abstract class Player : MonoBehaviour {
 //        PlayerGoldUI.text = money.ToString();
 
 		if(PlayerGoldUI != null)
-     	   PlayerGoldUI.text = myMoney.ToString();
+     	   PlayerGoldUI.text = money.ToString();
 
     }
 

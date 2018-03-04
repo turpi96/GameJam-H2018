@@ -70,6 +70,7 @@ public class Unit : MonoBehaviour, CanBeHurt,HasTeam, HasHealth {
                 timeLeft = currentDelay;
                 if(!isRange)
                     targetList[0].GetComponent<CanBeHurt>().Hurt(attack);
+                GetComponent<AudioSource>().Play();
             }
         }
     }

@@ -160,7 +160,9 @@ public class FirstPlayer : Player {
 
 				changeState (PlayerState.Ingame);
 				UnitPlayerShop.SetActive (false);
-			} else if (UnitPlayerShop.activeSelf == false &&
+                audioS.clip = sounds[2];
+                audioS.Play();
+            } else if (UnitPlayerShop.activeSelf == false &&
 			                  TurretPlayerShop.activeSelf == false &&
 			                  SpellPlayerShop.activeSelf == false &&
 			                  Input.GetButtonDown ("Player1_X")) {
@@ -170,15 +172,17 @@ public class FirstPlayer : Player {
 				currentSlot = 0;
 				copyArray (UnitSlotTable);
 				workingShop [currentSlot].GetComponent<outlineScript> ().enableOutline ();
+                audioS.clip = sounds[1];
+                audioS.Play();
 
-
-			} else if (UnitPlayerShop.activeSelf == true &&
+            } else if (UnitPlayerShop.activeSelf == true &&
 			        Input.GetButtonDown ("Player1_B")) {
 				UnitPlayerShop.SetActive (false);
 				workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 				changeState (PlayerState.Ingame);
-
-			}
+                audioS.clip = sounds[2];
+                audioS.Play();
+            }
 
 
             if (Input.GetButtonDown("Player1_A") &&
@@ -207,6 +211,8 @@ public class FirstPlayer : Player {
                 workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 changeState(PlayerState.Ingame);
                 TurretPlayerShop.SetActive(false);
+                audioS.clip = sounds[2];
+                audioS.Play();
             }
             else if (TurretPlayerShop.activeSelf == false &&
                     UnitPlayerShop.activeSelf == false &&
@@ -218,7 +224,8 @@ public class FirstPlayer : Player {
                 currentSlot = 0;
                 copyArray(TurretSlotTable);
                 workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
-
+                audioS.clip = sounds[1];
+                audioS.Play();
             }
 
 
@@ -247,6 +254,8 @@ public class FirstPlayer : Player {
                 workingShop[currentSlot].GetComponent<outlineScript>().disableOutline();
                 changeState(PlayerState.Ingame);
                 SpellPlayerShop.SetActive(false);
+                audioS.clip = sounds[2];
+                audioS.Play();
             }
             else if (SpellPlayerShop.activeSelf == false &&
                     TurretPlayerShop.activeSelf == false &&
@@ -259,14 +268,18 @@ public class FirstPlayer : Player {
                 currentSlot = 0;
                 copyArray(SpellSlotTable);
                 workingShop[currentSlot].GetComponent<outlineScript>().enableOutline();
+                audioS.clip = sounds[1];
+                audioS.Play();
 
-			}else if (SpellPlayerShop.activeSelf == true &&
+            }
+            else if (SpellPlayerShop.activeSelf == true &&
 				Input.GetButtonDown ("Player1_B")) {
 				SpellPlayerShop.SetActive (false);
 				workingShop [currentSlot].GetComponent<outlineScript> ().disableOutline ();
 				changeState (PlayerState.Ingame);
-
-			}
+                audioS.clip = sounds[2];
+                audioS.Play();
+            }
 
 
 

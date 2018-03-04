@@ -27,7 +27,7 @@ public class unitButtonScript : MonoBehaviour {
         statText[2].text = unitScript.defense.ToString();
         statText[3].text = unitScript.attackDelay.ToString();
         statText[4].text = unitScript.GetComponent<MoveOnPath>().speed.ToString();
-        statText[5].text = unitScript.health.ToString();
+        statText[5].text = unitScript.cost.ToString();
 
 
         checkMoneyButton();
