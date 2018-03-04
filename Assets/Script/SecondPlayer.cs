@@ -220,6 +220,7 @@ public class SecondPlayer : Player {
             workingShop[i] = tempArray[i];       
         }
 
+        Debug.Log("TESTWEE!");
     }
 
     public void setChoosenItem()

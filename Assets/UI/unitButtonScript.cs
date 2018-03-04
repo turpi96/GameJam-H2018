@@ -42,9 +42,6 @@ public class unitButtonScript : MonoBehaviour {
     {
         int myMoney = int.Parse(myMoneyText.text);
 
-        Debug.Log(buttonCost.ToString());
-        //Debug.Log(myMoney.ToString());
-
         if (unitScript.cost > myMoney)
             interactable = false;
         else
